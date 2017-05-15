@@ -1,0 +1,4 @@
+.config,.config
+.zshrc,.zshrc
+$HOME/.config/nvim,.vim
+$HOME/.config/nvim/init.vim,.vimrc
