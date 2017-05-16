@@ -6,10 +6,10 @@
 #==============================================================================
 
 # You can change the dotfiles to clone
-clone_repository='https://github.com/username/dotfiles.git'
+clone_repository='https://github.com/re3turn/dotfiles.git'
 
 # Set the directory that the script regard as dotfiles directory.
-#dotdir="$HOME/.dotfiles"
+dotdir="$HOME/.dotfiles"
 
 # Set the path to your dotlink which describes the correspondence relation.
 #dotlink="$dotdir/dotlink"
@@ -75,7 +75,7 @@ clone_repository='https://github.com/username/dotfiles.git'
 
 # Set your favorite editor.
 # (setting priority: this option > $EDITOR (default) > xdg-open)
-#dot_edit_default_editor='vim +'
+dot_edit_default_editor='nvim +'
 
 #===========================================================================}}}
 # Load other config file                                                    {{{

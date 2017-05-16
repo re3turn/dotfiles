@@ -27,7 +27,7 @@ set smartindent
 set shiftwidth=4
 
 " -------------------------------
-" Cursol
+" Cursor
 " -------------------------------
 set whichwrap=b,s,h,l,<,>,[,],~
 set number
