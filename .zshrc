@@ -5,7 +5,7 @@
 ########################################
 # 環境変数
 export LANG=ja_JP.UTF-8
-
+export PATH=$PATH:~/.cargo/bin
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -128,6 +128,8 @@ alias mv='mv -i'
 
 alias mkdir='mkdir -p'
 
+alias vi='vim'
+
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 
@@ -169,6 +171,34 @@ esac
 # dot setting
 export DOT_REPO="https://github.com/re3turn/dotfiles.git"
 export DOT_DIR="$HOME/.dotfiles"
-fpath=($HOME/.zsh/dot $fpath)  # <- for completion
-source $HOME/.zsh/dot/dot.sh
+#fpath=($HOME/.zsh/dot $fpath)  # <- for completion
+#source $HOME/.zsh/dot/dot.sh
 
+
+source ~/.zplug/init.zsh
+
+zplug "junegunn/fzf-bin", \
+    as:command, \
+    from:gh-r, \
+    rename-to:fzf
+
+zplug "b4b4r07/enhancd", use:enhancd.sh
+
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "ssh0/dot", use:"*.sh"
+
+# check コマンドで未インストール項目があるかどうか verbose にチェックし
+# false のとき（つまり未インストール項目がある）y/N プロンプトで
+# インストールする
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# プラグインを読み込み、コマンドにパスを通す
+zplug load --verbose
