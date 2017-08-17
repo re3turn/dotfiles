@@ -11,6 +11,8 @@ export PATH=$PATH:~/.cargo/bin
 autoload -Uz colors
 colors
 
+eval `dircolors .dircolors`
+
 # emacs 風キーバインドにする
 bindkey -e
 
@@ -202,3 +204,4 @@ fi
 
 # プラグインを読み込み、コマンドにパスを通す
 zplug load --verbose
+
