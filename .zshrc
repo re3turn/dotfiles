@@ -183,7 +183,7 @@ source ~/.zplug/init.zsh
 zplug "junegunn/fzf-bin", \
     as:command, \
     from:gh-r, \
-    rename-to:fzf \
+    rename-to:fzf, \
     frozen:1
 zplug "b4b4r07/zsh-gomi", \
     as:command, \
