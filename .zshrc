@@ -163,7 +163,7 @@ case ${OSTYPE} in
         #Linux用の設定
         alias ls='ls -F --color=auto'
         # linuxbrew
-        PATH="~/.zplug/repos/Linuxbrew/brew/bin:${PATH}"
+        #PATH="~/.zplug/repos/Linuxbrew/brew/bin:${PATH}"
         export MANPATH="~/.zplug/repos/Linuxbrew/brew/share/man:${MANPATH}"
         export INFOPATH="~/.zplug/repos/Linuxbrew/brew/share/info:${INFOPATH}"
         ;;
@@ -189,8 +189,8 @@ zplug "b4b4r07/zsh-gomi", \
     as:command, \
     use:bin/gomi, \
     on:junegunn/fzf-bin
+zplug "Linuxbrew/brew", as:command, use:bin/brew, if:"[[ ${OSTYPE} == linux* ]]"
 zplug "b4b4r07/enhancd", use:enhancd.sh
-zplug "b4b4r07/zsh-gomi", as:command, use:bin
 zplug "mollifier/anyframe"
 zplug "mollifier/cd-gitroot"
 zplug "zsh-users/zsh-history-substring-search"
@@ -199,7 +199,6 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "ssh0/dot", use:"*.sh"
-zplug "Linuxbrew/brew", as:command, use:bin, if:"[[ ${OSTYPE} == linux* ]]"
 
 # 未インストールであればインストールする
 if ! zplug check --verbose; then
