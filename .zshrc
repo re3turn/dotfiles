@@ -41,7 +41,6 @@ zstyle ':zle:*' word-style unspecified
 # 補完
 # 補完機能を有効にする
 autoload -Uz compinit
-compinit
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -152,8 +151,6 @@ elif which putclip >/dev/null 2>&1 ; then
     alias -g C='| putclip'
 fi
 
-
-
 ########################################
 # OS 別の設定
 case ${OSTYPE} in
@@ -165,36 +162,46 @@ case ${OSTYPE} in
     linux*)
         #Linux用の設定
         alias ls='ls -F --color=auto'
+        # linuxbrew
+        PATH="~/.zplug/repos/Linuxbrew/brew/bin:${PATH}"
+        export MANPATH="~/.zplug/repos/Linuxbrew/brew/share/man:${MANPATH}"
+        export INFOPATH="~/.zplug/repos/Linuxbrew/brew/share/info:${INFOPATH}"
         ;;
 esac
 
 # vim:set ft=zsh:
 
+########################################
 # dot setting
 export DOT_REPO="https://github.com/re3turn/dotfiles.git"
 export DOT_DIR="$HOME/.dotfiles"
-#fpath=($HOME/.zsh/dot $fpath)  # <- for completion
-#source $HOME/.zsh/dot/dot.sh
 
-
+########################################
+# zplug
 source ~/.zplug/init.zsh
 
 zplug "junegunn/fzf-bin", \
     as:command, \
     from:gh-r, \
-    rename-to:fzf
-
+    rename-to:fzf \
+    frozen:1
+zplug "b4b4r07/zsh-gomi", \
+    as:command, \
+    use:bin/gomi, \
+    on:junegunn/fzf-bin
 zplug "b4b4r07/enhancd", use:enhancd.sh
-
+zplug "b4b4r07/zsh-gomi", as:command, use:bin
+zplug "mollifier/anyframe"
+zplug "mollifier/cd-gitroot"
+zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "ssh0/dot", use:"*.sh"
+zplug "Linuxbrew/brew", as:command, use:bin, if:"[[ ${OSTYPE} == linux* ]]"
 
-# check コマンドで未インストール項目があるかどうか verbose にチェックし
-# false のとき（つまり未インストール項目がある）y/N プロンプトで
-# インストールする
+# 未インストールであればインストールする
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
@@ -202,6 +209,24 @@ if ! zplug check --verbose; then
     fi
 fi
 
-# プラグインを読み込み、コマンドにパスを通す
+# プラグインを読み込みコマンドにパスを通す
 zplug load --verbose
+
+# pip zsh completion start
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+# pip zsh completion end
+
+########################################
+# zcompile
+if [ ! -f ~/.zshrc.zwc -o ~/.dotfiles/.zshrc -nt ~/.zshrc.zwc ]; then
+    zcompile ~/.zshrc
+fi
 
