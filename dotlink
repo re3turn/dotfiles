@@ -1,6 +1,7 @@
 .config,.config
-.zshrc,.zshrc
+.zshrc,.zsh/.zshrc
 .dircolors,.dircolors
-$HOME/.config/nvim,.vim
-$HOME/.config/nvim/init.vim,.vimrc
+~/.config/nvim,.vim
+~/.config/nvim/init.vim,.vimrc
 
+.zsh,.zsh
