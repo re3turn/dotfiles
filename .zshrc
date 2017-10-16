@@ -162,10 +162,6 @@ case ${OSTYPE} in
     linux*)
         #Linux用の設定
         alias ls='ls -F --color=auto'
-        # linuxbrew
-        #PATH="~/.zplug/repos/Linuxbrew/brew/bin:${PATH}"
-        export MANPATH="~/.zplug/repos/Linuxbrew/brew/share/man:${MANPATH}"
-        export INFOPATH="~/.zplug/repos/Linuxbrew/brew/share/info:${INFOPATH}"
         ;;
 esac
 
@@ -189,7 +185,7 @@ zplug "b4b4r07/zsh-gomi", \
     as:command, \
     use:bin/gomi, \
     on:junegunn/fzf-bin
-zplug "Linuxbrew/brew", as:command, use:bin/brew, if:"[[ ${OSTYPE} == linux* ]]"
+zplug "motemen/ghq"
 zplug "b4b4r07/enhancd", use:enhancd.sh
 zplug "mollifier/anyframe"
 zplug "mollifier/cd-gitroot"
