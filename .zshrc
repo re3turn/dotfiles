@@ -220,6 +220,20 @@ compctl -K _pip_completion pip
 # pip zsh completion end
 
 ########################################
+# command
+GHQ=`ghq root`/github.com
+ME=`git config --get user.name`
+
+gcd() {
+    ghq get -p $1
+    if [ `dirname "$1"` = "." ]; then
+        cd $GHQ/$ME/$1
+    else
+        cd $GHQ/$1
+    fi
+}
+
+########################################
 # zcompile
 if [ ! -f ~/.zshrc.zwc -o ~/.dotfiles/.zshrc -nt ~/.zshrc.zwc ]; then
     zcompile ~/.zshrc
