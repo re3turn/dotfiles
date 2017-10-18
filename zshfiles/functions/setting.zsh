@@ -1,17 +1,6 @@
-# 少し凝った zshrc
-# License : MIT
-# http://mollifier.mit-license.org/
-
-########################################
-# 環境変数
-export LANG=ja_JP.UTF-8
-export PATH=$PATH:~/.cargo/bin
-
 # 色を使用出来るようにする
 autoload -Uz colors
 colors
-
-eval `dircolors .dircolors`
 
 # emacs 風キーバインドにする
 bindkey -e
@@ -27,7 +16,6 @@ SAVEHIST=1000000
 # 2行表示
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
-
 
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
@@ -55,7 +43,6 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
-
 ########################################
 # vcs_info
 autoload -Uz vcs_info
@@ -69,7 +56,6 @@ function _update_vcs_info_msg() {
     RPROMPT="${vcs_info_msg_0_}"
 }
 add-zsh-hook precmd _update_vcs_info_msg
-
 
 ########################################
 # オプション
@@ -117,64 +103,4 @@ setopt extended_glob
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
 bindkey '^R' history-incremental-pattern-search-backward
 
-source ~/.zsh/functions/alias.sh
-
-# vim:set ft=zsh:
-
-########################################
-# dot setting
-export DOT_REPO="https://github.com/re3turn/dotfiles.git"
-export DOT_DIR="$HOME/.dotfiles"
-
-########################################
-# zplug
-source ~/.zplug/init.zsh
-
-zplug "junegunn/fzf-bin", \
-    as:command, \
-    from:gh-r, \
-    rename-to:fzf, \
-    frozen:1
-zplug "b4b4r07/zsh-gomi", \
-    as:command, \
-    use:bin/gomi, \
-    on:junegunn/fzf-bin
-zplug "b4b4r07/enhancd", use:enhancd.sh
-zplug "mollifier/anyframe"
-zplug "mollifier/cd-gitroot"
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-history-substring-search"
-zplug "ssh0/dot", use:"*.sh"
-
-# 未インストールであればインストールする
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# プラグインを読み込みコマンドにパスを通す
-zplug load --verbose
-
-# pip zsh completion start
-function _pip_completion {
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $( COMP_WORDS="$words[*]" \
-             COMP_CWORD=$(( cword-1 )) \
-             PIP_AUTO_COMPLETE=1 $words[1] ) )
-}
-compctl -K _pip_completion pip
-# pip zsh completion end
-
-########################################
-# zcompile
-if [ ! -f ~/.zshrc.zwc -o ~/.dotfiles/.zshrc -nt ~/.zshrc.zwc ]; then
-    zcompile ~/.zshrc
-fi
 
