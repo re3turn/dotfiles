@@ -26,18 +26,14 @@ zplug "b4b4r07/zsh-gomi", \
     as:command, \
     use:bin/gomi, \
     on:junegunn/fzf-bin
-zplug "motemen/ghq", \
-    as:command, \
-    from:gh-r, \
-    rename-to:ghq
 zplug "b4b4r07/enhancd", use:enhancd.sh
+zplug "b4b4r07/history", as:command, from:gh-r
 zplug "mollifier/anyframe"
 zplug "mollifier/cd-gitroot"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-history-substring-search"
 zplug "ssh0/dot", use:"*.sh"
 
 # 未インストールであればインストールする
