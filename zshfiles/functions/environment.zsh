@@ -24,3 +24,8 @@ if [ -x "`which go`" ]; then
     export GOPATH=$HOME/.go
     export PATH="$GOPATH/bin:$PATH"
 fi
+
+if [ $(uname -r | grep Microsoft) ]; then
+    unsetopt BG_NICE
+fi
+
