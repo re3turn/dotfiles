@@ -22,7 +22,7 @@ source ${ZSH_ROOT}/functions/command.zsh
 
 ########################################
 # zcompile
-if [ ! -f ~/.zshrc.zwc -o ~/.dotfiles/.zshrc -nt ~/.zshrc.zwc ]; then
+if [ ! -f ~/.zshrc.zwc -o ${ZSH_ROOT}/.zshrc -nt ~/.zshrc.zwc ]; then
     zcompile ~/.zshrc
 fi
 

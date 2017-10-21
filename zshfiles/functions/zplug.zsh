@@ -5,17 +5,18 @@ ZPLUG_SOURCE=~/.zplug/init.zsh
 
 # if zplug is not installed, automatically clone it and reload shell
 if [[ ! -f "${ZPLUG_SOURCE}" ]]; then
+    ZPLUG_URL=https://raw.githubusercontent.com/zplug/installer/master/installer.zsh
     echo "zplug is not installed in this machine."
     echo "Installing zplug..."
     echo ""
-    curl -sL zplug.sh/installer | zsh
+    curl -sL --proto-redir -all,https ${ZPLUG_URL}| zsh
     source ${ZPLUG_SOURCE}
-    zplug update --self
 fi
 
 source ${ZPLUG_SOURCE}
 unset -v ZPLUG_SOURCE
 
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "junegunn/fzf-bin", \
     as:command, \
     from:gh-r, \
