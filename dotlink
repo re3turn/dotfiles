@@ -4,3 +4,4 @@ zshfiles/.zshrc,.zshrc
 zshfiles/dircolors,.dircolors
 ~/.config/nvim,.vim
 ~/.config/nvim/init.vim,.vimrc
+bashfiles/.bashrc,.bashrc
