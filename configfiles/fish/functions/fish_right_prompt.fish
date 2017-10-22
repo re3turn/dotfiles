@@ -1,0 +1,1 @@
+/mnt/d/Development/bash_home/.config/fisherman/agnoster/fish_right_prompt.fish
