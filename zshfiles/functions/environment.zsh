@@ -23,6 +23,7 @@ esac
 if [ -x "`which go`" ]; then
     export GOPATH=$HOME/.go
     export PATH="$GOPATH/bin:$PATH"
+    mkdir -p ${GOPATH}
 fi
 
 if [ $(uname -r | grep Microsoft) ]; then
