@@ -1,1 +1,0 @@
-/mnt/d/Development/bash_home/.config/fisherman/agnoster/fish_mode_prompt.fish
