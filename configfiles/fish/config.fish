@@ -1,0 +1,1 @@
+/mnt/d/Development/bash_home/.dotfiles/fishfiles/config.fish

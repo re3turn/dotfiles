@@ -90,3 +90,7 @@ syntax enable
 filetype plugin indent on
 set background=light
 colorscheme solarized
+
+if &shell =~# 'fish$'
+    set shell=sh
+endif
