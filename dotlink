@@ -5,14 +5,9 @@ zshfiles/dircolors,.dircolors
 ~/.config/nvim,.vim
 ~/.config/nvim/init.vim,.vimrc
 bashfiles/.bashrc,.bashrc
-fishfiles/config/fishfile,.config/fish/fishfile
 fishfiles/functions/dircolors.fish,.config/fish/functions/dircolors.fish
 fishfiles/functions/dot.fish,.config/fish/functions/dot.fish
 fishfiles/functions/gcd.fish,.config/fish/functions/gcd.fish
-fishfiles/setting,.config/fish/setting
 fishfiles/functions/mv.fish,.config/fish/functions/mv.fish
 fishfiles/functions/rm.fish,.config/fish/functions/rm.fish
 fishfiles/functions/vi.fish,.config/fish/functions/vi.fish
-fishfiles/functions/mkdir.fish,.config/fish/functions/mkdir.fish
-fishfiles/functions/cp.fish,.config/fish/functions/cp.fish
-fishfiles/config.fish,.config/fish/config.fish

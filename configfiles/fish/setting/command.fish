@@ -32,7 +32,7 @@ end
 
 
 # dot
-set -gx DOT_REPO "https://github.com/re3turn/dotfiles.git"
-set -gx DOT_DIR "~/.dotfiles"
-set -gx DOT_SRC "~/.dot"
+set -gx DOT_REPO https://github.com/re3turn/dotfiles.git
+set -gx DOT_DIR ~/.dotfiles
+set -gx DOT_SCR ~/.dot
 
