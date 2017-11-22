@@ -14,10 +14,10 @@ case '*'
     set -x OSTYPE Other_OS
 end
 
-switch {$OSTYPE}
+switch $OSTYPE
 case 'darwin*'
     # if Mac OS
-    set -x PATH "(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    set -x PATH (brew --prefix coreutils)/libexec/gnubin $PATH
 case 'linux*'
     # if Linux OS
     ;;
