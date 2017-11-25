@@ -10,7 +10,7 @@ end
 
 if not type -q (command -s fzf)
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
+    ~/.fzf/install --no-bash --no-zsh --no-fish
 end
 
 # go
