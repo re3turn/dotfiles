@@ -1,4 +1,8 @@
 function gcd
+    if not type -q (command -s ghq)
+        echo ghq command is not install
+        return 1
+    end
     if test (count $argv) -ne 1
         echo Usage: gcd repository_name
         return 1

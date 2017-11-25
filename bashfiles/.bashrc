@@ -17,3 +17,6 @@ alias grep='grep --color'
 alias ps='ps --sort=start_time'
 
 eval `dircolors ~/.dircolors/dircolors.256dark`
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
