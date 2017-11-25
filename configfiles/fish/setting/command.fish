@@ -9,8 +9,16 @@ if not type -q (command -s mpm)
 end
 
 if not type -q (command -s fzf)
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install --no-bash --no-zsh --no-fish
+    echo "install fzf"
+    switch (uname)
+    case Darwin
+        brew install fzf
+    case Linux
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install --no-bash --no-zsh --no-fish
+        fisher fzf
+        __fzf_install
+    end
 end
 
 # go
