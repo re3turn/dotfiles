@@ -12,4 +12,4 @@ fishfiles/functions/mv.fish,.config/fish/functions/mv.fish
 fishfiles/functions/rm.fish,.config/fish/functions/rm.fish
 fishfiles/functions/vi.fish,.config/fish/functions/vi.fish
 fishfiles/functions/set_u_var.fish,.config/fish/functions/set_u_var.fish
-fishfiles/functions/command_install.fish,.config/fish/functions/install_command.fish
+fishfiles/functions/install_command.fish,.config/fish/functions/install_command.fish
