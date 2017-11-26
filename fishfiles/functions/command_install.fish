@@ -2,6 +2,7 @@ function install_command -d "Command install"
     # fisher
     if not type -q fisher
         curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
+        fisher
     end
 
     # mpm
@@ -19,6 +20,7 @@ function install_command -d "Command install"
             ~/.fzf/install --no-bash --no-zsh --no-fish
             fisher fzf
             __fzf_install
+            set -U FZF_LEGACY_KEYBINDINGS 0
         end
     end
 

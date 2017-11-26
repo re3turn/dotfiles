@@ -5,6 +5,7 @@ fisherman/fishkit
 fisherman/fzf
 fisherman/get
 fisherman/getopts
+fisherman/git_util
 ryotako/fish-global-abbreviation
 fisherman/last_job_id
 fisherman/menu
