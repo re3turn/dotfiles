@@ -33,13 +33,14 @@ function install_command -d "Command install"
         case Linux
             sudo add-apt-repository -y ppa:gophers/archive
             sudo apt update
-            sudo apt install golang-1.9-go
+            sudo apt install -y golang-1.9-go
+            sudo ln -sf ../lib/go-1.9/bin/go go
         end
     end
     if type -q (command -s go)
-        set_u_var GOPATH ~/.go
-        set_u_var fish_user_paths $GOPATH/bin
+        set -U GOPATH ~/.go
         mkdir -p $GOPATH
+        set_u_var fish_user_paths $GOPATH/bin
     end
 
     # ghg
@@ -47,7 +48,7 @@ function install_command -d "Command install"
         go get github.com/Songmu/ghg/cmd/ghg
     end
     if type -q (command -s ghg)
-        mkdir -p ~/.ghg/bin
+        mkdir -p (ghg bin)
         set_u_var fish_user_paths (ghg bin)
     end
 
@@ -57,7 +58,7 @@ function install_command -d "Command install"
     end
 
     # dot
-    set_u_var DOT_REPO https://github.com/re3turn/dotfiles.git
-    set_u_var DOT_DIR ~/.dotfiles
-    set_u_var DOT_SCR ~/.dot
+    set -U DOT_REPO https://github.com/re3turn/dotfiles.git
+    set -U DOT_DIR ~/.dotfiles
+    set -U DOT_SCR ~/.dot
 end
