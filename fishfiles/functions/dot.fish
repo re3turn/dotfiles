@@ -10,12 +10,6 @@ function dot --description "dot"
         return 1
     end
 
-    set -l TEMPFILE (mktemp)
-    printf "\
-source \"$DOT_SCR/dot.sh\"
-dot_main $argv
-" > $TEMPFILE
-
-    bash $TEMPFILE
+    bash -c "source \"$DOT_SCR/dot.sh\" && dot_main $argv"
 end
 
