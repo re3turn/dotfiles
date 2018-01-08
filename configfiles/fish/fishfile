@@ -6,6 +6,7 @@ fisherman/fishtape
 fisherman/fzf
 fisherman/get
 fisherman/getopts
+decors/fish-ghq
 fisherman/git_util
 ryotako/fish-global-abbreviation
 fisherman/last_job_id
