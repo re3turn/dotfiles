@@ -20,7 +20,6 @@ function install_command -d "Command install"
             ~/.fzf/install --no-bash --no-zsh --no-fish
             fisher fzf
             __fzf_install
-            set -U FZF_LEGACY_KEYBINDINGS 0
         end
     end
 
