@@ -26,3 +26,5 @@ if [ ! -f ~/.zshrc.zwc -o ${ZSH_ROOT}/.zshrc -nt ~/.zshrc.zwc ]; then
     zcompile ~/.zshrc
 fi
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
