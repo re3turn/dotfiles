@@ -37,7 +37,7 @@ function install_command -d "Command install"
         end
     end
     if type -q (command -s go)
-        set -U GOPATH ~/.go
+        set -Ux GOPATH ~/.go
         mkdir -p $GOPATH
         set_u_var fish_user_paths $GOPATH/bin
     end
