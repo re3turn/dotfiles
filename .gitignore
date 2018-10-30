@@ -1,5 +1,8 @@
 configfiles/fisherman
+configfiles/fisher/
 configfiles/fish/conf.d/
 configfiles/fish/functions/
 configfiles/fish/completions/
 configfiles/fish/fishd.*
+configfiles/gocode/
+configfiles/mcz-xoxo/
