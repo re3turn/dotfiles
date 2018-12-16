@@ -29,10 +29,8 @@ function install_command -d "Command install"
         case Darwin
             brew install go
         case Linux
-            sudo add-apt-repository -y ppa:gophers/archive
             sudo apt update
-            sudo apt install -y golang-1.9-go
-            sudo ln -sf ../lib/go-1.9/bin/go go
+            sudo apt install -y golang-1.10-go
         end
     end
     if type -q (command -s go)
