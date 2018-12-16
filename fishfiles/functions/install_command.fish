@@ -18,8 +18,7 @@ function install_command -d "Command install"
         case Linux
             git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
             ~/.fzf/install --no-bash --no-zsh --no-fish
-            fisher fzf
-            __fzf_install
+            fisher
         end
     end
 
