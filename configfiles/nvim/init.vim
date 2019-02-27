@@ -86,8 +86,10 @@ source ~/.vim/conf/dein.vim
 " -------------------------------
 " Syntax
 " -------------------------------
+set termguicolors
 syntax enable
 filetype plugin indent on
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=light
 colorscheme solarized
 
