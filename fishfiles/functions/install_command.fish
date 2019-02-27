@@ -5,11 +5,6 @@ function install_command -d "Command install"
         fish -c fisher
     end
 
-    # mpm
-    if not type -q (command -s mpm)
-        sudo pip3 install meta-package-manager
-    end
-
     if not type -q (command -s fzf)
         echo "install fzf"
         switch (uname)
