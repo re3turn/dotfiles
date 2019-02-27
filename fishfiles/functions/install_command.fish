@@ -24,8 +24,9 @@ function install_command -d "Command install"
         case Darwin
             brew install go
         case Linux
+            sudo add-apt-repository ppa:longsleep/golang-backports
             sudo apt update
-            sudo apt install -y golang-1.10-go
+            sudo apt install -y golang-go
         end
     end
     if type -q (command -s go)
