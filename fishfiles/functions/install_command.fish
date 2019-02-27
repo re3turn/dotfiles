@@ -1,8 +1,8 @@
 function install_command -d "Command install"
     # fisher
-    if not type -q fisher
-        curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
-        fisher
+    if not functions -q fisher 
+        curl -sLo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher 
+        fish -c fisher
     end
 
     # mpm
