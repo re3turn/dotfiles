@@ -4,6 +4,7 @@ configfiles/fish/conf.d/
 configfiles/fish/functions/
 configfiles/fish/completions/
 configfiles/fish/fishd.*
+configfiles/fish/fish_variables
 configfiles/gocode/
 configfiles/mcz-xoxo/
 configfiles/pudb/saved-breakpoints*
