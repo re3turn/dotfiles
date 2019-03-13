@@ -24,3 +24,9 @@ case 'linux*'
     ;;
 end
 
+if command -s nvim > /dev/null
+    set -U EDITOR nvim
+else
+    set -U EDITOR vim
+end
+
