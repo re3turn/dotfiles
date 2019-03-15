@@ -24,16 +24,17 @@ if not command -s go > /dev/null
         sudo apt update
         sudo apt install -y golang-go
     end
-    mkdir -p $GOPATH
 end
 set -Ux GOPATH ~/.go
+mkdir -p $GOPATH/bin
 set_u_var fish_user_paths $GOPATH/bin
 
 # ghg
 if not command -s ghg > /dev/null
+    echo "install ghg"
     go get github.com/Songmu/ghg/cmd/ghg
-    mkdir -p (ghg bin)
 end
+mkdir -p (ghg bin)
 set_u_var fish_user_paths (ghg bin)
 
 # ghq
