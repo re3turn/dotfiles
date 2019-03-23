@@ -10,7 +10,7 @@ if not command -s fzf > /dev/null
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
 end
-set -U FZF_LEGACY_KEYBINDINGS 0
+set -q FZF_LEGACY_KEYBINDINGS; or set -U FZF_LEGACY_KEYBINDINGS 0
 set_u_var fish_user_paths ~/.fzf/bin
 
 # go
@@ -25,7 +25,7 @@ if not command -s go > /dev/null
         sudo apt install -y golang-go
     end
 end
-set -Ux GOPATH ~/.go
+set -q GOPATH; or set -Ux GOPATH ~/.go
 mkdir -p $GOPATH/bin
 set_u_var fish_user_paths $GOPATH/bin
 
@@ -43,7 +43,7 @@ if not command -s ghq > /dev/null
 end
 
 # dot
-set -U DOT_REPO https://github.com/re3turn/dotfiles.git
-set -U DOT_DIR ~/.dotfiles
-set -U DOT_SCR ~/.dot
+set -q DOT_REPO; or set -U DOT_REPO https://github.com/re3turn/dotfiles.git
+set -q DOT_DIR; or set -U DOT_DIR ~/.dotfiles
+set -q DOT_SRC; or set -U DOT_SCR ~/.dot
 
