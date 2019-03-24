@@ -4,6 +4,9 @@ export HISTSIZE=10000
 export HISTFILE=~/.bash_history
 export PATH=~/.go/bin:~/.fzf/bin:~/.ghg/bin:$PATH
 
+# go
+export GOPATH=~/.go
+
 shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -39,5 +42,3 @@ export DOT_DIR="~/.dotfiles"
 fpath=(~/.dot $fpath)
 source ~/.dot/dot.sh
 
-# go
-export GOPATH=~/.go
