@@ -19,6 +19,8 @@ source ${ZSH_ROOT}/functions/zplug.zsh
 ### command(function)
 source ${ZSH_ROOT}/functions/command.zsh
 
+### command
+bash ~/.dotfiles/bashfiles/command/install.bash
 
 ########################################
 # zcompile

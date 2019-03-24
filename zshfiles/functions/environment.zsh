@@ -2,6 +2,7 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
 #export PATH=$PATH:~/.cargo/bin
+export PATH=~/.fzf/bin:~/.ghg/bin:$PATH
 
 ########################################
 # dot setting

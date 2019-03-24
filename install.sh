@@ -32,5 +32,5 @@ clone_repository='${DOT_REPO}'
 dotdir='${DOT_DIR}'
 EOF
 
-dot_main -c "${temp_config}" set --ignore --verbose
+dot_main -c "${temp_config}" set --force --verbose
 
