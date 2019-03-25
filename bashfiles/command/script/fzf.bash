@@ -22,4 +22,4 @@ case ${OSTYPE} in
 esac
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --completion --key-bindings
+~/.fzf/install --completion --key-bindings --no-update-rc
