@@ -1,0 +1,76 @@
+#############################################
+# xonsh env 
+#############################################
+$VI_MODE = False
+$INDENT = "    "
+$XONSH_COLOR_STYLE = "native"
+$COMPLETIONS_CONFIRM = True
+$HISTCONTROL = "ignoredups"
+$XONSH_AUTOPAIR = True
+$AUTO_CD = True
+$XONSH_SHOW_TRACEBACK = True
+$SUPPRESS_BRANCH_TIMEOUT_MESSAGE = True
+
+## command install
+bash ~/.dotfiles/bashfiles/command/install.bash
+
+#############################################
+# import
+#############################################
+import shutil
+
+#############################################
+# env
+#############################################
+$GOPATH = "~/.go"
+
+# PATH env
+$PATH.append("~/.fzf/bin")
+$PATH.append("$GOPATH/bin")
+
+if shutil.which("ghg"):
+    mkdir -p @$(ghg bin)
+    $PATH.append($(ghg bin).strip())
+
+if not (shutil.which("nvim") == None):
+    $EDITOR = "nvim"
+else:
+    $EDITOR = "vim"
+
+if shutil.which("fzf"):
+    $FZF_LEGACY_KEYBINDINGS=0
+
+#############################################
+# xontrib
+#############################################
+xontrib load coreutils
+
+# docker
+xontrib load docker_tabcomplete
+
+# fzf
+xontrib load fzf-widgets
+$fzf_history_binding = Keys.ControlR
+$fzf_ssh_binding = Keys.ControlS
+$fzf_file_binding = Keys.ControlT
+
+# traceback
+xontrib load readable-traceback
+$READABLE_TRACE_STRIP_PATH_ENV=True
+$READABLE_TRACE_REVERSE=True
+
+# powerline
+xontrib load powerline
+
+#############################################
+# alias
+#############################################
+aliases["lt"] = "ls -ltr"
+aliases["l"] = "ls -ltr"
+aliases["la"] = "ls -la"
+aliases["ll"] = "ls -l"
+aliases["vim"] = "$EDITOR"
+aliases["vi"] = "$EDITOR"
+aliases["cp"] = "cp -i"
+aliases["rm"] = "rm -i"
+
