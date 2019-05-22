@@ -4,6 +4,13 @@ export HISTSIZE=10000
 export HISTFILE=~/.bash_history
 export PATH=~/.go/bin:~/.fzf/bin:~/.ghg/bin:$PATH
 
+type nvim > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    export EDITOR=nvim
+else
+    export EDITOR=vim
+fi
+
 # go
 export GOPATH=~/.go
 
@@ -22,8 +29,10 @@ alias ll='ls -l'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias vim='nvim'
-alias vi='vim'
+alias vim='$EDITOR'
+alias vi='$EDITOR'
+alias vb='$EDITOR ~/.bashrc'
+alias vv='$EDITOR ~/.vimrc'
 
 alias mkdir='mkdir -p'
 alias grep='grep --color'

@@ -71,6 +71,8 @@ aliases["la"] = "ls -la"
 aliases["ll"] = "ls -l"
 aliases["vim"] = "$EDITOR"
 aliases["vi"] = "$EDITOR"
+aliases["vx"] = "$EDITOR ~/.xonshrc"
+aliases["vv"] = "$EDITOR ~/.vimrc"
 aliases["cp"] = "cp -i"
 aliases["rm"] = "rm -i"
 
