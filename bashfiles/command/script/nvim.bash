@@ -22,8 +22,8 @@ case ${OSTYPE} in
         sudo apt update
         sudo apt install -y neovim \
                          python-dev python-pip python3-dev python3-pip \
-                         pynvim \
                          xclip xsel
+        sudo pip3 install pynvim
         ;;
 esac
 
