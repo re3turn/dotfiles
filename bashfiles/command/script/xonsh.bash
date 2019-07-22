@@ -21,7 +21,6 @@ case ${OSTYPE} in
         ;;
 esac
 
-# GOPATH
 sudo pip3 install   xonsh \
                     prompt_toolkit \
                     Pygments \
