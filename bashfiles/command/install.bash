@@ -22,6 +22,7 @@ install_command brew \
                 nvim \
                 hw \
                 fzf \
+                fish \
                 go \
                 ghg \
                 ghq
