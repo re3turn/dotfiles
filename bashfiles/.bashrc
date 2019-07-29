@@ -47,7 +47,7 @@ eval `dircolors ~/.dircolors/dircolors.256dark`
 
 # dot
 export DOT_REPO="https://github.com/re3turn/dotfiles.git"
-export DOT_DIR="~/.dotfiles"
+export DOT_DIR=~/.dotfiles
 fpath=(~/.dot $fpath)
 source ~/.dot/dot.sh
 
