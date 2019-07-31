@@ -8,7 +8,6 @@ zshfiles/dircolors,.dircolors
 ~/.config/nvim,.vim
 ~/.config/nvim/init.vim,.vimrc
 bashfiles/.bashrc,.bashrc
-fishfiles/functions/dircolors.fish,.config/fish/functions/dircolors.fish
 fishfiles/functions/gcd.fish,.config/fish/functions/gcd.fish
 fishfiles/functions/mv.fish,.config/fish/functions/mv.fish
 fishfiles/functions/rm.fish,.config/fish/functions/rm.fish
