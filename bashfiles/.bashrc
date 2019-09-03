@@ -2,7 +2,7 @@ export HISTCONTROL=ignorespace:ignoredups:erasedups
 export HISTIGNORE=cd:ls:pwd:exit
 export HISTSIZE=10000
 export HISTFILE=~/.bash_history
-export PATH=~/.go/bin:~/.fzf/bin:~/.ghg/bin:$PATH
+export PATH=~/.nodebrew/current/bin:~/.go/bin:~/.fzf/bin:~/.ghg/bin:$PATH
 
 type nvim > /dev/null 2>&1
 if [ $? -eq 0 ]; then

@@ -25,6 +25,7 @@ install_command brew \
                 fish \
                 go \
                 ghg \
-                ghq
+                ghq \
+                node
 
 unset APT_UPDATE
