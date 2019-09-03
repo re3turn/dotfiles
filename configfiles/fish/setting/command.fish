@@ -42,6 +42,9 @@ if not command -s ghq > /dev/null
     ghg get motemen/ghq
 end
 
+# node
+set_u_var fish_user_paths $HOME/.nodebrew.com/current/bin
+
 # dot
 set -q DOT_REPO; or set -U DOT_REPO https://github.com/re3turn/dotfiles.git
 set -q DOT_DIR; or set -U DOT_DIR ~/.dotfiles
