@@ -17,12 +17,20 @@ end
 switch $OSTYPE
 case 'darwin*'
     # if Mac OS
-    if not command -s brew > /dev/null
-        ruby -e (curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
-        brew install coreutils gnu-sed
-    end
     set_u_var fish_user_paths (brew --prefix coreutils)/libexec/gnubin
     set_u_var fish_user_paths (brew --prefix gnu-sed)/libexec/gnubin
+    set_u_var fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
+    set_u_var fish_user_paths /usr/local/opt/findutils/libexec/gnubin
+    set_u_var fish_user_paths /usr/local/opt/gnu-tar/libexec/gnubin
+    set_u_var fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
+    set_u_var fish_user_paths /usr/local/opt/grep/libexec/gnubin
+
+    set -g MANPATH /usr/local/opt/coreutils/libexec/gnuman $MANPATH
+    set -g MANPATH /usr/local/opt/findutils/libexec/gnuman $MANPATH
+    set -g MANPATH /usr/local/opt/gnu-sed/libexec/gnuman $MANPATH
+    set -g MANPATH /usr/local/opt/gnu-tar/libexec/gnuman $MANPATH
+    set -g MANPATH /usr/local/opt/grep/libexec/gnuman $MANPATH
+    ;;
 case 'linux*'
     # if Linux OS
     ;;
