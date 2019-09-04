@@ -43,7 +43,7 @@ if not command -s ghq > /dev/null
 end
 
 # node
-set_u_var fish_user_paths $HOME/.nodebrew.com/current/bin
+set_u_var fish_user_paths $HOME/.nodebrew/current/bin
 
 # dot
 set -q DOT_REPO; or set -U DOT_REPO https://github.com/re3turn/dotfiles.git
