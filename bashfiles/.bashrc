@@ -55,6 +55,13 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias ps='ps --sort=start_time'
 
+command which -s colordiff
+if [ $? -eq 0 ]; then
+    alias diff='colordiff -u'
+else
+    alias diff='diff -u'
+fi
+
 eval `dircolors ~/.dircolors/dircolors.256dark`
 
 # fzf
