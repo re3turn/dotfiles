@@ -3,6 +3,7 @@ export HISTIGNORE=cd:ls:pwd:exit
 export HISTSIZE=10000
 export HISTFILE=~/.bash_history
 export PATH=~/.nodebrew/current/bin:~/.go/bin:~/.fzf/bin:~/.ghg/bin:$PATH
+export LESS=-iMR
 
 if [ "$(uname -s)" = "Darwin" ]; then
     # if Mac OS

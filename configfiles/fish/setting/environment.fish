@@ -42,3 +42,4 @@ else
     set -U EDITOR vim
 end
 
+set -U LESS -iMR
