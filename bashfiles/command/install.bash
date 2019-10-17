@@ -26,6 +26,7 @@ install_command brew \
                 go \
                 ghg \
                 ghq \
+                nyan \
                 node
 
 unset APT_UPDATE
