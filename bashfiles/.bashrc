@@ -56,7 +56,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias ps='ps --sort=start_time'
 
-command which -s colordiff
+command which colordiff > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     alias diff='colordiff -u'
 else
