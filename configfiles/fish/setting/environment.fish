@@ -17,8 +17,14 @@ end
 switch $OSTYPE
 case 'darwin*'
     # if Mac OS
-    set_u_var fish_user_paths (brew --prefix coreutils)/libexec/gnubin
-    set_u_var fish_user_paths (brew --prefix gnu-sed)/libexec/gnubin
+    if not set -q COREUTILES_DIR
+        set -U COREUTILES_DIR (brew --prefix coreutils)
+    end
+    if not set -q GNU_SED_DIR
+        set -U GNU_SED_DIR (brew --prefix gnu-sed)
+    end
+    set_u_var fish_user_paths $COREUTILES_DIR/libexec/gnubin
+    set_u_var fish_user_paths $GNU_SED_DIR/libexec/gnubin
     set_u_var fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
     set_u_var fish_user_paths /usr/local/opt/findutils/libexec/gnubin
     set_u_var fish_user_paths /usr/local/opt/gnu-tar/libexec/gnubin

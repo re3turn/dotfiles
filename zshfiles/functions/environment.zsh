@@ -13,7 +13,7 @@ export DOT_DIR="${HOME}/.dotfiles"
 case ${OSTYPE} in
     darwin*)
         # if Mac OS
-        export PATH="$(brew --prefix coreutils)/libexec/gnubin:${PATH}"
+        export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
         ;;
     linux*)
         # if Linux OS
