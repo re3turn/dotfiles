@@ -74,3 +74,16 @@ export DOT_DIR=~/.dotfiles
 fpath=(~/.dot $fpath)
 source ~/.dot/dot.sh
 
+# pyenv
+command which pyenv > /dev/null 2>&1
+if [ $? -eq 1 ]; then
+    PATH=${HOME}/.pyenv/bin:${PATH}
+fi
+command which pyenv > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    export PYENV_ROOT="${HOME}/.pyenv"
+    if [ "$(uname -s)" != "Darwin" ]; then
+        eval "$(pyenv init -)"
+    fi
+fi
+

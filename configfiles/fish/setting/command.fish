@@ -50,3 +50,15 @@ set -q DOT_REPO; or set -U DOT_REPO https://github.com/re3turn/dotfiles.git
 set -q DOT_DIR; or set -U DOT_DIR $HOME/.dotfiles
 set -q DOT_SRC; or set -U DOT_SCR $HOME/.dot
 
+# pyenv
+if not command -s pyenv > /dev/null
+    set_u_var fish_user_paths $HOME/.pyenv/bin
+end
+if command -s pyenv > /dev/null
+    set -q PYENV_ROOT; or set -U PYENV_ROOT $HOME/.pyenv
+    switch (uname)
+    case Linux
+        status --is-interactive; and source (pyenv init -|psub)
+    end
+end
+
