@@ -17,7 +17,9 @@ case ${OSTYPE} in
         ;;
     linux* )
         # ubuntu
-        curl -l git.io/nodebrew | perl --setup
+        wget git.io/nodebrew
+        perl nodebrew setup
+        rm -f nodebrew
         ;;
 esac
 
