@@ -4,29 +4,14 @@ set -u
 SCRIPTDIR=$(cd $(dirname $0); pwd)
 export APT_UPDATE=0
 
-install_command()
-{
-    while [ $# -gt 0 ] ; do
-        CMD=$1
-        shift
-        if (type ${CMD} > /dev/null 2>&1); then
-            continue
-        fi
+for SCRIPT_PATH in $(find ${SCRIPTDIR}/script -maxdepth 1 -type f); do
+    SCRIPT_NAME=$(basename ${SCRIPT_PATH})
+    if (type ${SCRIPT_NAME%.*} > /dev/null 2>&1); then
+        continue
+    fi
 
-        bash ${SCRIPTDIR}/script/${CMD}.bash
-    done
-}
-
-install_command brew \
-                git \
-                nvim \
-                hw \
-                fzf \
-                fish \
-                go \
-                ghg \
-                ghq \
-                nyan \
-                node
+    bash ${SCRIPT_PATH}
+done
 
 unset APT_UPDATE
+
