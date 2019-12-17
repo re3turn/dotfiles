@@ -16,8 +16,13 @@ case ${OSTYPE} in
         ;;
     linux* )
         # ubuntu
-        test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
-        sudo apt install -y pipenv
+        pip show pip | grep Location | grep python3 > /dev/null
+        if [ $? -eq 0 ]; then
+            PIP=pip
+        else
+            PIP=pip3
+        fi
+        sudo -H ${PIP} install pipenv
         ;;
 esac
 
