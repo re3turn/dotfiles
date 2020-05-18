@@ -17,7 +17,7 @@ case ${OSTYPE} in
     linux* )
         # ubuntu
         test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
-        sudo apt-get install python3 python-pip
+        sudo apt-get install python3 python3-pip
         ;;
 esac
 
