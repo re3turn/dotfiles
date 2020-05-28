@@ -16,10 +16,13 @@ case ${OSTYPE} in
         ;;
     linux* )
         # ubuntu
+        if ! (type jq > /dev/null 2>&1); then
+            bash ${SCRIPTDIR}/jq.bash
+        fi
         DELTA_RELEASE=https://api.github.com/repos/dandavison/delta/releases
         DEB_URL=$(curl -s ${DELTA_RELEASE} | jq -r '.[0].assets[] | select(.name | test("amd64.deb")) | .browser_download_url' | head -n 1)
         mkdir -p ${SCRIPTDIR}/delta
-        curl -sS -o ${SCRIPTDIR}/delta/delta.deb $DEB_URL
+        wget -qO ${SCRIPTDIR}/delta/delta.deb $DEB_URL
         sudo dpkg -i ${SCRIPTDIR}/delta/delta.deb
         rm -rf ${SCRIPTDIR}/delta
         ;;
