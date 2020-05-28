@@ -1,0 +1,10 @@
+[include]
+    path = .gitconfig.local
+[core]
+    autocrlf = input
+    pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Solarized (light)'
+[interactive]
+    diffFilter = delta --color-only
+[pager]
+    branch = false
+

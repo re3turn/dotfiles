@@ -1,3 +1,4 @@
+.gitconfig,.gitconfig
 zshfiles,.zsh
 configfiles/dot,.config/dot
 configfiles/nvim,.config/nvim
