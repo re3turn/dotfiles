@@ -21,7 +21,7 @@ case ${OSTYPE} in
         sudo add-apt-repository -y ppa:neovim-ppa/unstable
         sudo apt update
         sudo apt install -y neovim \
-                         python-dev python-pip python3-dev python3-pip \
+                         python3-neovim python3-pip \
                          xclip xsel
         sudo pip3 install pynvim
         ;;
