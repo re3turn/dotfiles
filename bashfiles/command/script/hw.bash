@@ -18,7 +18,7 @@ case ${OSTYPE} in
     linux* )
         # ubuntu
         test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
-        sudo apt install -y automake
+        sudo apt install -y automake google-perftools autoconf
         git clone https://github.com/tkengo/highway.git ${SCRIPTDIR}/highway
         cd ${SCRIPTDIR}/highway
         ./tools/build.sh
