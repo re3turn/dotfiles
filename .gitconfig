@@ -1,10 +1,16 @@
 [include]
     path = .gitconfig.local
 [core]
-    autocrlf = input
+    autocrlf = false
+    editor = vim
     pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Solarized (light)'
 [interactive]
     diffFilter = delta --color-only
 [pager]
     branch = false
+[url "git@github.com:"]
+    pushInsteadOf = git://github.com/
+    pushInsteadOf = https://github.com/
+[url "git://github.com/"]
+    insteadOf = https://github.com/
 
