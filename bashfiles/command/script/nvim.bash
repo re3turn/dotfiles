@@ -12,7 +12,8 @@ echo "#########################################"
 case ${OSTYPE} in
     darwin* )
         # mac
-        brew install neovim
+        brew install python neovim
+        pip3 install pynvim
         ;;
     linux* )
         # ubuntu
