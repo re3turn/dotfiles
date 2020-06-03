@@ -4,12 +4,7 @@ switch (uname)
 case Darwin
     set -U OSTYPE darwin
 case Linux
-    uname -a | grep Microsoft > /dev/null 2>&1
-    if test $status -eq 0
-        set -U OSTYPE linux_WSL
-    else
-        set -U OSTYPE linux
-    end
+    set -U OSTYPE linux
 case '*'
     set -U OSTYPE Other_OS
 end
