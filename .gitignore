@@ -7,5 +7,6 @@ configfiles/fish/fishd.*
 configfiles/fish/fish_variables
 configfiles/gocode/
 configfiles/mcz-xoxo/
+configfiles/nvim/conf/.dein_github_token.vim
 configfiles/pudb/saved-breakpoints*
 

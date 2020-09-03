@@ -1,6 +1,10 @@
 " -------------------------------
 " dein
 " -------------------------------
+if filereadable(expand('~/.vim/conf/.dein_github_token.vim'))
+    source ~/.vim/conf/.dein_github_token.vim
+endif
+
 let s:dein_dir = expand('~/.cache/dein')
 " dein.vim
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -12,7 +16,7 @@ if &runtimepath !~# '/dein.vim'
     execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
-if dein#load_state(s:dein_dir   )
+if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
 
     " TOML file
