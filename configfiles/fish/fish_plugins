@@ -1,8 +1,4 @@
-fishpkg/fish-await
-fishpkg/fish-get
-fishpkg/fish-git-util
-fishpkg/fish-last-job-id
-jorgebucaran/fish-getopts
+jorgebucaran/getopts.fish
 jorgebucaran/fishtape
 laughedelic/fishkit
 jethrokuan/fzf
@@ -10,6 +6,10 @@ jethrokuan/z
 decors/fish-ghq
 re3turn/fish-dot
 re3turn/theme-agnoster
+re3turn/fish-global-abbreviation
+re3turn/fish-pip-completion
+re3turn/fish-await
+re3turn/fish-get
+re3turn/fish-git-util
+re3turn/fish-last-job-id
 edc/bass
-ryotako/fish-global-abbreviation
-d42/fish-pip-completion
