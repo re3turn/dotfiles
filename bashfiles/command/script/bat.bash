@@ -4,6 +4,7 @@ set -u
 SCRIPTDIR=$(cd $(dirname $0); pwd)
 SCRIPTNAME=${0##*/}
 CMD=${SCRIPTNAME%%.*}
+source ${SCRIPTDIR}/../common/common.bash
 
 if (type batcat > /dev/null 2>&1); then
     exit
@@ -20,8 +21,13 @@ case ${OSTYPE} in
         ;;
     linux* )
         # ubuntu
-        test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
-        sudo apt install -y ${CMD}
+        DESTRIBUTION=$(judge_os_distribution)
+        if [ "${DESTRIBUTION}" = "ubuntu" ]; then
+            test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
+            sudo apt install -y ${CMD}
+        else
+            github_release_install "https://github.com/sharkdp/bat/releases"
+        fi
         ;;
 esac
 
