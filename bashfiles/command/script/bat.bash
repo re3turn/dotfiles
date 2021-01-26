@@ -26,7 +26,7 @@ case ${OSTYPE} in
             test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
             sudo apt install -y ${CMD}
         else
-            github_release_install "https://github.com/sharkdp/bat/releases"
+            github_release_install "https://api.github.com/repos/sharkdp/bat/releases"
         fi
         ;;
 esac
