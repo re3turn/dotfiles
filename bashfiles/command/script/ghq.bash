@@ -9,4 +9,5 @@ echo "#########################################"
 echo "# Install ${CMD}"
 echo "#########################################"
 
-ghg get motemen/ghq
+go get github.com/x-motemen/ghq
+
