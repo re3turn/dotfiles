@@ -25,6 +25,8 @@ else
     exit 1
 fi
 
+mkdir -p ${HOME}/.config
+
 # Create temporary configuration file to set some variables.
 temp_config="$(mktemp)"
 cat << EOF > "${temp_config}"
