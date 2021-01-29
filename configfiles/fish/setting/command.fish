@@ -22,9 +22,10 @@ if not command -s go > /dev/null
         sudo add-apt-repository ppa:longsleep/golang-backports
         sudo apt update
         sudo apt install -y golang-go
+        set -q GOROOT; or set -Ux GOROOT $HOME/.go
     end
 end
-set -q GOPATH; or set -Ux GOPATH $HOME/.go
+set -q GOPATH; or set -Ux GOPATH $HOME/go
 mkdir -p $GOPATH/bin
 set_u_var fish_user_paths $GOPATH/bin
 

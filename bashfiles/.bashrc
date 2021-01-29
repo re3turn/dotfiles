@@ -2,7 +2,7 @@ export HISTCONTROL=ignorespace:ignoredups:erasedups
 export HISTIGNORE=cd:ls:pwd:exit
 export HISTSIZE=10000
 export HISTFILE=~/.bash_history
-export PATH=~/.nodebrew/current/bin:~/.go/bin:~/.fzf/bin:~/.ghg/bin:~/ghg/bin:~/.pyenv/bin:$PATH
+export PATH=~/.nodebrew/current/bin:~/.go/bin:~/go/bin:~/.fzf/bin:~/.ghg/bin:~/ghg/bin:~/.pyenv/bin:$PATH
 export LESS=-iMR
 
 if [ "$(uname -s)" = "Darwin" ]; then
@@ -18,6 +18,9 @@ if [ "$(uname -s)" = "Darwin" ]; then
     MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
     MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
     MANPATH="/usr/local/opt/grep/libexec/gnuman:$MANPATH"
+else
+    # go
+    export GOROOT=~/.go
 fi
 
 type nvim > /dev/null 2>&1
@@ -28,7 +31,7 @@ else
 fi
 
 # go
-export GOPATH=~/.go
+export GOPATH=~/go
 
 shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
