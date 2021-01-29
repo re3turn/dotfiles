@@ -13,7 +13,7 @@ case ${OSTYPE} in
     darwin* )
         # mac
         brew install python neovim
-        pip3 install pynvim
+        pip3 install --user pynvim
         ;;
     linux* )
         # ubuntu
@@ -24,7 +24,7 @@ case ${OSTYPE} in
         sudo apt install -y neovim \
                          python3-neovim python3-pip \
                          xclip xsel
-        sudo pip3 install pynvim
+        pip3 install --user pynvim
         ;;
 esac
 

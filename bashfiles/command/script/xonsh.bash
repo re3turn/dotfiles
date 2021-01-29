@@ -21,7 +21,7 @@ case ${OSTYPE} in
         ;;
 esac
 
-sudo pip3 install   xonsh \
+pip3 install --user xonsh \
                     prompt_toolkit \
                     Pygments \
                     ProcTitle \

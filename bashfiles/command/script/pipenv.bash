@@ -22,7 +22,7 @@ case ${OSTYPE} in
         else
             PIP=pip3
         fi
-        sudo -H ${PIP} install pipenv
+        ${PIP} install --user pipenv
         ;;
 esac
 

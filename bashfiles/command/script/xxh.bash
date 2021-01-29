@@ -20,7 +20,7 @@ case ${OSTYPE} in
         if ! (type pip3 > /dev/null 2>&1); then
             sudo apt install python3-pip
         fi
-        sudo pip3 install xxh-xxh
+        pip3 install --user xxh-xxh
         ;;
 esac
 
