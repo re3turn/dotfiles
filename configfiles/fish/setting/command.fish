@@ -1,3 +1,5 @@
+set_u_var fish_user_paths $HOME/.local/bin
+
 # Fisher
 if not functions -q fisher
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME $HOME/.config

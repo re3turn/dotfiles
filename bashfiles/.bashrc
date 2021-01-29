@@ -2,7 +2,7 @@ export HISTCONTROL=ignorespace:ignoredups:erasedups
 export HISTIGNORE=cd:ls:pwd:exit
 export HISTSIZE=10000
 export HISTFILE=~/.bash_history
-export PATH=~/.nodebrew/current/bin:~/.go/bin:~/go/bin:~/.fzf/bin:~/.ghg/bin:~/ghg/bin:~/.pyenv/bin:$PATH
+export PATH=~/.nodebrew/current/bin:~/.go/bin:~/go/bin:~/.fzf/bin:~/.ghg/bin:~/ghg/bin:~/.pyenv/bin:~/.local/bin:$PATH
 export LESS=-iMR
 
 if [ "$(uname -s)" = "Darwin" ]; then
