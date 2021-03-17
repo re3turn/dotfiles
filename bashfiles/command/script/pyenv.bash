@@ -17,6 +17,8 @@ case ${OSTYPE} in
         ;;
     linux* )
         # ubuntu
+        test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
+        sudo apt install -y libbz2-dev libreadline-dev libssl-dev libsqlite3-dev
         git clone https://github.com/pyenv/pyenv.git ${HOME}/.pyenv
         git clone https://github.com/yyuu/pyenv-update.git ${HOME}/.pyenv/plugins/pyenv-update
         ;;
