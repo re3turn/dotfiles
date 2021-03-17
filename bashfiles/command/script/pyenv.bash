@@ -18,6 +18,7 @@ case ${OSTYPE} in
     linux* )
         # ubuntu
         git clone https://github.com/pyenv/pyenv.git ${HOME}/.pyenv
+        git clone https://github.com/yyuu/pyenv-update.git ${HOME}/.pyenv/plugins/pyenv-update
         ;;
 esac
 
