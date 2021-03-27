@@ -1,4 +1,4 @@
-set -x LANG ja_JP.UTF-8
+set -x LANG en_US.UTF-8
 
 switch (uname)
 case Darwin
