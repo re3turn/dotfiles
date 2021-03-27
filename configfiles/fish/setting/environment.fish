@@ -43,3 +43,6 @@ else
     set -U EDITOR vim
 end
 
+# pipenv
+set -x VIRTUAL_ENV_DISABLE_PROMPT 1
+
