@@ -12,7 +12,7 @@ echo "#########################################"
 case ${OSTYPE} in
     darwin* )
         # mac
-        brew install pipenv 
+        brew install pipenv
         ;;
     linux* )
         # ubuntu
