@@ -61,6 +61,9 @@ github_release_install () {
         echo "usage: github_release_install <github_release_url>"
         return 1
     fi
+    if !(type jq > /dev/null 2>&1); then
+        bash ${SCRIPTDIR}/../script/jq.bash
+    fi
     MACHINE=$(judge_machine)
     GITHUB_RELEASE_URL=$1
     DEB_URL=$(curl -s ${GITHUB_RELEASE_URL} | jq -r ".[0].assets[] | select(.name | test(\"${MACHINE}.deb\")) | .browser_download_url" | head -n 1)
