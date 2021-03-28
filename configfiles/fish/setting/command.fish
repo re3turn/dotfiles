@@ -9,7 +9,7 @@ end
 # fzf
 if not command -s fzf > /dev/null
     git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-    $HOME/.fzf/install
+    $HOME/.fzf/install --no-key-bindings --no-completion --no-fish --no-bash --no-zsh
 end
 set -q FZF_LEGACY_KEYBINDINGS; or set -U FZF_LEGACY_KEYBINDINGS 0
 set_u_var fish_user_paths $HOME/.fzf/bin
