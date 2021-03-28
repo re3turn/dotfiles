@@ -3,7 +3,7 @@ set_u_var fish_user_paths $HOME/.local/bin
 # Fisher
 if not functions -q fisher
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME $HOME/.config
-    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
 end
 
 # fzf
