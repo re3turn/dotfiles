@@ -9,5 +9,10 @@ echo "#########################################"
 echo "# Install ${CMD}"
 echo "#########################################"
 
+if !(type go > /dev/null 2>&1); then
+    bash ${SCRIPTDIR}/go.bash
+fi
+
 go get github.com/Songmu/ghg/cmd/ghg
 mkdir -p $(ghg bin)
+
