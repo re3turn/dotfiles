@@ -7,7 +7,7 @@ CMD=${SCRIPTNAME%%.*}
 source ${SCRIPTDIR}/../common/common.bash
 
 linux_command_install () {
-    DESTRIBUTION=$(judge_os_distribution)
+    DISTRIBUTION=$(judge_os_distribution)
     case ${DISTRIBUTION} in
         debian* )
             BASE_VERSION=$(cat /etc/debian_version | awk '{print int($1)}')
