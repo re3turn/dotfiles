@@ -4,6 +4,26 @@ set -u
 SCRIPTDIR=$(cd $(dirname $0); pwd)
 SCRIPTNAME=${0##*/}
 CMD=${SCRIPTNAME%%.*}
+source ${SCRIPTDIR}/../common/common.bash
+
+linux_command_install () {
+    DISTRIBUTION=$(judge_os_distribution)
+    case ${DISTRIBUTION} in
+        debian* )
+            test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
+            ;;
+        ubuntu* )
+            sudo add-apt-repository -y ppa:neovim-ppa/unstable
+            sudo apt update
+               ;;
+    esac
+
+    sudo apt install -y software-properties-common
+                        neovim \
+                        python3-neovim python3-pip \
+                        xclip xsel
+    pip3 install --user pynvim
+}
 
 echo "#########################################"
 echo "# Install ${CMD}"
@@ -16,15 +36,7 @@ case ${OSTYPE} in
         pip3 install --user pynvim
         ;;
     linux* )
-        # ubuntu
-        test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
-        sudo apt install -y software-properties-common
-        sudo add-apt-repository -y ppa:neovim-ppa/unstable
-        sudo apt update
-        sudo apt install -y neovim \
-                         python3-neovim python3-pip \
-                         xclip xsel
-        pip3 install --user pynvim
+        linux_command_install
         ;;
 esac
 
