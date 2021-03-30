@@ -10,15 +10,14 @@ linux_command_install () {
     DISTRIBUTION=$(judge_os_distribution)
     case ${DISTRIBUTION} in
         debian* )
-            test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
             ;;
         ubuntu* )
             sudo add-apt-repository -y ppa:neovim-ppa/unstable
-            sudo apt update
-               ;;
+            ;;
     esac
 
-    sudo apt install -y software-properties-common
+    sudo apt update
+    sudo apt install -y software-properties-common \
                         neovim \
                         python3-neovim python3-pip \
                         xclip xsel
