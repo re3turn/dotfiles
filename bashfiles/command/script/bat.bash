@@ -21,8 +21,8 @@ case ${OSTYPE} in
         ;;
     linux* )
         # ubuntu
-        DESTRIBUTION=$(judge_os_distribution)
-        if [ "${DESTRIBUTION}" = "ubuntu" ]; then
+        DISTRIBUTION=$(judge_os_distribution)
+        if [ "${DISTRIBUTION}" = "ubuntu" ]; then
             test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
             sudo apt install -y ${CMD}
         else
