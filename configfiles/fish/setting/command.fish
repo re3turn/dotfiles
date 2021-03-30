@@ -15,18 +15,7 @@ set -q FZF_LEGACY_KEYBINDINGS; or set -U FZF_LEGACY_KEYBINDINGS 0
 set_u_var fish_user_paths $HOME/.fzf/bin
 
 # go
-if not command -s go > /dev/null
-    echo "install go"
-    switch (uname)
-    case Darwin
-        brew install go
-    case Linux
-        sudo add-apt-repository ppa:longsleep/golang-backports
-        sudo apt update
-        sudo apt install -y golang-go
-        set -q GOROOT; or set -Ux GOROOT $HOME/.go
-    end
-end
+set -q GOROOT; or set -Ux GOROOT $HOME/.go
 set -q GOPATH; or set -Ux GOPATH $HOME/go
 mkdir -p $GOPATH/bin
 set_u_var fish_user_paths $GOPATH/bin
