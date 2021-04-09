@@ -21,12 +21,12 @@ linux_command_install () {
             curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_${VERSION}/Release.key \
                 | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
             sudo apt update
-            sudo apt install fish
+            sudo apt install -y fish
             ;;
         ubuntu* )
             sudo apt-add-repository ppa:fish-shell/release-3
             sudo apt-get update
-            sudo apt-get install fish
+            sudo apt-get install -y fish
             ;;
     esac
 }
