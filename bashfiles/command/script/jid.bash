@@ -15,10 +15,10 @@ case ${OSTYPE} in
         brew install ${CMD}
         ;;
     linux* )
-        if !(type ghg > /dev/null 2>&1); then
-            bash ${SCRIPTDIR}/ghg.bash
+        if !(type go > /dev/null 2>&1); then
+            bash ${SCRIPTDIR}/go.bash
         fi
-        ghg get simeji/jid
+        go get -u github.com/simeji/jid/cmd/jid
         ;;
 esac
 
