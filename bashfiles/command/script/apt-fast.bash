@@ -23,10 +23,10 @@ linux_command_install () {
 
 case ${OSTYPE} in
     linux* )
-        if (type /usr/sbin/${SCRIPT_NAME} > /dev/null 2>&1); then
+        if (type /usr/sbin/${CMD} > /dev/null 2>&1); then
             exit
         fi
-        if (type /usr/local/sbin/${SCRIPT_NAME%.*} > /dev/null 2>&1); then
+        if (type /usr/local/sbin/${CMD} > /dev/null 2>&1); then
             exit
         fi
         echo "#########################################"
