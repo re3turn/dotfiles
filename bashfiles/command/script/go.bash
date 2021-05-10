@@ -23,5 +23,5 @@ case ${OSTYPE} in
 esac
 
 # GOPATH
-mkdir -p ~/.go
+mkdir -p ~/go
 

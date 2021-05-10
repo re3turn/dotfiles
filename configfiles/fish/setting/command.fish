@@ -15,7 +15,6 @@ set -q FZF_LEGACY_KEYBINDINGS; or set -U FZF_LEGACY_KEYBINDINGS 0
 set_u_var fish_user_paths $HOME/.fzf/bin
 
 # go
-set -q GOROOT; or set -Ux GOROOT $HOME/.go
 set -q GOPATH; or set -Ux GOPATH $HOME/go
 mkdir -p $GOPATH/bin
 set_u_var fish_user_paths $GOPATH/bin
