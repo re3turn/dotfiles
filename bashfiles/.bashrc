@@ -7,17 +7,31 @@ export LESS=-iMR
 
 if [ "$(uname -s)" = "Darwin" ]; then
     # if Mac OS
-    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-    PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-    PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-    PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-    PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+    MACHINE=$(uname -m)
+    if [ "${MACHINE}" = "arm64" ]; then
+        export HOMEBREW_PREFIX="/opt/homebrew"
+        export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+        export HOMEBREW_REPOSITORY="/opt/homebrew"”;
+        export HOMEBREW_SHELLENV_PREFIX="/opt/homebrew";
+        export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
+        export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}";
+        export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+        export HOMEBREW_OPT_DIR="${HOMEBREW_PREFIX}/opt"
+    else
+        export HOMEBREW_OPT_DIR="/usr/local/opt"
+    fi
 
-    MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-    MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
-    MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
-    MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
-    MANPATH="/usr/local/opt/grep/libexec/gnuman:$MANPATH"
+    PATH="${HOMEBREW_OPT_DIR}/coreutils/libexec/gnubin:$PATH"
+    PATH="${HOMEBREW_OPT_DIR}/findutils/libexec/gnubin:$PATH"
+    PATH="${HOMEBREW_OPT_DIR}/gnu-tar/libexec/gnubin:$PATH"
+    PATH="${HOMEBREW_OPT_DIR}/gnu-sed/libexec/gnubin:$PATH"
+    PATH="${HOMEBREW_OPT_DIR}/grep/libexec/gnubin:$PATH"
+
+    MANPATH="${HOMEBREW_OPT_DIR}/coreutils/libexec/gnuman:$MANPATH"
+    MANPATH="${HOMEBREW_OPT_DIR}/findutils/libexec/gnuman:$MANPATH"
+    MANPATH="${HOMEBREW_OPT_DIR}/gnu-sed/libexec/gnuman:$MANPATH"
+    MANPATH="${HOMEBREW_OPT_DIR}/gnu-tar/libexec/gnuman:$MANPATH"
+    MANPATH="${HOMEBREW_OPT_DIR}/grep/libexec/gnuman:$MANPATH"
 else
     # go
     export GOROOT=~/.go

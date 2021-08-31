@@ -14,7 +14,7 @@ source ${ZSH_ROOT}/functions/pip.zsh
 eval `dircolors ~/.dircolors/dircolors.256dark`
 
 ### zplug
-source ${ZSH_ROOT}/functions/zplug.zsh
+#source ${ZSH_ROOT}/functions/zplug.zsh
 
 ### command(function)
 source ${ZSH_ROOT}/functions/command.zsh

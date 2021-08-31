@@ -12,25 +12,32 @@ end
 switch $OSTYPE
 case 'darwin*'
     # if Mac OS
-    if not set -q COREUTILES_DIR
-        set -U COREUTILES_DIR (brew --prefix coreutils)
+    set -l MACHINE (uname -m)
+    if test "$MACHINE" = "arm64"
+        set -g HOMEBREW_PREFIX /opt/homebrew
+        set -g HOMEBREW_CELLAR /opt/homebrew/Cellar
+        set -g HOMEBREW_REPOSITORY /opt/homebrew
+        set -g HOMEBREW_SHELLENV_PREFIX /opt/homebrew
+        set_u_var fish_user_paths /opt/homebrew/bin
+        set_u_var fish_user_paths /opt/homebrew/sbin
+        set -g MANPATH /opt/homebrew/share/man $MANPATH
+        set -g INFOPATH /opt/homebrew/share/info $INFOPATH
+        set -g HOMEBREW_OPT_DIR $HOMEBREW_PREFIX/opt
+    else
+        set -g HOMEBREW_OPT_DIR /usr/local/opt
     end
-    if not set -q GNU_SED_DIR
-        set -U GNU_SED_DIR (brew --prefix gnu-sed)
-    end
-    set_u_var fish_user_paths $COREUTILES_DIR/libexec/gnubin
-    set_u_var fish_user_paths $GNU_SED_DIR/libexec/gnubin
-    set_u_var fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
-    set_u_var fish_user_paths /usr/local/opt/findutils/libexec/gnubin
-    set_u_var fish_user_paths /usr/local/opt/gnu-tar/libexec/gnubin
-    set_u_var fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
-    set_u_var fish_user_paths /usr/local/opt/grep/libexec/gnubin
 
-    set -g MANPATH /usr/local/opt/coreutils/libexec/gnuman $MANPATH
-    set -g MANPATH /usr/local/opt/findutils/libexec/gnuman $MANPATH
-    set -g MANPATH /usr/local/opt/gnu-sed/libexec/gnuman $MANPATH
-    set -g MANPATH /usr/local/opt/gnu-tar/libexec/gnuman $MANPATH
-    set -g MANPATH /usr/local/opt/grep/libexec/gnuman $MANPATH
+    set_u_var fish_user_paths $HOMEBREW_OPT_DIR/coreutils/libexec/gnubin
+    set_u_var fish_user_paths $HOMEBREW_OPT_DIR/findutils/libexec/gnubin
+    set_u_var fish_user_paths $HOMEBREW_OPT_DIR/gnu-tar/libexec/gnubin
+    set_u_var fish_user_paths $HOMEBREW_OPT_DIR/gnu-sed/libexec/gnubin
+    set_u_var fish_user_paths $HOMEBREW_OPT_DIR/grep/libexec/gnubin
+
+    set -g MANPATH $HOMEBREW_OPT_DIR/coreutils/libexec/gnuman $MANPATH
+    set -g MANPATH $HOMEBREW_OPT_DIR/findutils/libexec/gnuman $MANPATH
+    set -g MANPATH $HOMEBREW_OPT_DIR/gnu-sed/libexec/gnuman $MANPATH
+    set -g MANPATH $HOMEBREW_OPT_DIR/gnu-tar/libexec/gnuman $MANPATH
+    set -g MANPATH $HOMEBREW_OPT_DIR/grep/libexec/gnuman $MANPATH
     ;;
 case 'linux*'
     # if Linux OS
