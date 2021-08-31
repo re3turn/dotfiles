@@ -22,3 +22,4 @@ fishfiles/functions/fish_user_key_bindings.fish,.config/fish/functions/fish_user
 fishfiles/functions/fed.fish,.config/fish/functions/fed.fish
 xonshfiles/.xonshrc,.xonshrc
 
+iterm2,iterm2
