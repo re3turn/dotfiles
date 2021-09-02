@@ -48,10 +48,6 @@ esac
 # for go lang
 export GOPATH=~/go
 
-if [ $(uname -r | grep Microsoft) ]; then
-    unsetopt BG_NICE
-fi
-
 #########################################
 # history command setting
 ZSH_HISTORY_KEYBIND_GET="^r"
