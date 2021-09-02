@@ -19,8 +19,10 @@ linux_command_install () {
     sudo apt update
     sudo apt install -y software-properties-common \
                         neovim \
-                        python3-neovim python3-pip \
-                        xclip xsel
+                        python3-neovim python3-pip
+    if [ $(uname -r | grep WSL) == "" ]; then
+        sudo apt install -y xclip
+    fi
     pip3 install --user pynvim
 }
 
