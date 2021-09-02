@@ -80,6 +80,28 @@ if has('mouse')
 endif
 
 set clipboard=unnamed,unnamedplus
+if system('uname -r | grep WSL') != ''
+    if !has('nvim')
+        let g:clipboard = {
+        \   'name': 'win32yankClipboard',
+        \   'copy': {
+        \      '+': 'win32yank -i',
+        \      '*': 'win32yank -i',
+        \    },
+        \   'paste': {
+        \      '+': 'win32yank -o',
+        \      '*': 'win32yank -o',
+        \   },
+        \   'cache_enabled': 1,
+        \ }
+    else
+        augroup Yank
+            au!
+            autocmd TextYankPost * :call system('win32yank -i', @")
+        augroup END
+        noremap <silent> p :call setreg('"',system('win32yank -o'))<CR>""p
+    endif
+endif
 
 source ~/.vim/conf/dein.vim
 
