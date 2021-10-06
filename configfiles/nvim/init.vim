@@ -85,11 +85,11 @@ if system('uname -r | grep WSL') != ''
         let g:clipboard = {
         \   'name': 'win32yankClipboard',
         \   'copy': {
-        \      '+': 'win32yank -i',
+        \      '+': 'win32yank -i --crlf',
         \      '*': 'win32yank -i',
         \    },
         \   'paste': {
-        \      '+': 'win32yank -o',
+        \      '+': 'win32yank -o --lf',
         \      '*': 'win32yank -o',
         \   },
         \   'cache_enabled': 1,
