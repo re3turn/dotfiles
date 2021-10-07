@@ -5,7 +5,6 @@ source $FISH_ROOT/setting/command.fish
 
 for filePath in $FISH_ROOT/setting/local/*.fish
     source $filePath
-    echo $filePath
 end
 
 eval (dircolors -c ~/.dircolors/dircolors.256dark)
