@@ -321,7 +321,7 @@
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Initial Text</key>
-			<string>/usr/local/bin/fish</string>
+			<string>/opt/homebrew/bin/fish</string>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
