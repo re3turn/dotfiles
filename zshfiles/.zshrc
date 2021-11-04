@@ -35,3 +35,9 @@ fi
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+SHELL_LOCAL_DIR=~/.shell.local
+mkdir -p ${SHELL_LOCAL_DIR}
+for localShellFile in ${SHELL_LOCAL_DIR}/*.sh; do
+    source $localShellFile
+done
+
