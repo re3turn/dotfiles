@@ -37,7 +37,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 SHELL_LOCAL_DIR=~/.shell.local
 mkdir -p ${SHELL_LOCAL_DIR}
-for localShellFile in ${SHELL_LOCAL_DIR}/*.sh; do
-    source $localShellFile
-done
+ls ${SHELL_LOCAL_DIR}/*.sh >/dev/null 2>&1
+if [ $? -eq 0 ]; then
+    for localShellFile in ${SHELL_LOCAL_DIR}/*.sh; do
+        source $localShellFile
+    done
+fi
 
