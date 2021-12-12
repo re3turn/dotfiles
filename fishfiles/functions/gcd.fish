@@ -8,7 +8,10 @@ function gcd
             echo ghq no repository 1>&2
             return 2
         end
-        cd (command ghq list --full-path | command fzf)
+        set -l GDIR (command ghq list --full-path | command fzf)
+        if test -n "$GDIR"
+            cd $GDIR
+        end
         return 0
     end
     set -l GHQ (ghq root)/github.com
