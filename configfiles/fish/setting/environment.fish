@@ -53,3 +53,7 @@ end
 # pipenv
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
+# theme option
+set -g theme_color_scheme dracula
+set -g theme_newline_cursor yes
+set -g theme_display_aws_vault_profile yes
