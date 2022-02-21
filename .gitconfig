@@ -3,7 +3,7 @@
 [core]
     autocrlf = false
     editor = vim
-    pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Solarized (light)'
+    pager = delta --plus-style="syntax #012800" --minus-style="normal #340001" --theme='Solarized (light)'
 [interactive]
     diffFilter = delta --color-only
 [pager]
