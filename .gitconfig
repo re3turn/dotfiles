@@ -1,6 +1,7 @@
 [include]
     path = .gitconfig.local
 [core]
+    ignorecase = false
     autocrlf = false
     editor = vim
     pager = delta --plus-style="syntax #012800" --minus-style="normal #340001" --theme='Solarized (light)'
