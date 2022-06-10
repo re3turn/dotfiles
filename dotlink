@@ -11,6 +11,7 @@ zshfiles/dircolors,.dircolors
 bashfiles/.bashrc,.bashrc
 fishfiles/functions/fbr.fish,.config/fish/functions/fbr.fish
 fishfiles/functions/gcd.fish,.config/fish/functions/gcd.fish
+fishfiles/functions/fcd.fish,.config/fish/functions/fcd.fish
 fishfiles/functions/diff.fish,.config/fish/functions/diff.fish
 fishfiles/functions/mv.fish,.config/fish/functions/mv.fish
 fishfiles/functions/less.fish,.config/fish/functions/less.fish
