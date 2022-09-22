@@ -84,6 +84,10 @@ eval `dircolors ~/.dircolors/dircolors.256dark`
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_OPTS="--height 80% --reverse --border"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
 
 # dot
 export DOT_REPO="https://github.com/re3turn/dotfiles.git"

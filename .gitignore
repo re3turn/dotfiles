@@ -1,7 +1,8 @@
 configfiles/fisherman
 configfiles/fisher/
-configfiles/fish/conf.d/
 configfiles/fish/functions/
+configfiles/fish/conf.d/*
+!configfiles/fish/conf.d/fzf.fish
 configfiles/fish/completions/
 configfiles/fish/fishd.*
 configfiles/fish/fish_variables

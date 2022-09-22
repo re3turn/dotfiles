@@ -21,6 +21,7 @@ fishfiles/functions/vim.fish,.config/fish/functions/vim.fish
 fishfiles/functions/set_u_var.fish,.config/fish/functions/set_u_var.fish
 fishfiles/functions/fish_user_key_bindings.fish,.config/fish/functions/fish_user_key_bindings.fish
 fishfiles/functions/fed.fish,.config/fish/functions/fed.fish
+fishfiles/functions/fzf_find_file.fish,.config/fish/functions/fzf_find_file.fish
 xonshfiles/.xonshrc,.xonshrc
 
 iterm2,iterm2
