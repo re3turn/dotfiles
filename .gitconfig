@@ -10,7 +10,5 @@
 [pager]
     branch = false
 
-[url "https://"]
-	insteadOf = git://
-[url "https://github.com/"]
-	insteadof = git@github.com:
+[url "git@github.com:"]
+    insteadOf = https://github.com/
