@@ -32,12 +32,14 @@ case ${OSTYPE} in
         PATH="${HOMEBREW_OPT_DIR}/gnu-tar/libexec/gnubin:$PATH"
         PATH="${HOMEBREW_OPT_DIR}/gnu-sed/libexec/gnubin:$PATH"
         PATH="${HOMEBREW_OPT_DIR}/grep/libexec/gnubin:$PATH"
+        PATH="${HOMEBREW_OPT_DIR}/gawk/libexec/gnubin:$PATH"
 
         MANPATH="${HOMEBREW_OPT_DIR}/coreutils/libexec/gnuman:$MANPATH"
         MANPATH="${HOMEBREW_OPT_DIR}/findutils/libexec/gnuman:$MANPATH"
         MANPATH="${HOMEBREW_OPT_DIR}/gnu-sed/libexec/gnuman:$MANPATH"
         MANPATH="${HOMEBREW_OPT_DIR}/gnu-tar/libexec/gnuman:$MANPATH"
         MANPATH="${HOMEBREW_OPT_DIR}/grep/libexec/gnuman:$MANPATH"
+        MANPATH="${HOMEBREW_OPT_DIR}/gawk/libexec/gnuman:$MANPATH"
         ;;
     linux*)
         # if Linux OS

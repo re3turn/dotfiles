@@ -32,12 +32,14 @@ case 'darwin*'
     set_u_var fish_user_paths $HOMEBREW_OPT_DIR/gnu-tar/libexec/gnubin
     set_u_var fish_user_paths $HOMEBREW_OPT_DIR/gnu-sed/libexec/gnubin
     set_u_var fish_user_paths $HOMEBREW_OPT_DIR/grep/libexec/gnubin
+    set_u_var fish_user_paths $HOMEBREW_OPT_DIR/gawk/libexec/gnubin
 
     set -g MANPATH $HOMEBREW_OPT_DIR/coreutils/libexec/gnuman $MANPATH
     set -g MANPATH $HOMEBREW_OPT_DIR/findutils/libexec/gnuman $MANPATH
     set -g MANPATH $HOMEBREW_OPT_DIR/gnu-sed/libexec/gnuman $MANPATH
     set -g MANPATH $HOMEBREW_OPT_DIR/gnu-tar/libexec/gnuman $MANPATH
     set -g MANPATH $HOMEBREW_OPT_DIR/grep/libexec/gnuman $MANPATH
+    set -g MANPATH $HOMEBREW_OPT_DIR/gawk/libexec/gnuman $MANPATH
     ;;
 case 'linux*'
     # if Linux OS
