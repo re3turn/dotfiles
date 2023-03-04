@@ -18,7 +18,7 @@ case ${OSTYPE} in
         if !(type go > /dev/null 2>&1); then
             bash ${SCRIPTDIR}/go.bash
         fi
-        go get -u github.com/simeji/jid/cmd/jid
+        go install github.com/simeji/jid/cmd/jid@latest
         ;;
 esac
 

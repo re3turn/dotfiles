@@ -13,6 +13,6 @@ if !(type go > /dev/null 2>&1); then
     bash ${SCRIPTDIR}/go.bash
 fi
 
-go get github.com/Songmu/ghg/cmd/ghg
+go install github.com/Songmu/ghg/cmd/ghg@latest
 mkdir -p $(ghg bin)
 

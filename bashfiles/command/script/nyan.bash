@@ -13,5 +13,5 @@ if !(type go > /dev/null 2>&1); then
     bash ${SCRIPTDIR}/go.bash
 fi
 
-go get github.com/toshimaru/nyan
+go install github.com/toshimaru/nyan@latest
 
