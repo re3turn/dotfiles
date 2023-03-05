@@ -18,6 +18,7 @@ case ${OSTYPE} in
         # ubuntu
         test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
         sudo apt install -y ${CMD}-find
+        ln -s $(which fdfind) ~/.local/bin/fd
         ;;
 esac
 
