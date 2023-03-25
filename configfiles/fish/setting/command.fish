@@ -52,3 +52,7 @@ if command -s pyenv > /dev/null
     end
 end
 
+# Abbrevations
+abbr --add dotdot --regex '^\.\.+$' --function multicd
+abbr -a !! --position anywhere --function last_history_item
+
