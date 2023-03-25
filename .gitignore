@@ -10,4 +10,4 @@ configfiles/gocode/
 configfiles/mcz-xoxo/
 configfiles/nvim/conf/.dein_github_token.vim
 configfiles/pudb/saved-breakpoints*
-
+.DS_Store
