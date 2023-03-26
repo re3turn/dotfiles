@@ -4,6 +4,7 @@ configfiles/dot,.config/dot
 configfiles/nvim,.config/nvim
 configfiles/fish,.config/fish
 configfiles/ftplugin,.config/ftplugin
+configfiles/fzshell,.config/fzshell
 zshfiles/.zshrc,.zshrc
 zshfiles/dircolors,.dircolors
 ~/.config/nvim,.vim
