@@ -18,8 +18,8 @@ case 'darwin*'
         set -g HOMEBREW_CELLAR /opt/homebrew/Cellar
         set -g HOMEBREW_REPOSITORY /opt/homebrew
         set -g HOMEBREW_SHELLENV_PREFIX /opt/homebrew
-        set_u_var fish_user_paths /opt/homebrew/bin
-        set_u_var fish_user_paths /opt/homebrew/sbin
+        fish_add_path /opt/homebrew/bin
+        fish_add_path /opt/homebrew/sbin
         set -g MANPATH /opt/homebrew/share/man $MANPATH
         set -g INFOPATH /opt/homebrew/share/info $INFOPATH
         set -g HOMEBREW_OPT_DIR $HOMEBREW_PREFIX/opt
@@ -27,12 +27,12 @@ case 'darwin*'
         set -g HOMEBREW_OPT_DIR /usr/local/opt
     end
 
-    set_u_var fish_user_paths $HOMEBREW_OPT_DIR/coreutils/libexec/gnubin
-    set_u_var fish_user_paths $HOMEBREW_OPT_DIR/findutils/libexec/gnubin
-    set_u_var fish_user_paths $HOMEBREW_OPT_DIR/gnu-tar/libexec/gnubin
-    set_u_var fish_user_paths $HOMEBREW_OPT_DIR/gnu-sed/libexec/gnubin
-    set_u_var fish_user_paths $HOMEBREW_OPT_DIR/grep/libexec/gnubin
-    set_u_var fish_user_paths $HOMEBREW_OPT_DIR/gawk/libexec/gnubin
+    fish_add_path $HOMEBREW_OPT_DIR/coreutils/libexec/gnubin
+    fish_add_path $HOMEBREW_OPT_DIR/findutils/libexec/gnubin
+    fish_add_path $HOMEBREW_OPT_DIR/gnu-tar/libexec/gnubin
+    fish_add_path $HOMEBREW_OPT_DIR/gnu-sed/libexec/gnubin
+    fish_add_path $HOMEBREW_OPT_DIR/grep/libexec/gnubin
+    fish_add_path $HOMEBREW_OPT_DIR/gawk/libexec/gnubin
 
     set -g MANPATH $HOMEBREW_OPT_DIR/coreutils/libexec/gnuman $MANPATH
     set -g MANPATH $HOMEBREW_OPT_DIR/findutils/libexec/gnuman $MANPATH

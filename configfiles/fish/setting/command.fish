@@ -1,4 +1,4 @@
-set_u_var fish_user_paths $HOME/.local/bin
+fish_add_path $HOME/.local/bin
 
 # Fisher
 if not functions -q fisher
@@ -12,12 +12,12 @@ if not command -s fzf > /dev/null
     $HOME/.fzf/install --no-key-bindings --no-completion --no-update-rc
 end
 set -q FZF_LEGACY_KEYBINDINGS; or set -U FZF_LEGACY_KEYBINDINGS 0
-set_u_var fish_user_paths $HOME/.fzf/bin
+fish_add_path $HOME/.fzf/bin
 
 # go
 set -q GOPATH; or set -Ux GOPATH $HOME/go
 mkdir -p $GOPATH/bin
-set_u_var fish_user_paths $GOPATH/bin
+fish_add_path $GOPATH/bin
 
 # ghg
 if not command -s ghg > /dev/null
@@ -25,7 +25,7 @@ if not command -s ghg > /dev/null
     go get github.com/Songmu/ghg/cmd/ghg
 end
 mkdir -p (ghg bin)
-set_u_var fish_user_paths (ghg bin)
+fish_add_path (ghg bin)
 
 # ghq
 if not command -s ghq > /dev/null
@@ -33,7 +33,7 @@ if not command -s ghq > /dev/null
 end
 
 # node
-set_u_var fish_user_paths $HOME/.nodebrew/current/bin
+fish_add_path $HOME/.nodebrew/current/bin
 
 # dot
 set -q DOT_REPO; or set -U DOT_REPO https://github.com/re3turn/dotfiles.git
@@ -42,7 +42,7 @@ set -q DOT_SRC; or set -U DOT_SCR $HOME/.dot
 
 # pyenv
 if not command -s pyenv > /dev/null
-    set_u_var fish_user_paths $HOME/.pyenv/bin
+    fish_add_path $HOME/.pyenv/bin
 end
 if command -s pyenv > /dev/null
     set -q PYENV_ROOT; or set -U PYENV_ROOT $HOME/.pyenv
