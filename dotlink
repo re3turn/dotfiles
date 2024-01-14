@@ -14,9 +14,6 @@ fishfiles/functions/fbr.fish,.config/fish/functions/fbr.fish
 fishfiles/functions/gcd.fish,.config/fish/functions/gcd.fish
 fishfiles/functions/fcd.fish,.config/fish/functions/fcd.fish
 fishfiles/functions/diff.fish,.config/fish/functions/diff.fish
-fishfiles/functions/mv.fish,.config/fish/functions/mv.fish
-fishfiles/functions/less.fish,.config/fish/functions/less.fish
-fishfiles/functions/rm.fish,.config/fish/functions/rm.fish
 fishfiles/functions/vi.fish,.config/fish/functions/vi.fish
 fishfiles/functions/vim.fish,.config/fish/functions/vim.fish
 fishfiles/functions/fish_user_key_bindings.fish,.config/fish/functions/fish_user_key_bindings.fish
