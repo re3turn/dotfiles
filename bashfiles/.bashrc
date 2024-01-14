@@ -5,6 +5,12 @@ export HISTFILE=~/.bash_history
 export PATH=~/.nodebrew/current/bin:~/.go/bin:~/go/bin:~/.fzf/bin:~/.ghg/bin:~/ghg/bin:~/.pyenv/bin:~/.local/bin:$PATH
 export LESS=-iMR
 
+case $(uname -s) in
+    Darwin) export OSTYPE=darwin;;
+    Linux) export OSTYPE=linux;;
+    *)     export OSTYPE=Other_OS;;
+esac
+
 if [ "$(uname -s)" = "Darwin" ]; then
     # if Mac OS
     MACHINE=$(uname -m)
@@ -113,6 +119,10 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# source-highlight
+export LESSOPEN="| ${HOME}/.dotfiles/bashfiles/command/script/source-highlight/${OSTYPE}/lesspipej.sh %s"
+export LESS="-j10 -R --no-init --quit-if-one-screen"
 
 SHELL_LOCAL_DIR=~/.shell.local
 mkdir -p ${SHELL_LOCAL_DIR}

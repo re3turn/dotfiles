@@ -12,11 +12,11 @@ echo "#########################################"
 case ${OSTYPE} in
     darwin* )
         # mac
-        brew install git
+        brew install ${CMD}
         ;;
     linux* )
         # ubuntu
         test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
-        sudo apt install -y git
+        sudo apt install -y ${CMD}
         ;;
 esac

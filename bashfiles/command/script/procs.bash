@@ -4,6 +4,7 @@ set -u
 SCRIPTDIR=$(cd $(dirname $0); pwd)
 SCRIPTNAME=${0##*/}
 CMD=${SCRIPTNAME%%.*}
+source ${SCRIPTDIR}/../common/common.bash
 
 echo "#########################################"
 echo "# Install ${CMD}"
@@ -12,11 +13,14 @@ echo "#########################################"
 case ${OSTYPE} in
     darwin* )
         # mac
-        brew install git
+        brew install ${CMD}
         ;;
     linux* )
         # ubuntu
-        test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
-        sudo apt install -y git
+        if ! (type jq > /dev/null 2>&1); then
+            bash ${SCRIPTDIR}/jq.bash
+        fi
+        github_release_install "https://api.github.com/repos/dalance/procs/releases"
         ;;
 esac
+
