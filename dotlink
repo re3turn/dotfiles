@@ -18,6 +18,7 @@ fishfiles/functions/vi.fish,.config/fish/functions/vi.fish
 fishfiles/functions/vim.fish,.config/fish/functions/vim.fish
 fishfiles/functions/fish_user_key_bindings.fish,.config/fish/functions/fish_user_key_bindings.fish
 fishfiles/functions/fed.fish,.config/fish/functions/fed.fish
+fishfiles/functions/fuck.fish,.config/fish/functions/fuck.fish
 fishfiles/functions/fzf_find_file.fish,.config/fish/functions/fzf_find_file.fish
 fishfiles/functions/multicd.fish,.config/fish/functions/multicd.fish
 fishfiles/functions/last_history_item.fish,.config/fish/functions/last_history_item.fish
