@@ -20,6 +20,6 @@ case ${OSTYPE} in
             test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
             sudo apt install -y curl
         fi
-        curl https://sh.rustup.rs -sSf | sh
+        curl https://sh.rustup.rs -sSf | sh -s -- -y
         ;;
 esac
