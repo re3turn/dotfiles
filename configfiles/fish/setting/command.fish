@@ -58,4 +58,7 @@ abbr -a !! --position anywhere --function last_history_item
 
 # source-highlight
 export LESSOPEN="| $HOME/.dotfiles/bashfiles/command/script/source-highlight/$OSTYPE/lesspipej.sh %s"
-export LESS="-j10 -R --no-init --quit-if-one-screen"
+export LESS="-j10 -R -i -M --no-init --quit-if-one-screen"
+
+# the fuck
+eval $(thefuck --alias)

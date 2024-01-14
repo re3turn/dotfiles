@@ -124,6 +124,9 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export LESSOPEN="| ${HOME}/.dotfiles/bashfiles/command/script/source-highlight/${OSTYPE}/lesspipej.sh %s"
 export LESS="-j10 -R --no-init --quit-if-one-screen"
 
+# the fuck
+eval $(thefuck --alias)
+
 SHELL_LOCAL_DIR=~/.shell.local
 mkdir -p ${SHELL_LOCAL_DIR}
 ls ${SHELL_LOCAL_DIR}/*.sh >/dev/null 2>&1
