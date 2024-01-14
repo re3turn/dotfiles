@@ -7,3 +7,5 @@ abbr --add gc 'git commit'
 abbr --add gsw 'git switch'
 abbr --add gm 'git merge'
 abbr --add gr 'git rebase'
+abbr --add dotdot --regex '^\.\.+$' --function multicd
+abbr --add !! --position anywhere --function last_history_item
