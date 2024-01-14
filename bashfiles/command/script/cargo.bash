@@ -4,7 +4,6 @@ set -u
 SCRIPTDIR=$(cd $(dirname $0); pwd)
 SCRIPTNAME=${0##*/}
 CMD=${SCRIPTNAME%%.*}
-source ${SCRIPTDIR}/../common/common.bash
 
 echo "#########################################"
 echo "# Install ${CMD}"
@@ -13,14 +12,14 @@ echo "#########################################"
 case ${OSTYPE} in
     darwin* )
         # mac
-        brew install ${CMD}
+        brew install rust
         ;;
     linux* )
         # ubuntu
-        if ! (type cargo > /dev/null 2>&1); then
-            bash ${SCRIPTDIR}/cargo.bash
+        if !(type curl > /dev/null 2>&1); then
+            test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
+            sudo apt install -y curl
         fi
-        cargo install procs
+        curl https://sh.rustup.rs -sSf | sh
         ;;
 esac
-
