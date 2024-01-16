@@ -1,14 +1,4 @@
-########################################
-# 環境変数
-export LANG=ja_JP.UTF-8
-#export PATH=$PATH:~/.cargo/bin
-export PATH=~/.fzf/bin:~/.ghg/bin:~/go/bin:~/.nodebrew/current/bin:$PATH
-
-########################################
-# dot setting
-export DOT_REPO="https://github.com/re3turn/dotfiles.git"
-export DOT_DIR="${HOME}/.dotfiles"
-########################################
+export PATH=${HOME}/.cargo/bin:${HOME}/.nodebrew/current/bin:${HOME}/.go/bin:${HOME}/go/bin:${HOME}/.fzf/bin:${HOME}/.ghg/bin:${HOME}/ghg/bin:${HOME}/.pyenv/bin:${HOME}/.local/bin:$PATH
 
 case ${OSTYPE} in
     darwin*)
@@ -17,7 +7,7 @@ case ${OSTYPE} in
         if [ "${MACHINE}" = "arm64" ]; then
             export HOMEBREW_PREFIX="/opt/homebrew"
             export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
-            export HOMEBREW_REPOSITORY="/opt/homebrew"”;
+            export HOMEBREW_REPOSITORY="/opt/homebrew";
             export HOMEBREW_SHELLENV_PREFIX="/opt/homebrew";
             export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
             export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}";
@@ -43,17 +33,21 @@ case ${OSTYPE} in
         ;;
     linux*)
         # if Linux OS
-        export GOROOT=~/.go
+        export GOROOT="${HOME}/.go"
         ;;
 esac
 
-# for go lang
-export GOPATH=~/go
+# editor
+type -p nvim > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    export EDITOR=nvim
+else
+    export EDITOR=vim
+fi
 
-#########################################
-# history command setting
-ZSH_HISTORY_KEYBIND_GET="^r"
-ZSH_HISTORY_FILTER_OPTIONS="--filter-branch --filter-dir"
-ZSH_HISTORY_KEYBIND_ARROW_UP="^p"
-ZSH_HISTORY_KEYBIND_ARROW_DOWN="^n"
+# go
+export GOPATH="${HOME}/go"
 
+# source-highlight
+export LESSOPEN="| ${HOME}/.dotfiles/bashfiles/command/script/source-highlight/${OSTYPE}/lesspipej.sh %s"
+export LESS="-j10 -R --no-init --quit-if-one-screen"

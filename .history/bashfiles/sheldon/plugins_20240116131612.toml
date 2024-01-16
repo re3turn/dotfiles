@@ -1,0 +1,30 @@
+shell = "zsh"
+
+[plugins]
+
+[plugins.ostype]
+inline = 'export OSTYPE=$(uname -s| tr \"\[:upper:\]\" \"\[:lower:\]\")'
+
+[plugins.aws_bash_completer]
+remote = "https://raw.githubusercontent.com/aws/aws-cli/v2/bin/aws_zsh_completer.sh"
+apply = ['source']
+
+#[plugins.dotfiles-common-sync]
+#local = '~/.dotfiles/bashfiles/common_sync'
+#use = ['*.bash']
+#apply = ['source']
+
+[plugins.dotfiles-common-defer]
+local = '~/.dotfiles/bashfiles/common_defer'
+use = ['*.bash']
+apply = ['source']
+
+[plugins.dotfiles-sync]
+local = '~/.dotfiles/bashfiles/sync'
+use = ['*.bash']
+apply = ['source']
+
+[plugins.dotfiles-defer]
+local = '~/.dotfiles/bashfiles/defer'
+use = ['*.bash']
+apply = ['source']
