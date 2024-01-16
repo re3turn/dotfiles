@@ -3,8 +3,9 @@ shell = "zsh"
 [plugins]
 
 [plugins.defer]
-github = "romkatv/zsh-defer"
 
+github = "romkatv/zsh-defer"
+proto = 'https'
 [templates]
 defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 
@@ -13,14 +14,27 @@ inline = 'export OSTYPE=$(uname -s| tr \"\[:upper:\]\" \"\[:lower:\]\")'
 
 [plugins.zsh-autosuggestions]
 github = 'zsh-users/zsh-autosuggestions'
+proto = 'https'
 apply = ['defer']
 
 [plugins.zsh-syntax-highlighting]
 github = 'zsh-users/zsh-syntax-highlighting'
+proto = 'https'
 apply = ['defer']
 
 [plugins.zsh-completions]
 github = 'zsh-users/zsh-completions'
+proto = 'https'
+apply = ['defer']
+
+[plugins.zsh-abbr]
+github = 'olets/zsh-abbr'
+proto = 'https'
+apply = ['defer']
+
+[plugins.zsh-replace-multiple-dots]
+github = 'momo-lab/zsh-replace-multiple-dots'
+proto = 'https'
 apply = ['defer']
 
 [plugins.aws_zsh_completer]
