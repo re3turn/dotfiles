@@ -34,7 +34,6 @@ case ${OSTYPE} in
     linux*)
         # if Linux OS
         export GOROOT="${HOME}/.go"
-        export PATH=/home/linuxbrew/.linuxbrew/bin:${PATH}
         ;;
 esac
 

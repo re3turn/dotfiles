@@ -5,15 +5,14 @@ SCRIPTDIR=$(cd $(dirname $0); pwd)
 SCRIPTNAME=${0##*/}
 CMD=${SCRIPTNAME%%.*}
 
-echo "#########################################"
-echo "# Install ${CMD}"
-echo "#########################################"
-
 case ${OSTYPE} in
     darwin* )
         # mac
+        echo "#########################################"
+        echo "# Install ${CMD}"
+        echo "#########################################"
         xcode-select --install
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
         echo "#########################################"
         echo "# Install GNU command"
@@ -31,8 +30,4 @@ case ${OSTYPE} in
                      gawk \
                      gzip
         ;;
-    linux* )
-        test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
-        sudo apt install -y build-essential procps curl file git
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 esac

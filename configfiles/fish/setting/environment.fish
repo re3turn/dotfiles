@@ -43,7 +43,6 @@ case 'darwin*'
     ;;
 case 'linux*'
     # if Linux OS
-    fish_add_path /home/linuxbrew/.linuxbrew/bin
     ;;
 end
 
