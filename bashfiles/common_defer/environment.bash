@@ -51,3 +51,5 @@ export GOPATH="${HOME}/go"
 # source-highlight
 export LESSOPEN="| ${HOME}/.dotfiles/bashfiles/command/script/source-highlight/${OSTYPE}/lesspipej.sh %s"
 export LESS="-j10 -R --no-init --quit-if-one-screen"
+
+export IGNOREEOF=10
