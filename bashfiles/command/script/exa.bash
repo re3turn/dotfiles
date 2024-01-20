@@ -16,7 +16,9 @@ case ${OSTYPE} in
         ;;
     linux* )
         # ubuntu
-        test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
-        sudo apt install -y ${CMD}
+        if ! (type cargo > /dev/null 2>&1); then
+            bash ${SCRIPTDIR}/cargo.bash
+        fi
+        cargo install ${CMD}
         ;;
 esac

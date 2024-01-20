@@ -36,3 +36,4 @@ EOF
 
 dot_main -c "${temp_config}" set --force --verbose
 
+bash bashfiles/command/install.bash
