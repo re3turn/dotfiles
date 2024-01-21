@@ -1,4 +1,4 @@
-export PATH=${HOME}/.cargo/bin:${HOME}/.nodebrew/current/bin:${HOME}/.go/bin:${HOME}/go/bin:${HOME}/.fzf/bin:${HOME}/.ghg/bin:${HOME}/ghg/bin:${HOME}/.pyenv/bin:${HOME}/.local/bin:$PATH
+export PATH=${HOME}/.cargo/bin:${HOME}/.nodebrew/current/bin:${HOME}/.fzf/bin:${HOME}/.ghg/bin:${HOME}/ghg/bin:${HOME}/.pyenv/bin:${HOME}/.local/bin:$PATH
 
 case ${OSTYPE} in
     darwin*)
@@ -34,6 +34,7 @@ case ${OSTYPE} in
     linux*)
         # if Linux OS
         export GOROOT="${HOME}/.go"
+        export PATH=${GOROOT}/bin:${PATH}
         ;;
 esac
 
@@ -47,6 +48,7 @@ fi
 
 # go
 export GOPATH="${HOME}/go"
+export PATH=${GOPATH}/bin:${PATH}
 
 # source-highlight
 export LESSOPEN="| ${HOME}/.dotfiles/bashfiles/command/script/source-highlight/${OSTYPE}/lesspipej.sh %s"
