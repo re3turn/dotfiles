@@ -50,9 +50,9 @@ xontrib load docker_tabcomplete
 
 # fzf
 xontrib load fzf-widgets
-$fzf_history_binding = Keys.ControlR
-$fzf_ssh_binding = Keys.ControlS
-$fzf_file_binding = Keys.ControlT
+$fzf_history_binding = 'c-r'
+$fzf_ssh_binding = 'c-s'
+$fzf_file_binding = 'c-t'
 
 # traceback
 xontrib load readable-traceback
@@ -60,7 +60,7 @@ $READABLE_TRACE_STRIP_PATH_ENV=True
 $READABLE_TRACE_REVERSE=True
 
 # powerline
-xontrib load powerline
+xontrib load powerline2
 
 #############################################
 # alias

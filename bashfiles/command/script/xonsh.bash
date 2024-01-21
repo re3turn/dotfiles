@@ -13,19 +13,21 @@ case ${OSTYPE} in
     darwin* )
         # mac
         brew install xonsh
-        xonsh -c "xpip install prompt_toolkit \
-                    Pygments \
-                    ProcTitle \
-                    gnureadline"
+        xonsh -c "xpip install prompt-toolkit \
+                    pygments \
+                    setproctitle \
+                    gnureadline \
+                    packaging"
         ;;
     linux* )
         # ubuntu
         test ${APT_UPDATE:-0} -eq 0 && APT_UPDATE=1; sudo apt update
         sudo apt-get install python3 python3-pip
         pip3 install --user xonsh \
-                    prompt_toolkit \
-                    Pygments \
-                    ProcTitle \
-                    gnureadline
+                    prompt-toolkit \
+                    pygments \
+                    setproctitle \
+                    gnureadline \
+                    packaging
         ;;
 esac
