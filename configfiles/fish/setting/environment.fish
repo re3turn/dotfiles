@@ -43,6 +43,8 @@ case 'darwin*'
     ;;
 case 'linux*'
     # if Linux OS
+    set -q GOROOT; or set -Ux GOROOT $HOME/.go
+    fish_add_path $GOROOT/bin
     ;;
 end
 
