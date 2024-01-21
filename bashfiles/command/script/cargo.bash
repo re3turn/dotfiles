@@ -23,7 +23,6 @@ case ${OSTYPE} in
         curl https://sh.rustup.rs -sSf | sh -s -- -y
         
         # cargo-binstall
-        curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-
-release.sh | bash
+        curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
         ;;
 esac
