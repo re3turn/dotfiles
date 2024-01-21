@@ -17,7 +17,7 @@ case ${OSTYPE} in
     linux* )
         # ubuntu
         if !(type curl > /dev/null 2>&1); then
-            test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
+            test ${APT_UPDATE:-0} -eq 0 && APT_UPDATE=1; sudo apt update
             sudo apt install -y curl
         fi
         curl https://sh.rustup.rs -sSf | sh -s -- -y

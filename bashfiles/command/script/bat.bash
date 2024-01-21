@@ -23,7 +23,7 @@ case ${OSTYPE} in
         # ubuntu
         DISTRIBUTION=$(judge_os_distribution)
         if [ "${DISTRIBUTION}" = "ubuntu" ]; then
-            test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
+            test ${APT_UPDATE:-0} -eq 0 && APT_UPDATE=1; sudo apt update
             sudo apt install -y ${CMD}
         else
             github_release_install "https://api.github.com/repos/sharkdp/bat/releases"

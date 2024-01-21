@@ -20,7 +20,7 @@ case ${OSTYPE} in
         ;;
     linux* )
         # ubuntu
-        test ${APT_UPDATE} -eq 0 && APT_UPDATE=1; sudo apt update
+        test ${APT_UPDATE:-0} -eq 0 && APT_UPDATE=1; sudo apt update
         sudo apt-get install python3 python3-pip
         pip3 install --user xonsh \
                     prompt_toolkit \
