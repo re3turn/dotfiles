@@ -16,8 +16,10 @@ fish_add_path $HOME/.fzf/bin
 
 # go
 set -q GOPATH; or set -Ux GOPATH $HOME/go
+set -q GOROOT; or set -Ux GOROOT $HOME/.go
 mkdir -p $GOPATH/bin
 fish_add_path $GOPATH/bin
+fish_add_path $GOROOT/bin
 
 # ghg
 if not command -s ghg > /dev/null
