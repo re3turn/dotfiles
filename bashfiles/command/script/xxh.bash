@@ -24,3 +24,4 @@ case ${OSTYPE} in
         ;;
 esac
 
+xxh +I xxh-plugin-fish-fisher
