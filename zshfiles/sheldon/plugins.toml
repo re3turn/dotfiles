@@ -35,10 +35,10 @@ apply = ['defer']
 remote = "https://raw.githubusercontent.com/aws/aws-cli/v2/bin/aws_zsh_completer.sh"
 apply = ['defer']
 
-#[plugins.dotfiles-common-sync]
-#local = '~/.dotfiles/bashfiles/common_sync'
-#use = ['*.bash']
-#apply = ['source']
+[plugins.dotfiles-common-sync]
+local = '~/.dotfiles/bashfiles/common_sync'
+use = ['*.bash']
+apply = ['source']
 
 [plugins.dotfiles-common-defer]
 local = '~/.dotfiles/bashfiles/common_defer'
