@@ -55,3 +55,12 @@ export LESSOPEN="| ${HOME}/.dotfiles/bashfiles/command/script/source-highlight/$
 export LESS="-j10 -R --no-init --quit-if-one-screen"
 
 export IGNOREEOF=10
+
+SHELL_LOCAL_DIR="${HOME}/.shell.local"
+mkdir -p ${SHELL_LOCAL_DIR}
+ls ${SHELL_LOCAL_DIR}/*.sh >/dev/null 2>&1
+if [ $? -eq 0 ]; then
+    for localShellFile in ${SHELL_LOCAL_DIR}/*.sh; do
+        source "${localShellFile}"
+    done
+fi

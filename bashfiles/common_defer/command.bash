@@ -35,12 +35,3 @@ eval $(thefuck --alias)
 
 # command install
 bash "${HOME}/.dotfiles/bashfiles/command/install.bash"
-
-SHELL_LOCAL_DIR="${HOME}/.shell.local"
-mkdir -p ${SHELL_LOCAL_DIR}
-ls "${SHELL_LOCAL_DIR}/*.sh" >/dev/null 2>&1
-if [ $? -eq 0 ]; then
-    for localShellFile in "${SHELL_LOCAL_DIR}/*.sh"; do
-        source "${localShellFile}"
-    done
-fi
