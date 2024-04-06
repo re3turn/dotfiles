@@ -26,8 +26,8 @@ case ${OSTYPE} in
         if !(type pipx > /dev/null 2>&1); then
           bash ${SCRIPTDIR}/pipx.bash
         fi
-        pipx install xonsh \
-                    prompt-toolkit \
+        pipx install xonsh
+        pipx inject xonsh prompt-toolkit \
                     pygments \
                     setproctitle \
                     gnureadline \
