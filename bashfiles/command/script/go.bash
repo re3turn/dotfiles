@@ -18,7 +18,7 @@ case ${OSTYPE} in
         # ubuntu
         export GOPATH=${HOME}/go
         export GOROOT=${HOME}/.go
-        curl -L https://git.io/vQhTU | bash
+        curl -L https://git.io/vQhTU | bash -s -- --version 1.22.2
         ;;
 esac
 
