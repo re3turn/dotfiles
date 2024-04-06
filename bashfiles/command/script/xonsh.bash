@@ -22,8 +22,11 @@ case ${OSTYPE} in
     linux* )
         # ubuntu
         test ${APT_UPDATE:-0} -eq 0 && APT_UPDATE=1; sudo apt update
-        sudo apt-get install python3 python3-pip
-        pip3 install --user xonsh \
+        sudo apt-get install python3
+        if !(type pipx > /dev/null 2>&1); then
+          bash ${SCRIPTDIR}/pipx.bash
+        fi
+        pipx install --user xonsh \
                     prompt-toolkit \
                     pygments \
                     setproctitle \

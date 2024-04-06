@@ -17,10 +17,7 @@ case ${OSTYPE} in
     linux* )
         # ubuntu
         test ${APT_UPDATE:-0} -eq 0 && APT_UPDATE=1; sudo apt update
-        if ! (type pip3 > /dev/null 2>&1); then
-            sudo apt install python3-pip
-        fi
-        pip3 install --user xxh-xxh
+        pipx install xxh-xxh
         ;;
 esac
 

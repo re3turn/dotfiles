@@ -12,14 +12,15 @@ echo "#########################################"
 case ${OSTYPE} in
     darwin* )
         # mac
-        brew install pipenv
+        brew install pipx 
         ;;
     linux* )
         # ubuntu
-        if !(type pipx > /dev/null 2>&1); then
-          bash ${SCRIPTDIR}/pipx.bash
-        fi
-        pipx install pipenv
+        test ${APT_UPDATE:-0} -eq 0 && APT_UPDATE=1; sudo apt update
+        sudo apt install -y pipx
         ;;
 esac
+
+pipx ensurepath
+sudo pipx ensurepath --global
 
