@@ -21,7 +21,7 @@ case ${OSTYPE} in
             sudo apt install -y curl
         fi
         curl https://sh.rustup.rs -sSf | sh -s -- -y
-        
+        PATH=${PATH}:~/.cargo/bin
         # cargo-binstall
         curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
         ;;
