@@ -26,7 +26,7 @@ case ${OSTYPE} in
         if !(type pipx > /dev/null 2>&1); then
           bash ${SCRIPTDIR}/pipx.bash
         fi
-        pipx install --user xonsh \
+        pipx install xonsh \
                     prompt-toolkit \
                     pygments \
                     setproctitle \
