@@ -4,7 +4,15 @@
     ignorecase = false
     autocrlf = false
     editor = vim
-    pager = delta --plus-style="syntax #012800" --minus-style="normal #340001" --theme='Solarized (light)'
+    pager = delta
+[delta]
+    diff-so-fancy=true
+    keep-plus-minus-markers=true
+    hunk-header-style="omit"
+    line-numbers=true
+    plus-style="syntax #012800"
+    minus-style="normal #340001"
+    theme='Solarized (light)'
 [interactive]
     diffFilter = delta --color-only
 [pager]
@@ -12,3 +20,20 @@
 
 #[url "git@github.com:"]
 #   insteadOf = https://github.com/
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
+[tag]
+	sort = version:refname
+[push]
+	default = simple
+	autoSetupRemote = true
+	followTags = true
+[commit]
+	verbose = true
+[merge]
+	conflictstyle = zdiff3
+[rerere]
+	enabled = true
+	autoupdate = true
