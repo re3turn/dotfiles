@@ -22,6 +22,7 @@ fishfiles/functions/fuck.fish,.config/fish/functions/fuck.fish
 fishfiles/functions/fzf_find_file.fish,.config/fish/functions/fzf_find_file.fish
 fishfiles/functions/multicd.fish,.config/fish/functions/multicd.fish
 fishfiles/functions/last_history_item.fish,.config/fish/functions/last_history_item.fish
+fishfiles/functions/fish_should_add_to_history.fish,.config/fish/functions/fish_should_add_to_history.fish
 fishfiles/completions/aws.fish,.config/fish/completions/aws.fish
 xonshfiles/.xonshrc,.xonshrc
 
