@@ -5,7 +5,7 @@ function fish_should_add_to_history
     contains $argv $commands; and return 1
 
     # 履歴に残したくないコマンド(引数あり)
-    set -l commandsWithArgs 'which' 'type' 'fbr' 'gcd' 'ycd' 'vpn'
+    set -l commandsWithArgs 'which' 'type' 'fbr' 'gcd' 'ycd'
 
     for c in $commandsWithArgs
         string match -q -r "^$c" $argv; and return 1
