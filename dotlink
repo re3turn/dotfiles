@@ -27,3 +27,4 @@ fishfiles/completions/aws.fish,.config/fish/completions/aws.fish
 xonshfiles/.xonshrc,.xonshrc
 
 iterm2,iterm2
+npmfiles/.npmrc,.npmrc
