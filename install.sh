@@ -36,4 +36,5 @@ EOF
 
 dot_main -c "${temp_config}" set --force --verbose
 
+PATH=$PATH:/opt/homebrew/bin
 bash bashfiles/command/install.bash
