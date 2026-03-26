@@ -64,3 +64,6 @@ if [ $? -eq 0 ]; then
         source "${localShellFile}"
     done
 fi
+
+# uv
+export UV_EXCLUDE_NEWER="3 days"

@@ -57,6 +57,9 @@ end
 # pipenv
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
+# uv
+set -x UV_EXCLUDE_NEWER "3 days"
+
 # theme option
 set -g theme_color_scheme dracula
 set -g theme_nerd_fonts yes
