@@ -5,6 +5,8 @@
     autocrlf = false
     editor = vim
     pager = delta
+    fsmonitor = true
+    untrackedCache = true
 [delta]
     diff-so-fancy=true
     keep-plus-minus-markers=true
