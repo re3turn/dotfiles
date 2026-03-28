@@ -8,7 +8,6 @@ configfiles/fzshell,.config/fzshell
 zshfiles/.zshrc,.zshrc
 zshfiles/dircolors,.dircolors
 ~/.config/nvim,.vim
-~/.config/nvim/init.vim,.vimrc
 bashfiles/.bashrc,.bashrc
 fishfiles/functions/fbr.fish,.config/fish/functions/fbr.fish
 fishfiles/functions/gcd.fish,.config/fish/functions/gcd.fish
