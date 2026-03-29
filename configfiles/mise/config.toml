@@ -1,0 +1,10 @@
+[tools]
+node = "25"
+
+[tools.go]
+version = "latest"
+go_default_packages = [
+  "github.com/nao1215/gup",
+  "github.com/toshimaru/nyan",
+  "github.com/oklog/ulid/v2/cmd/ulid",
+]
