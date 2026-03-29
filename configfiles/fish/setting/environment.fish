@@ -54,6 +54,14 @@ else
     set -U EDITOR vim
 end
 
+# Load local shell scripts via bass
+set -l SHELL_LOCAL_DIR $HOME/.shell.local
+if test -d $SHELL_LOCAL_DIR
+    for f in $SHELL_LOCAL_DIR/*.sh
+        bass source "$f"
+    end
+end
+
 # uv
 set -x UV_EXCLUDE_NEWER "7 days"
 
