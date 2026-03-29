@@ -13,17 +13,9 @@ export DOT_DIR="${HOME}/.dotfiles"
 fpath=(${HOME}/.dot ${fpath})
 source ${HOME}/.dot/dot.sh
 
-# pyenv
-command type -p pyenv > /dev/null 2>&1
-if [ $? -eq 1 ]; then
-    PATH=${HOME}/.pyenv/bin:${PATH}
-fi
-command type -p pyenv > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    export PYENV_ROOT="${HOME}/.pyenv"
-    if [ "$(uname -s)" != "Darwin" ]; then
-        eval "$(pyenv init -)"
-    fi
+# mise
+if command type -p mise > /dev/null 2>&1; then
+    eval "$(mise activate bash)"
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

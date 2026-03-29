@@ -4,6 +4,7 @@ set -u
 SCRIPTDIR=$(cd $(dirname $0); pwd)
 SCRIPTNAME=${0##*/}
 CMD=${SCRIPTNAME%%.*}
+source ${SCRIPTDIR}/../common/common.bash
 
 echo "#########################################"
 echo "# Install ${CMD}"
@@ -12,17 +13,10 @@ echo "#########################################"
 case ${OSTYPE} in
     darwin* )
         # mac
-        brew install nodebrew
-        nodebrew setup
+        brew install ${CMD}
         ;;
     linux* )
         # ubuntu
-        wget git.io/nodebrew
-        perl nodebrew setup
-        rm -f nodebrew
+        curl https://mise.run | sh
         ;;
 esac
-
-nodebrew install-binary latest
-nodebrew use latest
-

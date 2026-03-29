@@ -42,9 +42,9 @@ brew "tree"
 
 # Languages & Package managers
 brew "go"
+brew "mise"
 brew "rust"
 brew "python@3.14"
-brew "pyenv"
 brew "pnpm"
 
 # Security

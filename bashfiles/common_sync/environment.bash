@@ -1,4 +1,4 @@
-export PATH=${HOME}/.cargo/bin:${HOME}/.nodebrew/current/bin:${HOME}/.fzf/bin:${HOME}/.ghg/bin:${HOME}/ghg/bin:${HOME}/.pyenv/bin:${HOME}/.local/bin:$PATH
+export PATH=${HOME}/.cargo/bin:${HOME}/.fzf/bin:${HOME}/.ghg/bin:${HOME}/ghg/bin:${HOME}/.local/bin:$PATH
 
 case ${OSTYPE} in
     darwin*)
