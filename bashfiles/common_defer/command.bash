@@ -6,12 +6,6 @@ export FZF_DEFAULT_OPTS="--height 80% --reverse --border"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
 
-# dot
-# # dot setting
-export DOT_REPO="https://github.com/re3turn/dotfiles.git"
-export DOT_DIR="${HOME}/.dotfiles"
-fpath=(${HOME}/.dot ${fpath})
-source ${HOME}/.dot/dot.sh
 
 # mise
 if command type -p mise > /dev/null 2>&1; then
@@ -24,6 +18,3 @@ export SDKMAN_DIR="${HOME}/.sdkman"
 
 # the fuck
 eval $(thefuck --alias)
-
-# command install
-bash "${HOME}/.dotfiles/bashfiles/command/install.bash"

@@ -3,7 +3,6 @@ jorgebucaran/fishtape
 laughedelic/fishkit
 jethrokuan/z
 decors/fish-ghq
-re3turn/fish-dot
 re3turn/fish-pip-completion
 re3turn/fish-await
 re3turn/fish-get
@@ -14,4 +13,3 @@ mnowotnik/fzshell
 halostatue/fish-direnv
 reitzig/sdkman-for-fish
 otms61/fish-pet
-fisherman/fzf

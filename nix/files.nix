@@ -16,7 +16,6 @@ in
   home.file.".vim".source = link "configfiles/nvim";
 
   # XDG config
-  xdg.configFile."dot".source = link "configfiles/dot";
   xdg.configFile."nvim".source = link "configfiles/nvim";
   xdg.configFile."ftplugin".source = link "configfiles/ftplugin";
   xdg.configFile."fzshell".source = link "configfiles/fzshell";

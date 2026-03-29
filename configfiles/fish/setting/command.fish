@@ -32,10 +32,6 @@ if not command -s ghq > /dev/null
     ghg get motemen/ghq
 end
 
-# dot
-set -q DOT_REPO; or set -U DOT_REPO https://github.com/re3turn/dotfiles.git
-set -q DOT_DIR; or set -U DOT_DIR $HOME/.dotfiles
-set -q DOT_SRC; or set -U DOT_SCR $HOME/.dot
 
 # mise
 if command -s mise > /dev/null
