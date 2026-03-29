@@ -1,26 +1,44 @@
 # dotfiles
 
-## Requirement
+Managed with [Nix](https://nixos.org/) + [Home Manager](https://github.com/nix-community/home-manager).
 
-- bash
-- git
-- sudo
+## Requirements
+
+- [Nix](https://install.determinate.systems/nix) (Determinate Systems installer recommended)
 
 ## Install
 
-```
+```bash
+# Install Nix
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+
+# Clone dotfiles
 git clone https://github.com/re3turn/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-bash install.sh
+
+# Apply Home Manager configuration
+nix run home-manager -- switch --flake .#aarch64-darwin --impure
+```
+
+Replace `aarch64-darwin` with your system:
+- `aarch64-darwin` — macOS (Apple Silicon)
+- `x86_64-linux` — Linux (x86_64)
+- `aarch64-linux` — Linux (ARM64)
+
+## Update
+
+```bash
+cd ~/.dotfiles
+nix flake update
+nix run home-manager -- switch --flake .#aarch64-darwin --impure
 ```
 
 ## gitconfig
 
-Add the following to `~/.gitconfig.local`
+Add the following to `~/.gitconfig.local`:
 
 ```
 [user]
     name = YOUR_NAME
     email = YOUR_EMAIL
 ```
-
