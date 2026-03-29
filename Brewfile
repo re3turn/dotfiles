@@ -1,20 +1,6 @@
 tap "d-kuro/tap"
 
-# Shell
-brew "bash"
-brew "fish"
-brew "sheldon"
-brew "starship"
-brew "thefuck"
-
-# Git
-brew "git"
-brew "git-delta"
-brew "gh"
-brew "tig"
-brew "d-kuro/tap/gwq"
-
-# GNU tools
+# GNU tools (macOS only - replaces BSD tools)
 brew "binutils"
 brew "coreutils"
 brew "diffutils"
@@ -28,48 +14,16 @@ brew "grep"
 brew "gzip"
 brew "moreutils"
 
-# Editor
-brew "neovim"
-
-# Search & File
-brew "bat"
-brew "eza"
-brew "fd"
-brew "fzf"
-brew "hexyl"
-brew "ripgrep"
-brew "tree"
-
-# Languages & Package managers
+# Languages (managed outside Nix)
 brew "go"
-brew "mise"
 brew "rust"
 brew "python@3.14"
-brew "pnpm"
 
-# Security
-brew "grype"
-brew "syft"
-brew "trivy"
-
-# CLI tools
-brew "awscli"
+# macOS specific
 brew "cask"
-brew "colordiff"
-brew "curl"
-brew "jid"
-brew "jq"
-brew "less"
-brew "nkf"
-brew "pet"
 brew "powershell"
-brew "procs"
-brew "source-highlight"
-brew "sqlite"
 brew "tfenv"
-brew "wget"
-brew "xxh"
-brew "zellij"
+brew "d-kuro/tap/gwq"
 
 # Casks
 cask "claude"
@@ -96,8 +50,6 @@ cask "windows-app"
 cask "wireshark-app"
 
 # Go tools
-go "github.com/Songmu/ghg/cmd/ghg"
-go "github.com/x-motemen/ghq"
 go "github.com/nao1215/gup"
 go "github.com/toshimaru/nyan"
 go "github.com/oklog/ulid/v2/cmd/ulid"

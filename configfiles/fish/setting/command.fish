@@ -19,18 +19,6 @@ set -q GOPATH; or set -Ux GOPATH $HOME/go
 mkdir -p $GOPATH/bin
 fish_add_path $GOPATH/bin
 
-# ghg
-if not command -s ghg > /dev/null
-    echo "install ghg"
-    go install github.com/Songmu/ghg/cmd/ghg@latest
-end
-mkdir -p (ghg bin)
-fish_add_path (ghg bin)
-
-# ghq
-if not command -s ghq > /dev/null
-    ghg get motemen/ghq
-end
 
 
 # mise

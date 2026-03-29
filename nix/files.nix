@@ -37,7 +37,6 @@ in
   xdg.configFile."fish/functions/vim.fish".source = link "fishfiles/functions/vim.fish";
   xdg.configFile."fish/functions/fish_user_key_bindings.fish".source = link "fishfiles/functions/fish_user_key_bindings.fish";
   xdg.configFile."fish/functions/fed.fish".source = link "fishfiles/functions/fed.fish";
-  xdg.configFile."fish/functions/fuck.fish".source = link "fishfiles/functions/fuck.fish";
   xdg.configFile."fish/functions/fzf_find_file.fish".source = link "fishfiles/functions/fzf_find_file.fish";
   xdg.configFile."fish/functions/multicd.fish".source = link "fishfiles/functions/multicd.fish";
   xdg.configFile."fish/functions/last_history_item.fish".source = link "fishfiles/functions/last_history_item.fish";

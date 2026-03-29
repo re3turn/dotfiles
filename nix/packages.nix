@@ -3,32 +3,53 @@
 {
   home.packages = with pkgs; [
     # Shell
+    bash
     fish
     sheldon
     starship
 
-    # Git (package managed by programs.git)
+    # Git
+    git
+    delta
     gh
+    ghq
     tig
+
+    # Editor
+    neovim
 
     # Search & File
     bat
     eza
     fd
     fzf
+    hexyl
     ripgrep
     tree
 
-    # CLI tools
-    jq
-    jid
-    curl
-    wget
-    hexyl
-    procs
-    colordiff
+    # Languages & Package managers
+    mise
+    pnpm
 
-    # Editor
-    neovim
+    # Security
+    grype
+    syft
+    trivy
+
+    # CLI tools
+    awscli2
+    colordiff
+    curl
+    jid
+    jq
+    less
+    nkf
+    pet
+    procs
+    sourceHighlight
+    sqlite
+    wget
+    xxh
+    zellij
   ];
 }
