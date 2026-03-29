@@ -66,4 +66,4 @@ if [ $? -eq 0 ]; then
 fi
 
 # uv
-export UV_EXCLUDE_NEWER="3 days"
+export UV_EXCLUDE_NEWER="7 days"

@@ -54,11 +54,8 @@ else
     set -U EDITOR vim
 end
 
-# pipenv
-set -x VIRTUAL_ENV_DISABLE_PROMPT 1
-
 # uv
-set -x UV_EXCLUDE_NEWER "3 days"
+set -x UV_EXCLUDE_NEWER "7 days"
 
 # theme option
 set -g theme_color_scheme dracula
