@@ -15,7 +15,6 @@ brew "gzip"
 brew "moreutils"
 
 # Languages (managed outside Nix)
-brew "go"
 brew "rust"
 brew "python@3.14"
 
@@ -48,8 +47,3 @@ cask "the-unarchiver"
 cask "visual-studio-code"
 cask "windows-app"
 cask "wireshark-app"
-
-# Go tools
-go "github.com/nao1215/gup"
-go "github.com/toshimaru/nyan"
-go "github.com/oklog/ulid/v2/cmd/ulid"
