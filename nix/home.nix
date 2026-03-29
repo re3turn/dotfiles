@@ -6,6 +6,7 @@ let
 in
 {
   imports = [
+    ./files.nix
     ./git.nix
     ./packages.nix
   ];
