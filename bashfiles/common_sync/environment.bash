@@ -1,4 +1,4 @@
-export PATH=${HOME}/.cargo/bin:${HOME}/.fzf/bin:${HOME}/.local/bin:$PATH
+export PATH=${HOME}/.nix-profile/bin:${HOME}/.cargo/bin:${HOME}/.fzf/bin:${HOME}/.local/bin:$PATH
 
 case ${OSTYPE} in
     darwin*)

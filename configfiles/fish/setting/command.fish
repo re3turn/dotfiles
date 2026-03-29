@@ -1,3 +1,4 @@
+fish_add_path $HOME/.nix-profile/bin
 fish_add_path $HOME/.local/bin
 
 # Fisher
