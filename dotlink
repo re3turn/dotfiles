@@ -24,5 +24,6 @@ fishfiles/functions/last_history_item.fish,.config/fish/functions/last_history_i
 fishfiles/functions/fish_should_add_to_history.fish,.config/fish/functions/fish_should_add_to_history.fish
 fishfiles/completions/aws.fish,.config/fish/completions/aws.fish
 
+configfiles/ghostty,.config/ghostty
 iterm2,iterm2
 npmfiles/.npmrc,.npmrc

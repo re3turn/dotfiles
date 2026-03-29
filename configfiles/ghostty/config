@@ -1,0 +1,11 @@
+shell-integration = fish
+font-family = "HackGen Console NF"
+font-size = "15"
+scrollback-limit = 100000000
+cursor-style = "block"
+cursor-style-blink = true
+cursor-color = "#cece00"
+window-save-state = "always"
+keybind = shift+enter=text:\n
+unfocused-split-opacity = 0.30
+command = /opt/homebrew/bin/fish
