@@ -4,6 +4,7 @@ tap "d-kuro/tap"
 brew "bash"
 brew "fish"
 brew "sheldon"
+brew "starship"
 brew "thefuck"
 
 # Git

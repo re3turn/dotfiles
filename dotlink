@@ -25,5 +25,6 @@ fishfiles/functions/fish_should_add_to_history.fish,.config/fish/functions/fish_
 fishfiles/completions/aws.fish,.config/fish/completions/aws.fish
 
 configfiles/ghostty,.config/ghostty
+configfiles/starship.toml,.config/starship.toml
 iterm2,iterm2
 npmfiles/.npmrc,.npmrc

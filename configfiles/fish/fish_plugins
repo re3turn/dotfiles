@@ -1,7 +1,6 @@
 jorgebucaran/getopts.fish
 jorgebucaran/fishtape
 laughedelic/fishkit
-jethrokuan/fzf
 jethrokuan/z
 decors/fish-ghq
 re3turn/fish-dot
@@ -11,8 +10,8 @@ re3turn/fish-get
 re3turn/fish-git-util
 re3turn/fish-last-job-id
 edc/bass
-oh-my-fish/theme-bobthefish
 mnowotnik/fzshell
 halostatue/fish-direnv
 reitzig/sdkman-for-fish
 otms61/fish-pet
+fisherman/fzf

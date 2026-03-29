@@ -65,8 +65,3 @@ end
 # uv
 set -x UV_EXCLUDE_NEWER "7 days"
 
-# theme option
-set -g theme_color_scheme dracula
-set -g theme_nerd_fonts yes
-set -g theme_newline_cursor yes
-set -g theme_display_aws_vault_profile yes
