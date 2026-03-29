@@ -5,6 +5,7 @@ Managed with [Nix](https://nixos.org/) + [Home Manager](https://github.com/nix-c
 ## Requirements
 
 - [Nix](https://install.determinate.systems/nix) (Determinate Systems installer recommended)
+- [Homebrew](https://brew.sh/) (macOS only — for GNU tools, casks, and languages)
 
 ## Install
 
@@ -12,12 +13,18 @@ Managed with [Nix](https://nixos.org/) + [Home Manager](https://github.com/nix-c
 # Install Nix
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 
+# Install Homebrew (macOS only)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 # Clone dotfiles
 git clone https://github.com/re3turn/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 # Apply Home Manager configuration
 nix run home-manager -- switch --flake .#aarch64-darwin --impure
+
+# Install Homebrew packages (macOS only)
+brew bundle
 ```
 
 Replace `aarch64-darwin` with your system:
