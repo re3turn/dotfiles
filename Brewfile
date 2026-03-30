@@ -14,9 +14,6 @@ brew "grep"
 brew "gzip"
 brew "moreutils"
 
-# Languages (managed outside Nix)
-brew "rust"
-brew "python@3.14"
 
 # macOS specific
 brew "cask"

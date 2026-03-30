@@ -1,5 +1,7 @@
 [tools]
 node = "25"
+python = "latest"
+rust = "latest"
 
 [tools.go]
 version = "latest"
