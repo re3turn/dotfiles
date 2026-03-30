@@ -38,7 +38,7 @@ add_newline = false
 
 [character]
 success_symbol = "[❯](fg:#50fa7b)"
-error_symbol = "[❯](fg:#ff5555)"
+error_symbol = "[ ! ](bg:#ff5555 fg:#f8f8f2)[](fg:#ff5555)"
 
 [env_var.STARSHIP_SHELL]
 style = "fg:#f8f8f2 bg:#6272a4"
