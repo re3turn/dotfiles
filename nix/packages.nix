@@ -37,6 +37,7 @@
     trivy
 
     # CLI tools
+    azure-cli
     awscli2
     colordiff
     curl
