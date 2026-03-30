@@ -26,7 +26,7 @@ in
   # Fish config (individual files, not the whole directory)
   xdg.configFile."fish/config.fish".source = link "configfiles/fish/config.fish";
   xdg.configFile."fish/fish_plugins".source = link "configfiles/fish/fish_plugins";
-  xdg.configFile."fish/conf.d/fzf.fish".source = link "configfiles/fish/conf.d/fzf.fish";
+  xdg.configFile."fish/conf.d/fzf-custom.fish".source = link "configfiles/fish/conf.d/fzf-custom.fish";
   xdg.configFile."fish/setting".source = link "configfiles/fish/setting";
 
   # Fish functions (custom only)
