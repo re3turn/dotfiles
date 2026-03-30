@@ -25,6 +25,9 @@ nix run home-manager -- switch --flake .#aarch64-darwin --impure
 
 # Install Homebrew packages (macOS only)
 brew bundle
+
+# Install languages and tools via mise (Go, Node, Python, Rust)
+mise install
 ```
 
 Replace `aarch64-darwin` with your system:
