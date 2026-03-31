@@ -43,6 +43,7 @@ in
   xdg.configFile."fish/functions/last_history_item.fish".source = link "fishfiles/functions/last_history_item.fish";
   xdg.configFile."fish/functions/fish_should_add_to_history.fish".source = link "fishfiles/functions/fish_should_add_to_history.fish";
   xdg.configFile."fish/functions/nix-update-cooldown.fish".source = link "fishfiles/functions/nix-update-cooldown.fish";
+  xdg.configFile."fish/functions/gifit.fish".source = link "fishfiles/functions/gifit.fish";
 
   # Fish completions
   xdg.configFile."fish/completions/aws.fish".source = link "fishfiles/completions/aws.fish";
