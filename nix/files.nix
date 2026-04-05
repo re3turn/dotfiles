@@ -19,7 +19,9 @@ in
   xdg.configFile."nvim".source = link "configfiles/nvim";
   xdg.configFile."ftplugin".source = link "configfiles/ftplugin";
   xdg.configFile."fzshell".source = link "configfiles/fzshell";
-  xdg.configFile."ghostty".source = link "configfiles/ghostty";
+  xdg.configFile."ghostty" = lib.mkIf pkgs.stdenv.isDarwin {
+    source = link "configfiles/ghostty";
+  };
   xdg.configFile."mise/config.toml".source = link "configfiles/mise/config.toml";
   xdg.configFile."starship.toml".source = link "configfiles/starship.toml";
 
