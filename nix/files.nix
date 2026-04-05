@@ -46,6 +46,7 @@ in
   xdg.configFile."fish/functions/fish_should_add_to_history.fish".source = link "fishfiles/functions/fish_should_add_to_history.fish";
   xdg.configFile."fish/functions/nix-update-cooldown.fish".source = link "fishfiles/functions/nix-update-cooldown.fish";
   xdg.configFile."fish/functions/nix-home-switch.fish".source = link "fishfiles/functions/nix-home-switch.fish";
+  xdg.configFile."fish/functions/nix-gc.fish".source = link "fishfiles/functions/nix-gc.fish";
   xdg.configFile."fish/functions/gifit.fish".source = link "fishfiles/functions/gifit.fish";
 
   # Fish completions
