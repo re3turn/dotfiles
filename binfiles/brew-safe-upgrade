@@ -1,0 +1,284 @@
+#!/bin/bash
+set -euo pipefail
+
+# brew-safe-upgrade: Only upgrade packages that have matured past a waiting period
+# Usage: brew-safe-upgrade [--dry-run] [--force] [package ...]
+# Env:   PACKAGE_MATURITY_DAYS (default: 7)
+#        BREW_SAFE_UPGRADE_PARALLEL (default: 8)
+
+MATURITY_DAYS="${PACKAGE_MATURITY_DAYS:-7}"
+MAX_PARALLEL="${BREW_SAFE_UPGRADE_PARALLEL:-8}"
+DRY_RUN=false
+FORCE=false
+
+# ── Argument parsing (position-independent) ──
+PKGS_ARG=()
+for arg in "$@"; do
+  case "$arg" in
+    --dry-run) DRY_RUN=true ;;
+    --force|-f) FORCE=true ;;
+    -h|--help)
+      echo "Usage: brew-safe-upgrade [--dry-run] [--force] [package ...]"
+      echo "  --dry-run   Show targets without upgrading"
+      echo "  --force,-f  Skip maturity check and upgrade all"
+      echo "Env:   PACKAGE_MATURITY_DAYS (default: 7)"
+      exit 0 ;;
+    -*) echo "Error: unknown option: $arg" >&2; exit 1 ;;
+    *) PKGS_ARG+=("$arg") ;;
+  esac
+done
+
+# ── Prerequisites ──
+for cmd in gh jq brew; do
+  command -v "$cmd" &>/dev/null || { echo "Error: ${cmd} is required" >&2; exit 1; }
+done
+gh auth status &>/dev/null || { echo "Error: run 'gh auth login' first" >&2; exit 1; }
+
+# ── Cache (TTL: 1 hour) ──
+CACHE_DIR="${TMPDIR:-/tmp}/brew-safe-upgrade"
+CACHE_TTL=3600
+mkdir -p "$CACHE_DIR"
+
+file_mtime() {
+  if stat --version &>/dev/null; then
+    stat -c %Y "$1"   # GNU
+  else
+    stat -f %m "$1"   # BSD
+  fi
+}
+
+cache_get() {
+  local f="${CACHE_DIR}/$1"
+  if [[ -f "$f" ]]; then
+    local age=$(( $(date +%s) - $(file_mtime "$f") ))
+    if [[ $age -lt $CACHE_TTL ]]; then
+      cat "$f"
+      return 0
+    fi
+  fi
+  return 1
+}
+cache_set() { printf '%s' "$2" > "${CACHE_DIR}/$1"; }
+
+# ── Temp directory & cleanup ──
+WORK_DIR=$(mktemp -d)
+trap 'rm -rf "$WORK_DIR"' EXIT INT TERM
+
+# ── ISO 8601 → UNIX timestamp ──
+to_epoch() {
+  local d="$1"
+  if date --version &>/dev/null; then
+    # GNU date
+    date -d "$d" +%s 2>/dev/null
+  else
+    # BSD date (macOS default)
+    d="${d%%.*}"; d="${d%%Z}"; d="${d%%+00:00}"
+    date -j -f "%Y-%m-%dT%H:%M:%S" "$d" +%s 2>/dev/null
+  fi
+}
+
+# ── Check maturity of a single package ──
+check_pkg() {
+  local pkg="$1" is_cask="$2"
+  local out="${WORK_DIR}/${pkg}.result"
+  local cache_key="${pkg}_${is_cask}"
+  local version="" commit_date=""
+
+  # Cache hit
+  local cached
+  if cached=$(cache_get "$cache_key" 2>/dev/null); then
+    echo "$cached" > "$out"
+    return
+  fi
+
+  local api_file="${WORK_DIR}/${pkg}.api.json"
+
+  if [[ "$is_cask" == "true" ]]; then
+    curl -sf "https://formulae.brew.sh/api/cask/${pkg}.json" > "$api_file" || true
+    if [[ -s "$api_file" ]]; then
+      version=$(jq -r '.version // "?"' "$api_file")
+    fi
+    # Find cask path via code search, fallback to single-char prefix
+    local cask_path
+    cask_path=$(gh search code "$pkg" --repo Homebrew/homebrew-cask --filename "${pkg}.rb" \
+      --json path --jq '.[0].path' 2>/dev/null) || cask_path=""
+    if [[ -z "$cask_path" ]]; then
+      cask_path="Casks/${pkg:0:1}/${pkg}.rb"
+    fi
+    commit_date=$(gh api --method GET "repos/Homebrew/homebrew-cask/commits" \
+      -f "path=${cask_path}" -f per_page=1 \
+      --jq '.[0].commit.committer.date // empty' 2>/dev/null) || commit_date=""
+  else
+    curl -sf "https://formulae.brew.sh/api/formula/${pkg}.json" > "$api_file" || true
+    if [[ -s "$api_file" ]]; then
+      version=$(jq -r '.versions.stable // "?"' "$api_file")
+      commit_date=$(jq -r '.versions_updated_at // empty' "$api_file")
+    fi
+    # Fallback: find formula path via code search, then get commit date
+    if [[ -z "$commit_date" ]]; then
+      local formula_path
+      formula_path=$(gh search code "$pkg" --repo Homebrew/homebrew-core --filename "${pkg}.rb" \
+        --json path --jq '.[0].path' 2>/dev/null) || formula_path=""
+      if [[ -z "$formula_path" ]]; then
+        formula_path="Formula/${pkg:0:1}/${pkg}.rb"
+      fi
+      commit_date=$(gh api --method GET "repos/Homebrew/homebrew-core/commits" \
+        -f "path=${formula_path}" -f per_page=1 \
+        --jq '.[0].commit.committer.date // empty' 2>/dev/null) || commit_date=""
+    fi
+  fi
+
+  if [[ -z "$commit_date" ]]; then
+    printf 'ERROR\t%s\tFailed to get release date' "$pkg" > "$out"
+    return
+  fi
+
+  local ts
+  ts=$(to_epoch "$commit_date")
+  if [[ -z "$ts" ]]; then
+    printf 'ERROR\t%s\tFailed to parse date' "$pkg" > "$out"
+    return
+  fi
+
+  local age=$(( ($(date +%s) - ts) / 86400 ))
+  local result
+  result=$(printf 'OK\t%s\t%s\t%d\t%s' "$pkg" "$version" "$age" "$is_cask")
+  cache_set "$cache_key" "$result"
+  echo "$result" > "$out"
+}
+
+# ══════════════════ Main ══════════════════
+
+if $FORCE; then
+  echo "=== brew-safe-upgrade (--force: skip maturity check) ==="
+else
+  echo "=== brew-safe-upgrade (maturity: ${MATURITY_DAYS} days) ==="
+fi
+echo ""
+
+# Rate limit check
+rate=$(gh api rate_limit --jq '.rate.remaining')
+echo "GitHub API remaining: ${rate} requests"
+if [[ $rate -lt 10 ]]; then
+  reset_ts=$(gh api rate_limit --jq '.rate.reset')
+  if date --version &>/dev/null; then
+    reset_fmt=$(date -d "@${reset_ts}" '+%H:%M')
+  else
+    reset_fmt=$(date -j -f %s "$reset_ts" '+%H:%M')
+  fi
+  echo "Error: GitHub API rate limit nearly exhausted (resets at ${reset_fmt})" >&2
+  exit 1
+fi
+echo ""
+
+echo "Updating formulae..."
+brew update --quiet
+
+# ── Collect target packages ──
+ENTRIES=()
+if [[ ${#PKGS_ARG[@]} -gt 0 ]]; then
+  for pkg in "${PKGS_ARG[@]}"; do
+    if brew info --cask "$pkg" &>/dev/null; then
+      ENTRIES+=("cask:${pkg}")
+    else
+      ENTRIES+=("formula:${pkg}")
+    fi
+  done
+else
+  while IFS= read -r pkg; do
+    [[ -n "$pkg" ]] && ENTRIES+=("formula:${pkg}")
+  done < <(brew outdated --formula --quiet 2>/dev/null)
+  while IFS= read -r pkg; do
+    [[ -n "$pkg" ]] && ENTRIES+=("cask:${pkg}")
+  done < <(brew outdated --cask --quiet 2>/dev/null)
+fi
+
+if [[ ${#ENTRIES[@]} -eq 0 ]]; then
+  echo "No packages to upgrade."
+  exit 0
+fi
+
+echo "Checking ${#ENTRIES[@]} package(s)..."
+echo ""
+
+# ── Parallel maturity check (batch) ──
+jobs_running=0
+for entry in "${ENTRIES[@]}"; do
+  pkg="${entry#*:}"
+  is_cask=$([[ "${entry%%:*}" == "cask" ]] && echo true || echo false)
+
+  check_pkg "$pkg" "$is_cask" &
+  jobs_running=$((jobs_running + 1))
+
+  if [[ $jobs_running -ge $MAX_PARALLEL ]]; then
+    wait || true
+    jobs_running=0
+  fi
+done
+wait || true
+
+# ── Collect results ──
+UPGRADE=()
+UPGRADE_CASK=()
+SKIP=()
+
+for entry in "${ENTRIES[@]}"; do
+  pkg="${entry#*:}"
+  f="${WORK_DIR}/${pkg}.result"
+
+  if [[ ! -f "$f" ]]; then
+    echo "  ⚠ ${pkg}: no result -> skip"
+    SKIP+=("$pkg")
+    continue
+  fi
+
+  IFS=$'\t' read -r status _ < "$f"
+
+  if [[ "$status" == "ERROR" ]]; then
+    IFS=$'\t' read -r _ epkg emsg < "$f"
+    echo "  ⚠ ${epkg}: ${emsg} -> skip"
+    SKIP+=("$epkg")
+    continue
+  fi
+
+  IFS=$'\t' read -r _ rpkg ver age is_cask < "$f"
+
+  if $FORCE || [[ $age -ge $MATURITY_DAYS ]]; then
+    if $FORCE && [[ $age -lt $MATURITY_DAYS ]]; then
+      echo "  ⚡ ${rpkg}: ${ver} (${age}d old) -> force upgrade"
+    else
+      echo "  ✓ ${rpkg}: ${ver} (${age}d old) -> upgrade"
+    fi
+    if [[ "$is_cask" == "true" ]]; then
+      UPGRADE_CASK+=("$rpkg")
+    else
+      UPGRADE+=("$rpkg")
+    fi
+  else
+    echo "  ✗ ${rpkg}: ${ver} (${age}d old) -> waiting ($((MATURITY_DAYS - age))d left)"
+    SKIP+=("$rpkg")
+  fi
+done
+
+total=$(( ${#UPGRADE[@]} + ${#UPGRADE_CASK[@]} ))
+
+echo ""
+echo "=== Result ==="
+echo "Upgrade: ${total}"
+echo "Skip: ${#SKIP[@]}"
+
+if [[ $total -gt 0 ]]; then
+  if $DRY_RUN; then
+    echo ""
+    echo "[dry-run] The following would be upgraded:"
+    if [[ ${#UPGRADE[@]} -gt 0 ]]; then printf '  %s\n' "${UPGRADE[@]}"; fi
+    if [[ ${#UPGRADE_CASK[@]} -gt 0 ]]; then printf '  %s (cask)\n' "${UPGRADE_CASK[@]}"; fi
+  else
+    echo ""
+    echo "Upgrading..."
+    if [[ ${#UPGRADE[@]} -gt 0 ]]; then brew upgrade "${UPGRADE[@]}"; fi
+    if [[ ${#UPGRADE_CASK[@]} -gt 0 ]]; then brew upgrade --cask "${UPGRADE_CASK[@]}"; fi
+    echo ""
+    echo "Done!"
+  fi
+fi

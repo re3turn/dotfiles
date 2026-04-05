@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   dotdir = "${config.home.homeDirectory}/.dotfiles";
@@ -47,4 +47,9 @@ in
 
   # Fish completions
   xdg.configFile."fish/completions/aws.fish".source = link "fishfiles/completions/aws.fish";
+
+  # macOS-only scripts
+  home.file.".local/bin/brew-safe-upgrade" = lib.mkIf pkgs.stdenv.isDarwin {
+    source = link "binfiles/brew-safe-upgrade";
+  };
 }
