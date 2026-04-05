@@ -6,10 +6,17 @@ function nix-update-cooldown --description "Update nixpkgs flake input to a comm
         set days $argv[1]
     end
 
-    set -l until_date (date -u -v-{$days}d +%Y-%m-%dT%H:%M:%SZ)
+    set -l until_date
+    if date --version >/dev/null 2>&1
+        # GNU date
+        set until_date (date -u -d "$days days ago" +%Y-%m-%dT%H:%M:%SZ)
+    else
+        # BSD date (macOS default)
+        set until_date (date -u -v-{$days}d +%Y-%m-%dT%H:%M:%SZ)
+    end
     echo "Fetching nixpkgs-unstable commit from $days days ago ($until_date)..."
 
-    set -l commit (gh api repos/nixos/nixpkgs/commits \
+    set -l commit (gh api --method GET repos/NixOS/nixpkgs/commits \
         -f sha=nixpkgs-unstable \
         -f "until=$until_date" \
         -f per_page=1 \
@@ -21,9 +28,8 @@ function nix-update-cooldown --description "Update nixpkgs flake input to a comm
     end
 
     echo "Updating flake.lock to nixpkgs commit: $commit"
-    nix flake lock --override-input nixpkgs "github:nixos/nixpkgs/$commit" --flake "$flake_dir"; or return 1
+    nix flake lock --override-input nixpkgs "github:nixos/nixpkgs/$commit" "$flake_dir"; or return 1
 
-    set -l system (nix eval --impure --raw --expr 'builtins.currentSystem')
     echo "Applying home-manager configuration..."
-    home-manager switch --flake "$flake_dir#$system" --impure
+    nix-home-switch
 end
