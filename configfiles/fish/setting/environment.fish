@@ -65,3 +65,6 @@ end
 # uv
 set -x UV_EXCLUDE_NEWER "7 days"
 
+# pnpm
+set -x PNPM_HOME $HOME/Library/pnpm
+fish_add_path $PNPM_HOME
