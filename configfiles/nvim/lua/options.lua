@@ -19,6 +19,17 @@ opt.whichwrap = "b,s,h,l,<,>,[,],~"
 opt.number = true
 opt.cursorline = true
 opt.backspace = { "indent", "eol", "start" }
+opt.guicursor = "a:ver75-Cursor,a:blinkon0"
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = vim.api.nvim_create_augroup("CursorHighlight", { clear = true }),
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "Cursor", { bg = "#dc322f", fg = "#fdf6e3" })
+    vim.api.nvim_set_hl(0, "lCursor", { bg = "#dc322f", fg = "#fdf6e3" })
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = "#eee8d5" })
+  end,
+})
 
 -- Search
 opt.incsearch = true
