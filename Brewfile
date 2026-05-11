@@ -1,5 +1,3 @@
-tap "d-kuro/tap"
-
 # GNU tools (macOS only - replaces BSD tools)
 brew "binutils"
 brew "coreutils"
@@ -19,7 +17,6 @@ brew "moreutils"
 brew "cask"
 brew "powershell"
 brew "tfenv"
-brew "d-kuro/tap/gwq"
 
 # Casks
 cask "claude"
