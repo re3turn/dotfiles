@@ -64,6 +64,12 @@ cache_set() { printf '%s' "$2" > "${CACHE_DIR}/$1"; }
 WORK_DIR=$(mktemp -d)
 trap 'rm -rf "$WORK_DIR"' EXIT INT TERM
 
+# ── Fetch commit date for a file path in a Homebrew repo ──
+fetch_commit_date() {  # $1=repo, $2=path
+  gh api --method GET "repos/$1/commits" -f "path=$2" -f per_page=1 \
+    --jq '.[0].commit.committer.date // empty' 2>/dev/null || true
+}
+
 # ── ISO 8601 → UNIX timestamp ──
 to_epoch() {
   local d="$1"
@@ -80,8 +86,10 @@ to_epoch() {
 # ── Check maturity of a single package ──
 check_pkg() {
   local pkg="$1" is_cask="$2"
-  local out="${WORK_DIR}/${pkg}.result"
-  local cache_key="${pkg}_${is_cask}"
+  # Escape slashes for filesystem-safe paths (tap formulas: "owner/tap/name")
+  local safe_pkg="${pkg//\//__}"
+  local out="${WORK_DIR}/${safe_pkg}.result"
+  local cache_key="${safe_pkg}_${is_cask}"
   local version="" commit_date=""
 
   # Cache hit
@@ -91,7 +99,7 @@ check_pkg() {
     return
   fi
 
-  local api_file="${WORK_DIR}/${pkg}.api.json"
+  local api_file="${WORK_DIR}/${safe_pkg}.api.json"
 
   if [[ "$is_cask" == "true" ]]; then
     curl -sf "https://formulae.brew.sh/api/cask/${pkg}.json" > "$api_file" || true
@@ -105,9 +113,25 @@ check_pkg() {
     if [[ -z "$cask_path" ]]; then
       cask_path="Casks/${pkg:0:1}/${pkg}.rb"
     fi
-    commit_date=$(gh api --method GET "repos/Homebrew/homebrew-cask/commits" \
-      -f "path=${cask_path}" -f per_page=1 \
-      --jq '.[0].commit.committer.date // empty' 2>/dev/null) || commit_date=""
+    commit_date=$(fetch_commit_date "Homebrew/homebrew-cask" "$cask_path")
+  elif [[ "$pkg" == */*/* ]]; then
+    # Tap formula: resolve via the locally-cloned tap (no GitHub API needed)
+    local tap_owner="${pkg%%/*}"
+    local rest="${pkg#*/}"
+    local tap_name="${rest%%/*}"
+    local formula_name="${rest##*/}"
+
+    version=$(brew info --json=v2 "$pkg" 2>/dev/null \
+      | jq -r '.formulae[0].versions.stable // "?"' 2>/dev/null) || version="?"
+
+    local tap_path rb
+    tap_path=$(brew --repository "${tap_owner}/${tap_name}" 2>/dev/null) || tap_path=""
+    if [[ -n "$tap_path" && -d "$tap_path" ]]; then
+      rb=$(find "$tap_path" -maxdepth 4 -type f -name "${formula_name}.rb" 2>/dev/null | head -1)
+      if [[ -n "$rb" ]]; then
+        commit_date=$(git -C "$tap_path" log -1 --format=%cI -- "${rb#$tap_path/}" 2>/dev/null) || commit_date=""
+      fi
+    fi
   else
     curl -sf "https://formulae.brew.sh/api/formula/${pkg}.json" > "$api_file" || true
     if [[ -s "$api_file" ]]; then
@@ -122,21 +146,19 @@ check_pkg() {
       if [[ -z "$formula_path" ]]; then
         formula_path="Formula/${pkg:0:1}/${pkg}.rb"
       fi
-      commit_date=$(gh api --method GET "repos/Homebrew/homebrew-core/commits" \
-        -f "path=${formula_path}" -f per_page=1 \
-        --jq '.[0].commit.committer.date // empty' 2>/dev/null) || commit_date=""
+      commit_date=$(fetch_commit_date "Homebrew/homebrew-core" "$formula_path")
     fi
   fi
 
   if [[ -z "$commit_date" ]]; then
-    printf 'ERROR\t%s\tFailed to get release date' "$pkg" > "$out"
+    printf 'ERROR\t%s\tFailed to get release date\n' "$pkg" > "$out"
     return
   fi
 
   local ts
   ts=$(to_epoch "$commit_date")
   if [[ -z "$ts" ]]; then
-    printf 'ERROR\t%s\tFailed to parse date' "$pkg" > "$out"
+    printf 'ERROR\t%s\tFailed to parse date\n' "$pkg" > "$out"
     return
   fi
 
@@ -224,7 +246,8 @@ SKIP=()
 
 for entry in "${ENTRIES[@]}"; do
   pkg="${entry#*:}"
-  f="${WORK_DIR}/${pkg}.result"
+  safe_pkg="${pkg//\//__}"
+  f="${WORK_DIR}/${safe_pkg}.result"
 
   if [[ ! -f "$f" ]]; then
     echo "  ⚠ ${pkg}: no result -> skip"
