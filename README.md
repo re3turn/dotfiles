@@ -1,69 +1,63 @@
 # dotfiles
 
-Managed with [Nix](https://nixos.org/) + [Home Manager](https://github.com/nix-community/home-manager).
-GitHub Release distributed CLI tools are pinned via [dendrite](https://github.com/sivchari/dendrite).
+Managed with [mise bootstrap](https://mise.jdx.dev/bootstrap.html).
 
 ## Package management layout
 
 | Layer | Source | Purpose |
 | --- | --- | --- |
-| `nix/packages.nix` | nixpkgs | Shells, editor, git, language toolchains, AWS/Azure CLI, etc. |
-| `dendrite.yaml` → `nix/dendrite/` | GitHub Releases (via dendrite) | Single-binary CLI tools (gh, ripgrep, fd, bat, delta, starship, mise, trivy, ...) |
-| `Brewfile` | Homebrew | macOS-only casks and GNU tool replacements |
+| `configfiles/mise/config.toml` (`[tools]`) | mise (aqua registry / pipx / npm backends) | CLI tools and language toolchains (gh, ripgrep, fd, bat, delta, starship, mise-managed node/python/rust/go, ...) |
+| `mise.toml` (`[dotfiles]`) | mise bootstrap | Symlinks dotfiles into place (`~/.gitconfig`, `~/.config/nvim`, fish config, etc.) |
+| `Brewfile` | Homebrew | Foundational/system tools mise doesn't manage (git, fish, bash, curl, wget, tig, ...) and macOS casks |
+
+`mise bootstrap` runs a `[tasks.bootstrap]` task that calls `brew bundle`, so
+one command sets up dotfiles, CLI tools, and Homebrew packages together.
 
 ## Requirements
 
-- [Nix](https://install.determinate.systems/nix) (Determinate Systems installer recommended)
-- [Homebrew](https://brew.sh/) (macOS only — for GNU tools and casks)
+- [mise](https://mise.jdx.dev/installing-mise.html)
+- [Homebrew](https://brew.sh/) (macOS only — for foundational tools and casks)
 
 ## Install
 
 ```bash
-# Install Nix
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-
 # Install Homebrew (macOS only)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install mise
+curl https://mise.run | sh
 
 # Clone dotfiles
 git clone https://github.com/re3turn/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
-# Apply Home Manager configuration
-nix run home-manager -- switch --flake .#aarch64-darwin --impure
-
-# Install Homebrew packages (macOS only)
-brew bundle
-
-# Install languages and tools via mise (Go, Node, Python, Rust)
-mise install
+# Set up dotfiles, CLI tools, and Homebrew packages in one command
+mise trust
+mise bootstrap --yes
 ```
-
-Replace `aarch64-darwin` with your system:
-- `aarch64-darwin` — macOS (Apple Silicon)
-- `x86_64-linux` — Linux (x86_64)
-- `aarch64-linux` — Linux (ARM64)
 
 ## Update
 
 ```bash
 cd ~/.dotfiles
-nix flake update
-nix run home-manager -- switch --flake .#aarch64-darwin --impure
+mise bootstrap --yes
 ```
 
-## Manage CLI tools with dendrite
+Preview changes first with `mise bootstrap --dry-run`.
 
-Edit `dendrite.yaml` to bump a version or add a tool, then regenerate the
-Nix derivations under `nix/dendrite/`:
+## Manage CLI tools with mise
+
+Edit `configfiles/mise/config.toml`'s `[tools]` table to bump a version or
+add a tool (most GitHub-released CLIs resolve via a short registry name;
+tools without one can be added as `"aqua:owner/repo" = "latest"`), then:
 
 ```bash
-nix run .#dendrite -- generate -f dendrite.yaml -o nix/dendrite --lock
-nix run home-manager -- switch --flake .#aarch64-darwin --impure
+mise install
 ```
 
-`nix/packages.nix` auto-imports `nix/dendrite/default.nix`, so every tool
-listed in `dendrite.yaml` is added to `home.packages` on the next switch.
+Since `mise.toml`'s `[dotfiles]` table symlinks
+`configfiles/mise/config.toml` to `~/.config/mise/config.toml`, every tool
+listed there is available globally, not just inside `~/.dotfiles`.
 
 ## gitconfig
 
