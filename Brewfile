@@ -1,3 +1,18 @@
+# CLI tools (no mise coverage - foundational or unavailable in mise registry)
+brew "bash"
+brew "colordiff"
+brew "curl"
+brew "eza"
+brew "fish"
+brew "git"
+brew "less"
+brew "nkf"
+brew "source-highlight"
+brew "sqlite"
+brew "tig"
+brew "tree"
+brew "wget"
+
 # GNU tools (macOS only - replaces BSD tools)
 brew "binutils"
 brew "coreutils"
