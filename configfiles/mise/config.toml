@@ -24,7 +24,9 @@ zellij = "latest"
 # CLI tools (migrated from nix/packages.nix)
 sheldon = "latest"
 neovim = "latest"
-"cargo:eza" = "latest"
+# eza on macOS comes from Brewfile (fast bottle); apt lacks it on Debian
+# bookworm (Raspberry Pi OS), so Linux builds it via cargo instead.
+"cargo:eza" = { version = "latest", os = "linux" }
 fzf = "latest"
 pnpm = "latest"
 jq = "latest"

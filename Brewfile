@@ -6,6 +6,7 @@
 brew "bash"
 brew "colordiff"
 brew "curl"
+brew "eza"
 brew "fish"
 brew "git"
 brew "less"
