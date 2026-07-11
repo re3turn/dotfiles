@@ -33,5 +33,13 @@
 "~/.local/bin/brew-safe-upgrade" = "~/.dotfiles/binfiles/brew-safe-upgrade"
 
 [tasks.bootstrap]
-description = "Install Homebrew packages (common CLI tools, plus casks/GNU tools on macOS)"
-run = "brew bundle --file=./Brewfile && if [ \"$(uname -s)\" = Darwin ]; then brew bundle --file=./Brewfile.macos; fi"
+description = "Install OS packages (Homebrew on macOS, apt on Ubuntu/Raspberry Pi OS)"
+run = """
+set -e
+if [ "$(uname -s)" = Darwin ]; then
+  brew bundle --file=./Brewfile
+elif command -v apt-get >/dev/null 2>&1; then
+  sudo apt-get update
+  xargs -a ./apt-packages.txt sudo apt-get install -y
+fi
+"""

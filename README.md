@@ -6,15 +6,17 @@ Managed with [mise bootstrap](https://mise.jdx.dev/bootstrap.html).
 
 | Layer | Source | Purpose |
 | --- | --- | --- |
-| `configfiles/mise/config.toml` (`[tools]`) | mise (aqua registry / pipx / npm backends) | CLI tools and language toolchains (gh, ripgrep, fd, bat, delta, starship, mise-managed node/python/rust/go, ...). Cross-platform - mise resolves the right binary per OS/arch automatically |
+| `configfiles/mise/config.toml` (`[tools]`) | mise (aqua registry / cargo / pipx / npm backends) | CLI tools and language toolchains (gh, ripgrep, fd, bat, delta, starship, eza, mise-managed node/python/rust/go, ...). Cross-platform - mise resolves the right binary per OS/arch automatically |
 | `mise.toml` (`[dotfiles]`) | mise bootstrap | Symlinks dotfiles into place (`~/.gitconfig`, `~/.config/nvim`, fish config, etc.) |
-| `Brewfile` | Homebrew / Linuxbrew | Foundational/system tools mise doesn't manage (git, fish, bash, curl, wget, tig, ...). Installed on both macOS and Linux |
-| `Brewfile.macos` | Homebrew | macOS-only: GNU tool replacements for BSD tools, and casks. Skipped on Linux |
+| `Brewfile` | Homebrew | macOS only: foundational tools mise doesn't manage (git, fish, bash, curl, wget, tig, ...), GNU tool replacements for BSD tools, and casks |
+| `apt-packages.txt` | apt | Linux only (Ubuntu / Raspberry Pi OS): the same foundational tools as `Brewfile`, by apt package name |
 
-`mise bootstrap` runs a `[tasks.bootstrap]` task that runs `brew bundle
---file=./Brewfile` on every platform, then additionally
-`brew bundle --file=./Brewfile.macos` on macOS only. One command sets up
-dotfiles, CLI tools, and Homebrew packages together, on macOS or Linux.
+`mise bootstrap` runs a `[tasks.bootstrap]` task that detects the OS: on
+macOS it runs `brew bundle --file=./Brewfile`; on Linux, if `apt-get` is
+available (Ubuntu, Raspberry Pi OS), it installs the packages listed in
+`apt-packages.txt`. One command sets up dotfiles, CLI tools, and OS
+packages together, on either platform. Other Linux distros (Fedora, Arch,
+...) aren't handled - `apt-get` support only targets Debian-family systems.
 
 A couple of `[dotfiles]` entries (`~/.config/ghostty`,
 `~/.local/bin/brew-safe-upgrade`) are macOS-specific tools but get symlinked
@@ -24,12 +26,12 @@ they're simply unused on Linux.
 ## Requirements
 
 - [mise](https://mise.jdx.dev/installing-mise.html)
-- [Homebrew](https://brew.sh/) (or [Linuxbrew](https://brew.sh/) on Linux — same install script)
+- [Homebrew](https://brew.sh/) (macOS) or `apt` (Ubuntu / Raspberry Pi OS)
 
 ## Install
 
 ```bash
-# Install Homebrew (same script auto-detects macOS vs Linux)
+# Install Homebrew (macOS only - Linux uses apt directly, no extra install step)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Install mise
@@ -39,7 +41,7 @@ curl https://mise.run | sh
 git clone https://github.com/re3turn/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
-# Set up dotfiles, CLI tools, and Homebrew packages in one command
+# Set up dotfiles, CLI tools, and OS packages in one command
 mise trust
 mise bootstrap --yes
 ```

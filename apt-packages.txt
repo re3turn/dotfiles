@@ -1,0 +1,12 @@
+bash
+colordiff
+curl
+fish
+git
+less
+nkf
+source-highlight
+sqlite3
+tig
+tree
+wget

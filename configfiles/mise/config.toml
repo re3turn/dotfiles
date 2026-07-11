@@ -24,6 +24,7 @@ zellij = "latest"
 # CLI tools (migrated from nix/packages.nix)
 sheldon = "latest"
 neovim = "latest"
+"cargo:eza" = "latest"
 fzf = "latest"
 pnpm = "latest"
 jq = "latest"
