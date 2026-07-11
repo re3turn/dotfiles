@@ -33,5 +33,5 @@
 "~/.local/bin/brew-safe-upgrade" = "~/.dotfiles/binfiles/brew-safe-upgrade"
 
 [tasks.bootstrap]
-description = "Install Homebrew packages (casks, GNU tools, foundational shells)"
-run = "brew bundle --file=./Brewfile"
+description = "Install Homebrew packages (common CLI tools, plus casks/GNU tools on macOS)"
+run = "brew bundle --file=./Brewfile && if [ \"$(uname -s)\" = Darwin ]; then brew bundle --file=./Brewfile.macos; fi"

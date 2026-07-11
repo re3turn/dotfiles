@@ -1,4 +1,5 @@
 # CLI tools (no mise coverage - foundational or unavailable in mise registry)
+# Installed on both macOS (Homebrew) and Linux (Linuxbrew)
 brew "bash"
 brew "colordiff"
 brew "curl"
@@ -12,47 +13,3 @@ brew "sqlite"
 brew "tig"
 brew "tree"
 brew "wget"
-
-# GNU tools (macOS only - replaces BSD tools)
-brew "binutils"
-brew "coreutils"
-brew "diffutils"
-brew "findutils"
-brew "gawk"
-brew "gnu-getopt"
-brew "gnu-sed"
-brew "gnu-tar"
-brew "gnu-time"
-brew "grep"
-brew "gzip"
-brew "moreutils"
-
-
-# macOS specific
-brew "cask"
-brew "powershell"
-brew "tfenv"
-
-# Casks
-cask "claude"
-cask "claude-code"
-cask "cmux"
-cask "copilot-cli"
-cask "docker-desktop"
-cask "firefox"
-cask "gcloud-cli"
-cask "ghostty"
-cask "google-drive"
-cask "jetbrains-toolbox"
-cask "kap"
-cask "meetingbar"
-cask "microsoft-teams"
-cask "notion"
-cask "postman"
-cask "raycast"
-cask "session-manager-plugin"
-cask "stillcolor"
-cask "the-unarchiver"
-cask "visual-studio-code"
-cask "windows-app"
-cask "wireshark-app"

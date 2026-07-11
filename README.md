@@ -6,22 +6,30 @@ Managed with [mise bootstrap](https://mise.jdx.dev/bootstrap.html).
 
 | Layer | Source | Purpose |
 | --- | --- | --- |
-| `configfiles/mise/config.toml` (`[tools]`) | mise (aqua registry / pipx / npm backends) | CLI tools and language toolchains (gh, ripgrep, fd, bat, delta, starship, mise-managed node/python/rust/go, ...) |
+| `configfiles/mise/config.toml` (`[tools]`) | mise (aqua registry / pipx / npm backends) | CLI tools and language toolchains (gh, ripgrep, fd, bat, delta, starship, mise-managed node/python/rust/go, ...). Cross-platform - mise resolves the right binary per OS/arch automatically |
 | `mise.toml` (`[dotfiles]`) | mise bootstrap | Symlinks dotfiles into place (`~/.gitconfig`, `~/.config/nvim`, fish config, etc.) |
-| `Brewfile` | Homebrew | Foundational/system tools mise doesn't manage (git, fish, bash, curl, wget, tig, ...) and macOS casks |
+| `Brewfile` | Homebrew / Linuxbrew | Foundational/system tools mise doesn't manage (git, fish, bash, curl, wget, tig, ...). Installed on both macOS and Linux |
+| `Brewfile.macos` | Homebrew | macOS-only: GNU tool replacements for BSD tools, and casks. Skipped on Linux |
 
-`mise bootstrap` runs a `[tasks.bootstrap]` task that calls `brew bundle`, so
-one command sets up dotfiles, CLI tools, and Homebrew packages together.
+`mise bootstrap` runs a `[tasks.bootstrap]` task that runs `brew bundle
+--file=./Brewfile` on every platform, then additionally
+`brew bundle --file=./Brewfile.macos` on macOS only. One command sets up
+dotfiles, CLI tools, and Homebrew packages together, on macOS or Linux.
+
+A couple of `[dotfiles]` entries (`~/.config/ghostty`,
+`~/.local/bin/brew-safe-upgrade`) are macOS-specific tools but get symlinked
+on every platform anyway, since `[dotfiles]` has no OS-conditional syntax -
+they're simply unused on Linux.
 
 ## Requirements
 
 - [mise](https://mise.jdx.dev/installing-mise.html)
-- [Homebrew](https://brew.sh/) (macOS only — for foundational tools and casks)
+- [Homebrew](https://brew.sh/) (or [Linuxbrew](https://brew.sh/) on Linux — same install script)
 
 ## Install
 
 ```bash
-# Install Homebrew (macOS only)
+# Install Homebrew (same script auto-detects macOS vs Linux)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Install mise
