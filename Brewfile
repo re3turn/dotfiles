@@ -1,8 +1,4 @@
-# macOS-only Homebrew packages. On Linux (Ubuntu / Raspberry Pi OS),
-# equivalent packages come from apt (see apt-packages.txt) - see
-# mise.toml's [tasks.bootstrap] for the OS branching.
-
-# CLI tools (no mise coverage - foundational or unavailable in mise registry)
+# macOS-only. Linux packages come from apt-packages.txt.
 brew "bash"
 brew "colordiff"
 brew "curl"
@@ -31,12 +27,10 @@ brew "grep"
 brew "gzip"
 brew "moreutils"
 
-# macOS specific
 brew "cask"
 brew "powershell"
 brew "tfenv"
 
-# Casks
 cask "claude"
 cask "claude-code"
 cask "cmux"

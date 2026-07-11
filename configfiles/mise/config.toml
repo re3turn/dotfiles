@@ -3,7 +3,6 @@ node = "25"
 python = "latest"
 rust = "latest"
 
-# CLI tools (migrated from dendrite.yaml)
 gh = "latest"
 ripgrep = "latest"
 fd = "latest"
@@ -16,23 +15,20 @@ grype = "latest"
 syft = "latest"
 trivy = "latest"
 zellij = "latest"
-"aqua:dalance/procs" = "latest"
-"aqua:knqyf263/pet" = "latest"
-"aqua:simeji/jid" = "latest"
-"aqua:d-kuro/gwq" = "latest"
-
-# CLI tools (migrated from nix/packages.nix)
 sheldon = "latest"
 neovim = "latest"
-# eza on macOS comes from Brewfile (fast bottle); apt lacks it on Debian
-# bookworm (Raspberry Pi OS), so Linux builds it via cargo instead.
-"cargo:eza" = { version = "latest", os = "linux" }
 fzf = "latest"
 pnpm = "latest"
 jq = "latest"
 azure-cli = "latest"
 aws = "latest"
 xxh = "latest"
+"aqua:dalance/procs" = "latest"
+"aqua:knqyf263/pet" = "latest"
+"aqua:simeji/jid" = "latest"
+"aqua:d-kuro/gwq" = "latest"
+# eza: brew on macOS, cargo on Linux (missing from apt on Debian bookworm)
+"cargo:eza" = { version = "latest", os = "linux" }
 
 [tools.go]
 version = "latest"
