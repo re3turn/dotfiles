@@ -1,3 +1,6 @@
+[bootstrap.hooks]
+pre-dotfiles = "mkdir -p ~/.config/mise && mise trust ~/.config/mise"
+
 [dotfiles]
 "~/.gitconfig" = "~/.dotfiles/.gitconfig"
 "~/.zsh" = "~/.dotfiles/zshfiles"
@@ -11,6 +14,7 @@
 "~/.config/fzshell" = "~/.dotfiles/configfiles/fzshell"
 "~/.config/ghostty" = "~/.dotfiles/configfiles/ghostty"
 "~/.config/mise/config.toml" = "~/.dotfiles/configfiles/mise/config.toml"
+"~/.config/mise/mise.lock" = "~/.dotfiles/configfiles/mise/mise.lock"
 "~/.config/starship.toml" = "~/.dotfiles/configfiles/starship.toml"
 "~/.config/fish/config.fish" = "~/.dotfiles/configfiles/fish/config.fish"
 "~/.config/fish/fish_plugins" = "~/.dotfiles/configfiles/fish/fish_plugins"

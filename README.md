@@ -68,11 +68,19 @@ tools without one can be added as `"aqua:owner/repo" = "latest"`), then:
 
 ```bash
 mise install
+mise lock -g
 ```
 
 Since `mise.toml`'s `[dotfiles]` table symlinks
 `configfiles/mise/config.toml` to `~/.config/mise/config.toml`, every tool
 listed there is available globally, not just inside `~/.dotfiles`.
+
+`configfiles/mise/mise.lock` pins exact versions, checksums, and download
+URLs for every `[tools]` entry across every platform, so `mise install` on
+any machine resolves identical versions instead of whatever is newest at
+the time. It only covers `[tools]` - `Brewfile` and `apt-packages.txt`
+still install whatever Homebrew/apt currently have. Regenerate it with
+`mise lock -g` after changing `[tools]`.
 
 ## gitconfig
 
