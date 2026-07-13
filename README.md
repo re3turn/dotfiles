@@ -6,10 +6,15 @@ Managed with [mise bootstrap](https://mise.jdx.dev/bootstrap.html).
 
 | Layer | Source | Purpose |
 | --- | --- | --- |
-| `configfiles/mise/config.toml` (`[tools]`) | mise (aqua registry / cargo / pipx / npm backends) | CLI tools and language toolchains (gh, ripgrep, fd, bat, delta, starship, eza, mise-managed node/python/rust/go, ...). Cross-platform - mise resolves the right binary per OS/arch automatically |
+| `configfiles/mise/config.toml` (`[tools]`) | mise (aqua registry / cargo / pipx / npm backends) | CLI tools and language toolchains (gh, ripgrep, fd, bat, delta, starship, mise-managed node/python/rust/go, ...). Cross-platform - mise resolves the right binary per OS/arch automatically |
 | `mise.toml` (`[dotfiles]`) | mise bootstrap | Symlinks dotfiles into place (`~/.gitconfig`, `~/.config/nvim`, fish config, etc.) |
-| `Brewfile` | Homebrew | macOS only: foundational tools mise doesn't manage (git, fish, bash, curl, wget, tig, ...), GNU tool replacements for BSD tools, and casks |
+| `Brewfile` | Homebrew | macOS only: foundational tools mise doesn't manage (git, fish, bash, curl, wget, tig, eza, ...), GNU tool replacements for BSD tools, and casks |
 | `apt-packages.txt` | apt | Linux only (Ubuntu / Raspberry Pi OS): the same foundational tools as `Brewfile`, by apt package name |
+
+`eza` is the one exception split across two of these: it comes from
+`Brewfile` on macOS, but from `configfiles/mise/config.toml`'s
+`"cargo:eza" = { os = "linux" }` on Linux, since apt doesn't carry it on
+Debian bookworm (Raspberry Pi OS).
 
 `mise bootstrap` runs a `[tasks.bootstrap]` task that detects the OS: on
 macOS it runs `brew bundle --file=./Brewfile`; on Linux, if `apt-get` is
