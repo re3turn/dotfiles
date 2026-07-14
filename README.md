@@ -53,12 +53,36 @@ mise bootstrap --yes
 
 ## Update
 
+Sync dotfiles, install any newly added `[tools]`/`Brewfile`/`apt-packages.txt`
+entries:
+
 ```bash
 cd ~/.dotfiles
 mise bootstrap --yes
 ```
 
-Preview changes first with `mise bootstrap --dry-run`.
+Preview changes first with `mise bootstrap --dry-run`. This does not bump
+the version of tools/packages already installed - see below.
+
+**Upgrade mise-managed CLI tools** (bumps every `"latest"` entry in
+`configfiles/mise/config.toml` and updates the lockfile):
+
+```bash
+mise upgrade
+git add configfiles/mise/mise.lock
+git commit -m "chore: Update mise.lock"
+```
+
+**Upgrade OS packages** (outside `mise.lock`'s scope - Homebrew/apt track
+whatever's current, there's no pinning):
+
+```bash
+# macOS
+brew update && brew upgrade
+
+# Linux (Ubuntu / Raspberry Pi OS)
+sudo apt-get update && sudo apt-get upgrade
+```
 
 ## Manage CLI tools with mise
 
