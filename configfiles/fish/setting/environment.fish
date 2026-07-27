@@ -65,6 +65,7 @@ end
 # uv
 set -x UV_EXCLUDE_NEWER "7 days"
 
-# pnpm
-set -x PNPM_HOME $HOME/Library/pnpm
+# pnpm global package bin dir (XDG-style, portable across macOS/Linux)
+set -q XDG_DATA_HOME; or set -x XDG_DATA_HOME $HOME/.local/share
+set -x PNPM_HOME $XDG_DATA_HOME/pnpm
 fish_add_path $PNPM_HOME
