@@ -406,6 +406,38 @@ checksum = "sha256:ab5c3442cff63f585553d4fce330eaa1ef1bd2584643f1a0e29ab7c13fc95
 url = "https://github.com/sharkdp/hexyl/releases/download/v0.17.0/hexyl-v0.17.0-x86_64-pc-windows-msvc.zip"
 url_api = "https://api.github.com/repos/sharkdp/hexyl/releases/assets/355844647"
 
+[[tools.java]]
+version = "zulu-25.36.205.0"
+backend = "core:java"
+
+[tools.java."platforms.linux-arm64"]
+checksum = "sha256:794526507a8f4792bd3dbe010fedb71e8540103b8e6773bf09d1f5e9360d38f8"
+url = "https://cdn.azul.com/zulu/bin/zulu25.36.205-ca-jdk25.0.4.1-linux_aarch64.tar.gz"
+
+[tools.java."platforms.linux-arm64-musl"]
+checksum = "sha256:6b5bf0a206b36065faaa76517dbdcb332a69af0096da065e8b2cb1dfd5fe0f2d"
+url = "https://cdn.azul.com/zulu/bin/zulu25.36.205-ca-jdk25.0.4.1-linux_musl_aarch64.tar.gz"
+
+[tools.java."platforms.linux-x64"]
+checksum = "sha256:e11d92589de8fd55616a843e0298ba72348848bd49b675088e930b67538497cb"
+url = "https://cdn.azul.com/zulu/bin/zulu25.36.205-ca-jdk25.0.4.1-linux_x64.tar.gz"
+
+[tools.java."platforms.linux-x64-musl"]
+checksum = "sha256:ef121cee9003160bb830a6432b5194eaeb15a43eb7e5a2c2402e343ffe7f464f"
+url = "https://cdn.azul.com/zulu/bin/zulu25.36.205-ca-jdk25.0.4.1-linux_musl_x64.tar.gz"
+
+[tools.java."platforms.macos-arm64"]
+checksum = "sha256:c2e610d1689ead4bbd860d1ee8634ffb0b61f3bd62b5573df315ce8fc00bc068"
+url = "https://cdn.azul.com/zulu/bin/zulu25.36.205-ca-jdk25.0.4.1-macosx_aarch64.tar.gz"
+
+[tools.java."platforms.macos-x64"]
+checksum = "sha256:dc5c05d44b89fe753fb25e559cbc71b341b95d593aeb08a294afd61ff0dd3262"
+url = "https://cdn.azul.com/zulu/bin/zulu25.36.205-ca-jdk25.0.4.1-macosx_x64.tar.gz"
+
+[tools.java."platforms.windows-x64"]
+checksum = "sha256:5e91bc55aaa08750370d60b7030bb79193901ce1e93aba31becbf78c3ade5826"
+url = "https://cdn.azul.com/zulu/bin/zulu25.36.205-ca-jdk25.0.4.1-win_x64.zip"
+
 [[tools.jq]]
 version = "1.8.2"
 backend = "aqua:jqlang/jq"

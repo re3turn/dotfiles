@@ -3,6 +3,7 @@ lockfile = true
 minimum_release_age = "3d"
 
 [tools]
+java = "zulu-25"
 node = "24"
 python = "latest"
 rust = "latest"
