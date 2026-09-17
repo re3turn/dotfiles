@@ -54,11 +54,14 @@ else
     set -U EDITOR vim
 end
 
-# Load local shell scripts via bass
+# Load local shell scripts.
+# These are shared with zsh/bash, so keep them to `export VAR=...` lines only:
+# fish sources them directly (`export` is a builtin alias for `set -gx`), but
+# has no support for `if`/`[[ ]]`, shell functions, backticks or ${VAR:-default}.
 set -l SHELL_LOCAL_DIR $HOME/.shell.local
 if test -d $SHELL_LOCAL_DIR
     for f in $SHELL_LOCAL_DIR/*.sh
-        bass source "$f"
+        source "$f"
     end
 end
 

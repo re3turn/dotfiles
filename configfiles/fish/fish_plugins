@@ -8,7 +8,6 @@ re3turn/fish-await
 re3turn/fish-get
 re3turn/fish-git-util
 re3turn/fish-last-job-id
-edc/bass
 mnowotnik/fzshell
 halostatue/fish-direnv
 reitzig/sdkman-for-fish
