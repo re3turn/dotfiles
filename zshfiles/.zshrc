@@ -7,6 +7,13 @@ typeset -U path PATH
 [ -d /opt/homebrew/bin ] && PATH="$PATH:/opt/homebrew/bin"
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
+# sheldon and starship are installed by mise, not Homebrew. A shell that
+# inherits its PATH from fish already has them; a cold login shell (ssh, or a
+# terminal honouring the /bin/zsh login shell) does not, and every line below
+# would silently fail. Only prepend the shims when that is actually the case,
+# so warm shells keep their existing lookup order.
+command -v sheldon > /dev/null 2>&1 || PATH="$HOME/.local/share/mise/shims:$PATH"
+
 eval "$(sheldon --config-dir "${HOME}/.dotfiles/zshfiles/sheldon" source)"
 
 ########################################
