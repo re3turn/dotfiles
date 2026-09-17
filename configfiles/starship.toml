@@ -13,9 +13,9 @@ $hostname\
 $directory\
 [](fg:#0087AF) \
 $fill\
-${custom.git_clean}\
-${custom.git_dirty}\
-${custom.git_conflict}\
+$git_branch\
+$git_commit\
+$git_status\
 $cmd_duration\
 $c\
 $elixir\
@@ -152,31 +152,22 @@ style = "fg:#f8f8f2 bg:#44475a"
 format = '[ $time ]($style)'
 
 [git_branch]
-disabled = true
+symbol = " "
+style = "fg:#f8f8f2 bg:#6272a4"
+format = '[](fg:#6272a4)[ $symbol$branch ]($style)'
+
+[git_commit]
+style = "fg:#f8f8f2 bg:#6272a4"
+format = '[$hash$tag ]($style)'
 
 [git_status]
-disabled = true
-
-[custom.git_clean]
-description = "Git branch (clean)"
-when = "git diff --quiet HEAD -- 2>/dev/null && test -z \"$(git ls-files --others --exclude-standard 2>/dev/null | head -1)\""
-command = "git branch --show-current 2>/dev/null || git rev-parse --short HEAD 2>/dev/null"
-style = "fg:#282a36 bg:#50fa7b"
-format = '[](fg:#50fa7b)[  $output ]($style)'
-shell = ["bash", "--noprofile", "--norc"]
-
-[custom.git_dirty]
-description = "Git branch (dirty)"
-when = "git rev-parse --is-inside-work-tree 2>/dev/null && ! git ls-files --unmerged 2>/dev/null | head -1 | grep -q . && { ! git diff --quiet HEAD -- 2>/dev/null || test -n \"$(git ls-files --others --exclude-standard 2>/dev/null | head -1)\"; }"
-command = "git branch --show-current 2>/dev/null || git rev-parse --short HEAD 2>/dev/null"
-style = "fg:#282a36 bg:#ffb86c"
-format = '[](fg:#ffb86c)[  $output ✱ ]($style)'
-shell = ["bash", "--noprofile", "--norc"]
-
-[custom.git_conflict]
-description = "Git branch (conflict)"
-when = "git ls-files --unmerged 2>/dev/null | head -1 | grep -q ."
-command = "git branch --show-current 2>/dev/null || git rev-parse --short HEAD 2>/dev/null"
-style = "fg:#f8f8f2 bg:#ff5555"
-format = '[](fg:#ff5555)[  $output ≠ ]($style)'
-shell = ["bash", "--noprofile", "--norc"]
+style = "bg:#6272a4"
+format = '[$all_status$ahead_behind]($style)'
+conflicted = '[≠ ](fg:#ff5555 bg:#6272a4)'
+staged = '[+ ](fg:#50fa7b bg:#6272a4)'
+modified = '[✱ ](fg:#ffb86c bg:#6272a4)'
+untracked = '[? ](fg:#ffb86c bg:#6272a4)'
+deleted = '[✘ ](fg:#ff5555 bg:#6272a4)'
+renamed = '[» ](fg:#ffb86c bg:#6272a4)'
+typechanged = ''
+stashed = ''
