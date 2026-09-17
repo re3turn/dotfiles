@@ -36,7 +36,7 @@ xxh = "latest"
 "cargo:eza" = { version = "latest", os = "linux" }
 
 [tools.go]
-version = "latest"
+version = "1.26.7"
 go_default_packages = [
   "github.com/nao1215/gup",
   "github.com/toshimaru/nyan",

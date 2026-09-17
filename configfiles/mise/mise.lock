@@ -4,6 +4,41 @@
 version = "0.1.1"
 backend = "aqua:d-kuro/gwq"
 
+[tools."aqua:d-kuro/gwq"."platforms.linux-arm64"]
+checksum = "sha256:b5646120162c01eef4f2cd989eb1ec9fde6fa1caaf5aeb193f24556513924027"
+url = "https://github.com/d-kuro/gwq/releases/download/v0.1.1/gwq_Linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/d-kuro/gwq/releases/assets/410341162"
+
+[tools."aqua:d-kuro/gwq"."platforms.linux-arm64-musl"]
+checksum = "sha256:b5646120162c01eef4f2cd989eb1ec9fde6fa1caaf5aeb193f24556513924027"
+url = "https://github.com/d-kuro/gwq/releases/download/v0.1.1/gwq_Linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/d-kuro/gwq/releases/assets/410341162"
+
+[tools."aqua:d-kuro/gwq"."platforms.linux-x64"]
+checksum = "sha256:a0ef2fe46b5957fa73017a085d5bf44101314ac9b6a1874532054cea4ce6d394"
+url = "https://github.com/d-kuro/gwq/releases/download/v0.1.1/gwq_Linux_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/d-kuro/gwq/releases/assets/410341157"
+
+[tools."aqua:d-kuro/gwq"."platforms.linux-x64-musl"]
+checksum = "sha256:a0ef2fe46b5957fa73017a085d5bf44101314ac9b6a1874532054cea4ce6d394"
+url = "https://github.com/d-kuro/gwq/releases/download/v0.1.1/gwq_Linux_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/d-kuro/gwq/releases/assets/410341157"
+
+[tools."aqua:d-kuro/gwq"."platforms.macos-arm64"]
+checksum = "sha256:1b8b58004bce2ff1b85b1246e6b3b14eca89a0a95879696ee6c75cf48e7bd7fb"
+url = "https://github.com/d-kuro/gwq/releases/download/v0.1.1/gwq_Darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/d-kuro/gwq/releases/assets/410341158"
+
+[tools."aqua:d-kuro/gwq"."platforms.macos-x64"]
+checksum = "sha256:667aa6973e1cf1eb0c00600c4fc480a1c93d979ed99cdf3cae63dcbc484a6f6b"
+url = "https://github.com/d-kuro/gwq/releases/download/v0.1.1/gwq_Darwin_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/d-kuro/gwq/releases/assets/410341155"
+
+[tools."aqua:d-kuro/gwq"."platforms.windows-x64"]
+checksum = "sha256:52471a0b532a6e47811eab68b17535e53ace300ab5a8effe05d053605aebaad3"
+url = "https://github.com/d-kuro/gwq/releases/download/v0.1.1/gwq_Windows_x86_64.zip"
+url_api = "https://api.github.com/repos/d-kuro/gwq/releases/assets/410341160"
+
 [[tools."aqua:dalance/procs"]]
 version = "0.14.12"
 backend = "aqua:dalance/procs"
@@ -37,9 +72,79 @@ url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457526458"
 version = "1.0.1"
 backend = "aqua:knqyf263/pet"
 
+[tools."aqua:knqyf263/pet"."platforms.linux-arm64"]
+checksum = "sha256:f2a950f42789ec1e0952259c3c1731e03b2eb034bd830ae494a6268e9cac9273"
+url = "https://github.com/knqyf263/pet/releases/download/v1.0.1/pet_1.0.1_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/knqyf263/pet/releases/assets/211872005"
+
+[tools."aqua:knqyf263/pet"."platforms.linux-arm64-musl"]
+checksum = "sha256:f2a950f42789ec1e0952259c3c1731e03b2eb034bd830ae494a6268e9cac9273"
+url = "https://github.com/knqyf263/pet/releases/download/v1.0.1/pet_1.0.1_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/knqyf263/pet/releases/assets/211872005"
+
+[tools."aqua:knqyf263/pet"."platforms.linux-x64"]
+checksum = "sha256:be6ca6b64953f3c63430b1519382bdf56a062a03944b9a3723513b285c91dd20"
+url = "https://github.com/knqyf263/pet/releases/download/v1.0.1/pet_1.0.1_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/knqyf263/pet/releases/assets/211872012"
+
+[tools."aqua:knqyf263/pet"."platforms.linux-x64-musl"]
+checksum = "sha256:be6ca6b64953f3c63430b1519382bdf56a062a03944b9a3723513b285c91dd20"
+url = "https://github.com/knqyf263/pet/releases/download/v1.0.1/pet_1.0.1_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/knqyf263/pet/releases/assets/211872012"
+
+[tools."aqua:knqyf263/pet"."platforms.macos-arm64"]
+checksum = "sha256:f3ba11bc1cb2b2edc8725648e52d871e417eaa76d8b1c12fa8e24e4f1c704f03"
+url = "https://github.com/knqyf263/pet/releases/download/v1.0.1/pet_1.0.1_darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/knqyf263/pet/releases/assets/211872036"
+
+[tools."aqua:knqyf263/pet"."platforms.macos-x64"]
+checksum = "sha256:463504d65d898ea62ef38d513e852fb4e9068993276a600085947231237a4ff9"
+url = "https://github.com/knqyf263/pet/releases/download/v1.0.1/pet_1.0.1_darwin_amd64.tar.gz"
+url_api = "https://api.github.com/repos/knqyf263/pet/releases/assets/211872014"
+
+[tools."aqua:knqyf263/pet"."platforms.windows-x64"]
+checksum = "sha256:49c8346998958774513ee65977d8b9d9a327f76ca3a32caaa30ce1c98dadd64a"
+url = "https://github.com/knqyf263/pet/releases/download/v1.0.1/pet_1.0.1_windows_amd64.tar.gz"
+url_api = "https://api.github.com/repos/knqyf263/pet/releases/assets/211872006"
+
 [[tools."aqua:simeji/jid"]]
 version = "1.1.2"
 backend = "aqua:simeji/jid"
+
+[tools."aqua:simeji/jid"."platforms.linux-arm64"]
+checksum = "sha256:7cfb53fc09a44225dbc55adf1330639556f543292a33858dbb812680450d2449"
+url = "https://github.com/simeji/jid/releases/download/v1.1.2/jid_linux_arm64.zip"
+url_api = "https://api.github.com/repos/simeji/jid/releases/assets/394489159"
+
+[tools."aqua:simeji/jid"."platforms.linux-arm64-musl"]
+checksum = "sha256:7cfb53fc09a44225dbc55adf1330639556f543292a33858dbb812680450d2449"
+url = "https://github.com/simeji/jid/releases/download/v1.1.2/jid_linux_arm64.zip"
+url_api = "https://api.github.com/repos/simeji/jid/releases/assets/394489159"
+
+[tools."aqua:simeji/jid"."platforms.linux-x64"]
+checksum = "sha256:bed4bae81afe2ade4dfd997c1829b5de8e43eff2e057c3c463e76aef35614491"
+url = "https://github.com/simeji/jid/releases/download/v1.1.2/jid_linux_amd64.zip"
+url_api = "https://api.github.com/repos/simeji/jid/releases/assets/394489157"
+
+[tools."aqua:simeji/jid"."platforms.linux-x64-musl"]
+checksum = "sha256:bed4bae81afe2ade4dfd997c1829b5de8e43eff2e057c3c463e76aef35614491"
+url = "https://github.com/simeji/jid/releases/download/v1.1.2/jid_linux_amd64.zip"
+url_api = "https://api.github.com/repos/simeji/jid/releases/assets/394489157"
+
+[tools."aqua:simeji/jid"."platforms.macos-arm64"]
+checksum = "sha256:6e14e7d656ceb74c36d49605a6a13dafcfbc8a9ee64eec0eb821ad3c4b61ffaa"
+url = "https://github.com/simeji/jid/releases/download/v1.1.2/jid_darwin_amd64.zip"
+url_api = "https://api.github.com/repos/simeji/jid/releases/assets/394489137"
+
+[tools."aqua:simeji/jid"."platforms.macos-x64"]
+checksum = "sha256:6e14e7d656ceb74c36d49605a6a13dafcfbc8a9ee64eec0eb821ad3c4b61ffaa"
+url = "https://github.com/simeji/jid/releases/download/v1.1.2/jid_darwin_amd64.zip"
+url_api = "https://api.github.com/repos/simeji/jid/releases/assets/394489137"
+
+[tools."aqua:simeji/jid"."platforms.windows-x64"]
+checksum = "sha256:f463125f836c2af4f666da004586e45749a0662f198d8788c327363cea70adb5"
+url = "https://github.com/simeji/jid/releases/download/v1.1.2/jid_windows_amd64.zip"
+url_api = "https://api.github.com/repos/simeji/jid/releases/assets/394489142"
 
 [[tools.aws]]
 version = "2.35.22"
@@ -69,7 +174,7 @@ version = "2.88.0"
 backend = "pipx:azure-cli"
 
 [tools.azure-cli.options]
-uvx_args = "--prerelease=allow"
+uvx_args = "--prerelease=allow --with pip"
 
 [[tools.bat]]
 version = "0.26.1"
@@ -302,36 +407,36 @@ url = "https://github.com/x-motemen/ghq/releases/download/v1.10.1/ghq_windows_am
 url_api = "https://api.github.com/repos/x-motemen/ghq/releases/assets/394135809"
 
 [[tools.go]]
-version = "1.26.5"
+version = "1.26.7"
 backend = "core:go"
 
 [tools.go."platforms.linux-arm64"]
-checksum = "sha256:fe4789e92b1f33358680864bbe8704289e7bb5fc207d80623c308935bd696d49"
-url = "https://dl.google.com/go/go1.26.5.linux-arm64.tar.gz"
+checksum = "sha256:5a4ec883379d51ee9ce1040d5e87f8d35e20387574dd8c947feb01eabc3c1b37"
+url = "https://dl.google.com/go/go1.26.7.linux-arm64.tar.gz"
 
 [tools.go."platforms.linux-arm64-musl"]
-checksum = "sha256:fe4789e92b1f33358680864bbe8704289e7bb5fc207d80623c308935bd696d49"
-url = "https://dl.google.com/go/go1.26.5.linux-arm64.tar.gz"
+checksum = "sha256:5a4ec883379d51ee9ce1040d5e87f8d35e20387574dd8c947feb01eabc3c1b37"
+url = "https://dl.google.com/go/go1.26.7.linux-arm64.tar.gz"
 
 [tools.go."platforms.linux-x64"]
-checksum = "sha256:5c2c3b16caefa1d968a94c1daca04a7ca301a496d9b086e17ad77bb81393f053"
-url = "https://dl.google.com/go/go1.26.5.linux-amd64.tar.gz"
+checksum = "sha256:ffb5f8de10c62550dfddab66b36b57030721e0a44a3218e9e1181d7b59f121ca"
+url = "https://dl.google.com/go/go1.26.7.linux-amd64.tar.gz"
 
 [tools.go."platforms.linux-x64-musl"]
-checksum = "sha256:5c2c3b16caefa1d968a94c1daca04a7ca301a496d9b086e17ad77bb81393f053"
-url = "https://dl.google.com/go/go1.26.5.linux-amd64.tar.gz"
+checksum = "sha256:ffb5f8de10c62550dfddab66b36b57030721e0a44a3218e9e1181d7b59f121ca"
+url = "https://dl.google.com/go/go1.26.7.linux-amd64.tar.gz"
 
 [tools.go."platforms.macos-arm64"]
-checksum = "sha256:efb87ff28af9a188d0536ef5d42e63dd52ba8263cd7344a993cc48dd11dedb6a"
-url = "https://dl.google.com/go/go1.26.5.darwin-arm64.tar.gz"
+checksum = "sha256:020a1e8224811be75163e920bc77e0926a1390a6aeea19bdcf23f74b9d749f6d"
+url = "https://dl.google.com/go/go1.26.7.darwin-arm64.tar.gz"
 
 [tools.go."platforms.macos-x64"]
-checksum = "sha256:6231d8d3b8f5552ec6cbf6d685bdd5482e1e703214b120e89b3bf0d7bf1ef725"
-url = "https://dl.google.com/go/go1.26.5.darwin-amd64.tar.gz"
+checksum = "sha256:92e8b34bff3c89ab16404c595669ac8cb004cc2f676dcbd1f5b87a6b8def3b47"
+url = "https://dl.google.com/go/go1.26.7.darwin-amd64.tar.gz"
 
 [tools.go."platforms.windows-x64"]
-checksum = "sha256:97e6b2a833b6d89f9ff17d25419ac0a7e3b482a044e9ab18cdef834bd834fd38"
-url = "https://dl.google.com/go/go1.26.5.windows-amd64.zip"
+checksum = "sha256:f4f534a486e4bc3387fa18f08208f2f854b7aaea8a08f2a2d829a914a05abb11"
+url = "https://dl.google.com/go/go1.26.7.windows-amd64.zip"
 
 [[tools.grype]]
 version = "0.115.0"
@@ -655,7 +760,7 @@ url = "https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15
 url_api = "https://api.github.com/repos/BurntSushi/ripgrep/releases/assets/307305871"
 
 [[tools.rust]]
-version = "1.97.0"
+version = "1.98.0"
 backend = "core:rust"
 
 [[tools.sheldon]]
