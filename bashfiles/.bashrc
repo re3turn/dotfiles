@@ -1,5 +1,12 @@
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
+# sheldon and starship are installed by mise, not Homebrew. A shell that
+# inherits its PATH from fish already has them; a cold one does not, and every
+# line below would silently fail - including the mise activation that now
+# provides the JDK. Only prepend the shims when that is actually the case, so
+# warm shells keep their existing lookup order.
+command -v sheldon > /dev/null 2>&1 || PATH="$HOME/.local/share/mise/shims:$PATH"
+
 eval "$(sheldon --config-dir "${HOME}/.dotfiles/bashfiles/sheldon" source)"
 
 eval "$(starship init bash)"
