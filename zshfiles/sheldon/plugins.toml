@@ -6,7 +6,11 @@ shell = "zsh"
 github = "romkatv/zsh-defer"
 
 [templates]
-defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
+# `-p` disables zsh-defer's `zle reset-prompt` (all of its actions are on by
+# default; `-x` disables, `+x` enables). Without it, every deferred source
+# redraws the prompt, and starship's zsh PROMPT/RPROMPT are prompt_subst, so
+# each redraw spawns starship twice.
+defer = "{% for file in files %}zsh-defer -p source \"{{ file }}\"\n{% endfor %}"
 
 [plugins.ostype]
 inline = 'export OSTYPE=$(uname -s| tr \"\[:upper:\]\" \"\[:lower:\]\")'
