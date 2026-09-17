@@ -12,5 +12,3 @@ end
 eval (dircolors -c ~/.dircolors/dircolors.256dark)
 
 starship init fish | source
-
-mise activate fish | source

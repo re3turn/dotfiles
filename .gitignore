@@ -3,6 +3,7 @@ configfiles/fisher/
 configfiles/fish/functions/
 configfiles/fish/conf.d/*
 !configfiles/fish/conf.d/fzf-custom.fish
+!configfiles/fish/conf.d/mise-activate.fish
 configfiles/fish/completions/
 configfiles/fish/fishd.*
 configfiles/fish/fish_variables
