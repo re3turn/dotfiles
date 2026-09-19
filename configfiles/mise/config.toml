@@ -2,6 +2,11 @@
 lockfile = true
 minimum_release_age = "3d"
 
+# The go backend sets GOBIN to its own install dir, and `mise activate` runs
+# after the shell rc files, so GOBIN only sticks when set here.
+[env]
+GOBIN = "{{env.HOME}}/go/bin"
+
 [tools]
 java = "zulu-25"
 node = "24"

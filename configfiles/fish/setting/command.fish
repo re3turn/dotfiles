@@ -17,6 +17,7 @@ fish_add_path $HOME/.fzf/bin
 
 # go
 set -q GOPATH; or set -Ux GOPATH $HOME/go
+set -q GOBIN; or set -Ux GOBIN $GOPATH/bin
 mkdir -p $GOPATH/bin
 fish_add_path $GOPATH/bin
 
