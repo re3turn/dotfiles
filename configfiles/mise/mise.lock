@@ -32,11 +32,6 @@ checksum = "sha256:feebd322b8eff4365e2f90ad63de6d265a8b6d85793228f6425857a976590
 url = "https://github.com/d-kuro/gwq/releases/download/v0.1.2/gwq_Darwin_arm64.tar.gz"
 url_api = "https://api.github.com/repos/d-kuro/gwq/releases/assets/605986657"
 
-[tools."aqua:d-kuro/gwq"."platforms.macos-x64"]
-checksum = "sha256:aed66598c9623e0e9bdb842f964595e7d922bb2a9337957637fd0397bd75f177"
-url = "https://github.com/d-kuro/gwq/releases/download/v0.1.2/gwq_Darwin_x86_64.tar.gz"
-url_api = "https://api.github.com/repos/d-kuro/gwq/releases/assets/605986660"
-
 [tools."aqua:d-kuro/gwq"."platforms.windows-x64"]
 checksum = "sha256:0d05d594a7d823f5bda71cc8bd74779c0fa5da66715b0b88f8a26dcedd5a25e4"
 url = "https://github.com/d-kuro/gwq/releases/download/v0.1.2/gwq_Windows_x86_64.zip"
@@ -58,11 +53,6 @@ url = "https://github.com/dalance/procs/releases/download/v0.14.12/procs-v0.14.1
 url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457525859"
 
 [tools."aqua:dalance/procs"."platforms.macos-arm64"]
-checksum = "sha256:2c276f40c99051984942a5b135b74ce4bc9184984a1543dddfcf275bde71d8d4"
-url = "https://github.com/dalance/procs/releases/download/v0.14.12/procs-v0.14.12-x86_64-mac.zip"
-url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457525354"
-
-[tools."aqua:dalance/procs"."platforms.macos-x64"]
 checksum = "sha256:2c276f40c99051984942a5b135b74ce4bc9184984a1543dddfcf275bde71d8d4"
 url = "https://github.com/dalance/procs/releases/download/v0.14.12/procs-v0.14.12-x86_64-mac.zip"
 url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457525354"
@@ -102,11 +92,6 @@ checksum = "sha256:f3ba11bc1cb2b2edc8725648e52d871e417eaa76d8b1c12fa8e24e4f1c704
 url = "https://github.com/knqyf263/pet/releases/download/v1.0.1/pet_1.0.1_darwin_arm64.tar.gz"
 url_api = "https://api.github.com/repos/knqyf263/pet/releases/assets/211872036"
 
-[tools."aqua:knqyf263/pet"."platforms.macos-x64"]
-checksum = "sha256:463504d65d898ea62ef38d513e852fb4e9068993276a600085947231237a4ff9"
-url = "https://github.com/knqyf263/pet/releases/download/v1.0.1/pet_1.0.1_darwin_amd64.tar.gz"
-url_api = "https://api.github.com/repos/knqyf263/pet/releases/assets/211872014"
-
 [tools."aqua:knqyf263/pet"."platforms.windows-x64"]
 checksum = "sha256:49c8346998958774513ee65977d8b9d9a327f76ca3a32caaa30ce1c98dadd64a"
 url = "https://github.com/knqyf263/pet/releases/download/v1.0.1/pet_1.0.1_windows_amd64.tar.gz"
@@ -142,11 +127,6 @@ checksum = "sha256:bc04fa1d0faeae545eff9cec176ebae437451546c149090e2877babf61ef4
 url = "https://github.com/simeji/jid/releases/download/v1.1.3/jid_darwin_amd64.zip"
 url_api = "https://api.github.com/repos/simeji/jid/releases/assets/498431285"
 
-[tools."aqua:simeji/jid"."platforms.macos-x64"]
-checksum = "sha256:bc04fa1d0faeae545eff9cec176ebae437451546c149090e2877babf61ef4755"
-url = "https://github.com/simeji/jid/releases/download/v1.1.3/jid_darwin_amd64.zip"
-url_api = "https://api.github.com/repos/simeji/jid/releases/assets/498431285"
-
 [tools."aqua:simeji/jid"."platforms.windows-x64"]
 checksum = "sha256:02153d3edae1ec7bfdcfb21de5904469fac75cbbac8f6199639d31b69c8aef3b"
 url = "https://github.com/simeji/jid/releases/download/v1.1.3/jid_windows_amd64.zip"
@@ -171,9 +151,6 @@ url = "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.38.3.zip"
 
 [tools.aws."platforms.macos-arm64"]
 checksum = "blake3:619fe8c5e8c3b719c38d24e3bf00f1ad333979d56c7a12fb13a2ff5c8e52f74e"
-url = "https://awscli.amazonaws.com/AWSCLIV2-2.38.3.pkg"
-
-[tools.aws."platforms.macos-x64"]
 url = "https://awscli.amazonaws.com/AWSCLIV2-2.38.3.pkg"
 
 [[tools.azure-cli]]
@@ -216,11 +193,6 @@ url_api = "https://api.github.com/repos/sharkdp/bat/releases/assets/323549429"
 checksum = "sha256:e30beff26779c9bf60bb541e1d79046250cb74378f2757f8eb250afddb19e114"
 url = "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-aarch64-apple-darwin.tar.gz"
 url_api = "https://api.github.com/repos/sharkdp/bat/releases/assets/323548442"
-
-[tools.bat."platforms.macos-x64"]
-checksum = "sha256:830d63b0bba1fa040542ec569e3cf77f60d3356b9de75116a344b061e0894245"
-url = "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/sharkdp/bat/releases/assets/323549786"
 
 [tools.bat."platforms.windows-x64"]
 checksum = "sha256:0f729b4b6f5f28d395c641eacc2e9ff68d0096b85aa0eec344aa62425144b69b"
@@ -297,11 +269,6 @@ checksum = "sha256:b67e1836c468e42e411984b56e52fa7abec08c2bd22c867398e7cc134aac5
 url = "https://github.com/sharkdp/fd/releases/download/v10.5.0/fd-v10.5.0-aarch64-apple-darwin.tar.gz"
 url_api = "https://api.github.com/repos/sharkdp/fd/releases/assets/530481346"
 
-[tools.fd."platforms.macos-x64"]
-checksum = "sha256:7e31028c62c6955877735d0406807aa484c2a5e6f86235a59e26c29c301da590"
-url = "https://github.com/sharkdp/fd/releases/download/v10.5.0/fd-v10.5.0-x86_64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/sharkdp/fd/releases/assets/530484719"
-
 [tools.fd."platforms.windows-x64"]
 checksum = "sha256:a227701b8551c35a9931d9f6da75503cf86d88e182d71fb849a70864c5d57cd7"
 url = "https://github.com/sharkdp/fd/releases/download/v10.5.0/fd-v10.5.0-x86_64-pc-windows-msvc.zip"
@@ -336,11 +303,6 @@ url_api = "https://api.github.com/repos/junegunn/fzf/releases/assets/629581740"
 checksum = "sha256:ada808c7401b9949ce8842274ac16a6b6193fd32dcada396884a6a9a89e5985a"
 url = "https://github.com/junegunn/fzf/releases/download/v0.74.5/fzf-0.74.5-darwin_arm64.tar.gz"
 url_api = "https://api.github.com/repos/junegunn/fzf/releases/assets/629581702"
-
-[tools.fzf."platforms.macos-x64"]
-checksum = "sha256:aca6cab692e6c069e724a43070a448e18586c7c0fdd1139f6d487ec1680599ed"
-url = "https://github.com/junegunn/fzf/releases/download/v0.74.5/fzf-0.74.5-darwin_amd64.tar.gz"
-url_api = "https://api.github.com/repos/junegunn/fzf/releases/assets/629581774"
 
 [tools.fzf."platforms.windows-x64"]
 checksum = "sha256:01f854ec8b9b47c99a7d78023638f7d2056cfb0af56b72dabd112032eed3993e"
@@ -382,12 +344,6 @@ url = "https://github.com/cli/cli/releases/download/v2.103.0/gh_2.103.0_macOS_ar
 url_api = "https://api.github.com/repos/cli/cli/releases/assets/662956481"
 provenance = "github-attestations"
 
-[tools.gh."platforms.macos-x64"]
-checksum = "sha256:64d1734941f104f996271c820daa50e96902c2618f9b4c1e63c41519517a9c6b"
-url = "https://github.com/cli/cli/releases/download/v2.103.0/gh_2.103.0_macOS_amd64.zip"
-url_api = "https://api.github.com/repos/cli/cli/releases/assets/662956458"
-provenance = "github-attestations"
-
 [tools.gh."platforms.windows-x64"]
 checksum = "sha256:80c846a5b8432672ca6373b34ce9de998c9686aaa1885c845f2e1ee81f713726"
 url = "https://github.com/cli/cli/releases/download/v2.103.0/gh_2.103.0_windows_amd64.zip"
@@ -424,11 +380,6 @@ checksum = "sha256:8317f8ea5671bccb31e7747eb0a892a77a472dbc7c988f9d47cdfc969a59e
 url = "https://github.com/x-motemen/ghq/releases/download/v1.11.2/ghq_darwin_arm64.zip"
 url_api = "https://api.github.com/repos/x-motemen/ghq/releases/assets/598741463"
 
-[tools.ghq."platforms.macos-x64"]
-checksum = "sha256:abfe6b378ec8b59dd441a7eb13bc0f0f5b38b76dbdc78bd034df826302004639"
-url = "https://github.com/x-motemen/ghq/releases/download/v1.11.2/ghq_darwin_amd64.zip"
-url_api = "https://api.github.com/repos/x-motemen/ghq/releases/assets/598741428"
-
 [tools.ghq."platforms.windows-x64"]
 checksum = "sha256:7ab0e759ac9f117f0b5eeea0985c58e693ecb8d2e29b7bcfbce657caac31bce8"
 url = "https://github.com/x-motemen/ghq/releases/download/v1.11.2/ghq_windows_amd64.zip"
@@ -458,10 +409,6 @@ url = "https://dl.google.com/go/go1.27.3.linux-amd64.tar.gz"
 [tools.go."platforms.macos-arm64"]
 checksum = "sha256:dd3908cf20959d798c1e06ebe5b72213f0505ce01373b40ce3110975a6cd99c2"
 url = "https://dl.google.com/go/go1.27.3.darwin-arm64.tar.gz"
-
-[tools.go."platforms.macos-x64"]
-checksum = "sha256:b6f8e931e4ab497fcde6da8ae4499a58f9d258e55c8a80824a516eae5950a750"
-url = "https://dl.google.com/go/go1.27.3.darwin-amd64.tar.gz"
 
 [tools.go."platforms.windows-x64"]
 checksum = "sha256:f26081f438319757f8a1b46d7d0b2c5ec7583d4038e485e0aa725cfde7885fff"
@@ -496,11 +443,6 @@ url_api = "https://api.github.com/repos/anchore/grype/releases/assets/657365424"
 checksum = "sha256:7be39d3a0428c664ce0183e4aba31ed9accffce9eda7e7f6fa84e9c512285f27"
 url = "https://github.com/anchore/grype/releases/download/v0.121.0/grype_0.121.0_darwin_arm64.tar.gz"
 url_api = "https://api.github.com/repos/anchore/grype/releases/assets/657365499"
-
-[tools.grype."platforms.macos-x64"]
-checksum = "sha256:27eef17e42f0340af6582cdbc33ad18faf9f601c613ab81d2e1658a94cbc357f"
-url = "https://github.com/anchore/grype/releases/download/v0.121.0/grype_0.121.0_darwin_amd64.tar.gz"
-url_api = "https://api.github.com/repos/anchore/grype/releases/assets/657365504"
 
 [tools.grype."platforms.windows-x64"]
 checksum = "sha256:f867bbdc14bd8b0d99b3fc47d839af07480a540072b16896373a8ba32b76f588"
@@ -537,11 +479,6 @@ checksum = "sha256:d8c50f5ec688faf566ea4c13d6aa12a5681dc370dab3ffba0a9db935a5986
 url = "https://github.com/sharkdp/hexyl/releases/download/v0.17.0/hexyl-v0.17.0-aarch64-apple-darwin.tar.gz"
 url_api = "https://api.github.com/repos/sharkdp/hexyl/releases/assets/355844709"
 
-[tools.hexyl."platforms.macos-x64"]
-checksum = "sha256:55346f1dcee92bf93f32e104b0fb9d31fab8eec36532a9b6107b4e0e0aef5f46"
-url = "https://github.com/sharkdp/hexyl/releases/download/v0.17.0/hexyl-v0.17.0-x86_64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/sharkdp/hexyl/releases/assets/355844706"
-
 [tools.hexyl."platforms.windows-x64"]
 checksum = "sha256:ab5c3442cff63f585553d4fce330eaa1ef1bd2584643f1a0e29ab7c13fc9566d"
 url = "https://github.com/sharkdp/hexyl/releases/download/v0.17.0/hexyl-v0.17.0-x86_64-pc-windows-msvc.zip"
@@ -571,10 +508,6 @@ url = "https://cdn.azul.com/zulu/bin/zulu25.36.205-ca-jdk25.0.4.1-linux_musl_x64
 [tools.java."platforms.macos-arm64"]
 checksum = "sha256:c2e610d1689ead4bbd860d1ee8634ffb0b61f3bd62b5573df315ce8fc00bc068"
 url = "https://cdn.azul.com/zulu/bin/zulu25.36.205-ca-jdk25.0.4.1-macosx_aarch64.tar.gz"
-
-[tools.java."platforms.macos-x64"]
-checksum = "sha256:dc5c05d44b89fe753fb25e559cbc71b341b95d593aeb08a294afd61ff0dd3262"
-url = "https://cdn.azul.com/zulu/bin/zulu25.36.205-ca-jdk25.0.4.1-macosx_x64.tar.gz"
 
 [tools.java."platforms.windows-x64"]
 checksum = "sha256:5e91bc55aaa08750370d60b7030bb79193901ce1e93aba31becbf78c3ade5826"
@@ -615,12 +548,6 @@ url = "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-macos-arm64"
 url_api = "https://api.github.com/repos/jqlang/jq/releases/assets/453012783"
 provenance = "github-attestations"
 
-[tools.jq."platforms.macos-x64"]
-checksum = "sha256:e94b266e3c26690550006abe63152b782280f4e14374accdf04cbde844f00bc0"
-url = "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-macos-amd64"
-url_api = "https://api.github.com/repos/jqlang/jq/releases/assets/453012782"
-provenance = "github-attestations"
-
 [tools.jq."platforms.windows-x64"]
 checksum = "sha256:a6fc67fedaf9128a3309a1e2ebb8b986aeccf70122ee46d2cb4849e423f0c627"
 url = "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-windows-amd64.exe"
@@ -646,9 +573,6 @@ url = "https://github.com/neovim/neovim/releases/download/v0.12.6/nvim-linux-x86
 
 [tools.neovim."platforms.macos-arm64"]
 url = "https://github.com/neovim/neovim/releases/download/v0.12.6/nvim-macos-arm64.tar.gz"
-
-[tools.neovim."platforms.macos-x64"]
-url = "https://github.com/neovim/neovim/releases/download/v0.12.6/nvim-macos-x86_64.tar.gz"
 
 [tools.neovim."platforms.windows-x64"]
 url = "https://github.com/neovim/neovim/releases/download/v0.12.6/nvim-win64.zip"
@@ -677,10 +601,6 @@ url = "https://unofficial-builds.nodejs.org/download/release/v24.22.1/node-v24.2
 [tools.node."platforms.macos-arm64"]
 checksum = "sha256:89c682593d76cd44233fa53b1563264e7de9cbb189cad169135c5b4fadfbc0a7"
 url = "https://nodejs.org/dist/v24.22.1/node-v24.22.1-darwin-arm64.tar.gz"
-
-[tools.node."platforms.macos-x64"]
-checksum = "sha256:d132557e7ee2b85af08b0c8c34338e65c6430f2238d01f727728ef42dc83b035"
-url = "https://nodejs.org/dist/v24.22.1/node-v24.22.1-darwin-x64.tar.gz"
 
 [tools.node."platforms.windows-x64"]
 checksum = "sha256:d2046d28c2c3dcd211ac5145c0bf30e2047ef9dfb306693c8c6e2eccd8b95fa5"
@@ -721,12 +641,6 @@ url = "https://github.com/pnpm/pnpm/releases/download/v12.14.0/pnpm-darwin-arm64
 url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/643957413"
 provenance = "github-attestations"
 
-[tools.pnpm."platforms.macos-x64"]
-checksum = "sha256:2c412e07382049b4edb04fa6da78f3d4ef7810b75853c80544dcfb7c0ed79880"
-url = "https://github.com/pnpm/pnpm/releases/download/v12.14.0/pnpm-darwin-x64.tar.gz"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/643957411"
-provenance = "github-attestations"
-
 [tools.pnpm."platforms.windows-x64"]
 checksum = "sha256:6f0f38e917c8ce76ef31db528c357e2bfa354a1bcb16464e3cdec39e6530d784"
 url = "https://github.com/pnpm/pnpm/releases/download/v12.14.0/pnpm-win32-x64.zip"
@@ -761,11 +675,6 @@ provenance = "github-attestations"
 [tools.python."platforms.macos-arm64"]
 checksum = "sha256:1a4eb4d5aa82400de6eeb94e6fc6d870f5fabc97eb1d801f7eeba8072117b11c"
 url = "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.15.1+20261021-aarch64-apple-darwin-install_only_stripped.tar.gz"
-provenance = "github-attestations"
-
-[tools.python."platforms.macos-x64"]
-checksum = "sha256:b7604b6cfcce467baca5bd607c4fc55928be99310b92b4faf2bdb448f488929e"
-url = "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.15.1+20261021-x86_64-apple-darwin-install_only_stripped.tar.gz"
 provenance = "github-attestations"
 
 [tools.python."platforms.windows-x64"]
@@ -803,11 +712,6 @@ checksum = "sha256:9f8c3480b8f0db553c270db548e8a21ae8e39df412e5661d66e8050c5c6ed
 url = "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.14.9+20261021-aarch64-apple-darwin-install_only_stripped.tar.gz"
 provenance = "github-attestations"
 
-[tools.python."platforms.macos-x64"]
-checksum = "sha256:9957784870f6eb613ab82fa7ac3201627940f493e6643c749fb3f126930a4232"
-url = "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.14.9+20261021-x86_64-apple-darwin-install_only_stripped.tar.gz"
-provenance = "github-attestations"
-
 [tools.python."platforms.windows-x64"]
 checksum = "sha256:57cc230da61d897e8e593511c9dac781491675a036cb727b7de5cb7a62ceebea"
 url = "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.14.9+20261021-x86_64-pc-windows-msvc-install_only_stripped.tar.gz"
@@ -842,11 +746,6 @@ url_api = "https://api.github.com/repos/BurntSushi/ripgrep/releases/assets/47812
 checksum = "sha256:3750b2e93f37e0c692657da574d7019a101c0084da05a790c83fd335bad973e4"
 url = "https://github.com/BurntSushi/ripgrep/releases/download/15.2.0/ripgrep-15.2.0-aarch64-apple-darwin.tar.gz"
 url_api = "https://api.github.com/repos/BurntSushi/ripgrep/releases/assets/478118851"
-
-[tools.ripgrep."platforms.macos-x64"]
-checksum = "sha256:af7825fcc69a2afc7a7aea55fc9af90e26421d8f20fe59df32e233c0b8a231c1"
-url = "https://github.com/BurntSushi/ripgrep/releases/download/15.2.0/ripgrep-15.2.0-x86_64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/BurntSushi/ripgrep/releases/assets/478119585"
 
 [tools.ripgrep."platforms.windows-x64"]
 checksum = "sha256:71b2fef860abe467217a538ff31de02f5258807c0129f771846f87bd029aafc5"
@@ -918,11 +817,6 @@ checksum = "sha256:5362da8cb2928f98f3ce0ffda697cf0f8de70081db000dae316d6d3a404f6
 url = "https://github.com/starship/starship/releases/download/v1.27.0/starship-aarch64-apple-darwin.tar.gz"
 url_api = "https://api.github.com/repos/starship/starship/releases/assets/650074353"
 
-[tools.starship."platforms.macos-x64"]
-checksum = "sha256:344e4d38787e0aa86dd522ae5462e6fb6da1227691f81a79ffed480a4563ccb3"
-url = "https://github.com/starship/starship/releases/download/v1.27.0/starship-x86_64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/starship/starship/releases/assets/650074453"
-
 [tools.starship."platforms.windows-x64"]
 checksum = "sha256:7764f861805376af2812dd78c84fadc16b714cf3f346baed9b597bfda8484403"
 url = "https://github.com/starship/starship/releases/download/v1.27.0/starship-x86_64-pc-windows-msvc.zip"
@@ -961,12 +855,6 @@ provenance = "cosign"
 checksum = "sha256:1217c258bd5eb91ef3189cf22a82e02f9cac07e4ce934350f428e93aff674625"
 url = "https://github.com/anchore/syft/releases/download/v1.55.0/syft_1.55.0_darwin_arm64.tar.gz"
 url_api = "https://api.github.com/repos/anchore/syft/releases/assets/657153863"
-provenance = "cosign"
-
-[tools.syft."platforms.macos-x64"]
-checksum = "sha256:e2e5831cbabaec9a36fe65c34755c1113982c842a685edce3ce0b54a0ded8003"
-url = "https://github.com/anchore/syft/releases/download/v1.55.0/syft_1.55.0_darwin_amd64.tar.gz"
-url_api = "https://api.github.com/repos/anchore/syft/releases/assets/657153867"
 provenance = "cosign"
 
 [tools.syft."platforms.windows-x64"]
@@ -1010,12 +898,6 @@ url = "https://github.com/aquasecurity/trivy/releases/download/v0.76.1/trivy_0.7
 url_api = "https://api.github.com/repos/aquasecurity/trivy/releases/assets/662254764"
 provenance = "cosign"
 
-[tools.trivy."platforms.macos-x64"]
-checksum = "sha256:7aa762eacd582052d053b62dcf972a1ab058abe39a57ccae234ed8894945b6b7"
-url = "https://github.com/aquasecurity/trivy/releases/download/v0.76.1/trivy_0.76.1_macOS-64bit.tar.gz"
-url_api = "https://api.github.com/repos/aquasecurity/trivy/releases/assets/662254481"
-provenance = "cosign"
-
 [tools.trivy."platforms.windows-x64"]
 checksum = "sha256:1051f49cb22d5284f43425f72aad9cda63ca12ceb92e7caa06903490c82dc9bf"
 url = "https://github.com/aquasecurity/trivy/releases/download/v0.76.1/trivy_0.76.1_windows-64bit.zip"
@@ -1051,11 +933,6 @@ url_api = "https://api.github.com/repos/zellij-org/zellij/releases/assets/533538
 checksum = "sha256:c029ba4fe1927b79ad9f0cdd59155c4dff80777863c85857d4d09b88b56f9891"
 url = "https://github.com/zellij-org/zellij/releases/download/v0.45.1/zellij-aarch64-apple-darwin.tar.gz"
 url_api = "https://api.github.com/repos/zellij-org/zellij/releases/assets/533540212"
-
-[tools.zellij."platforms.macos-x64"]
-checksum = "sha256:8e8bea22737d1652278c51fc5c26c7c22c9855d0ebb9634a84b8873823093114"
-url = "https://github.com/zellij-org/zellij/releases/download/v0.45.1/zellij-x86_64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/zellij-org/zellij/releases/assets/533542274"
 
 [tools.zellij."platforms.windows-x64"]
 checksum = "sha256:b854e7b223e67d0705c5f685ef50541c38a57981b13624d09c92bed419b6f80d"
