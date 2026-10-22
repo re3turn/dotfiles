@@ -913,10 +913,6 @@ url = "https://github.com/aquasecurity/trivy/releases/download/v0.72.0/trivy_0.7
 url_api = "https://api.github.com/repos/aquasecurity/trivy/releases/assets/462015116"
 provenance = "cosign"
 
-[[tools.xxh]]
-version = "0.8.14"
-backend = "pipx:xxh-xxh"
-
 [[tools.zellij]]
 version = "0.44.3"
 backend = "aqua:zellij-org/zellij"
