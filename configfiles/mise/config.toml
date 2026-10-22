@@ -30,7 +30,8 @@ neovim = "latest"
 fzf = "latest"
 pnpm = "latest"
 jq = "latest"
-azure-cli = "latest"
+# pyyaml has no wheel for Python 3.15 yet; drop `python` once it does
+azure-cli = { version = "latest", python = "3.14" }
 aws = "latest"
 "aqua:dalance/procs" = "latest"
 "aqua:knqyf263/pet" = "latest"
@@ -40,7 +41,7 @@ aws = "latest"
 "cargo:eza" = { version = "latest", os = "linux" }
 
 [tools.go]
-version = "1.26.7"
+version = "1.27.3"
 go_default_packages = [
   "github.com/nao1215/gup",
   "github.com/toshimaru/nyan",
