@@ -13,8 +13,9 @@ Managed with [mise bootstrap](https://mise.jdx.dev/bootstrap.html).
 
 `eza` is the one exception split across two of these: it comes from
 `Brewfile` on macOS, but from `configfiles/mise/config.toml`'s
-`"cargo:eza" = { os = "linux" }` on Linux, since apt doesn't carry it on
-Debian bookworm (Raspberry Pi OS).
+`"aqua:eza-community/eza" = { os = "linux" }` on Linux, since apt doesn't
+carry it on Debian bookworm (Raspberry Pi OS) and its GitHub releases ship
+no macOS binaries.
 
 `mise bootstrap` runs a `[tasks.bootstrap]` task that detects the OS: on
 macOS it runs `brew bundle --file=./Brewfile`; on Linux, if `apt-get` is

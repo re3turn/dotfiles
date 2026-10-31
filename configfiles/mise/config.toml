@@ -39,8 +39,9 @@ aws = "latest"
 "aqua:knqyf263/pet" = "latest"
 "aqua:simeji/jid" = "latest"
 "aqua:d-kuro/gwq" = "latest"
-# eza: brew on macOS, cargo on Linux (missing from apt on Debian bookworm)
-"cargo:eza" = { version = "latest", os = "linux" }
+# eza: brew on macOS, aqua on Linux (missing from apt on Debian bookworm;
+# GitHub releases ship no macOS binaries)
+"aqua:eza-community/eza" = { version = "latest", os = "linux" }
 
 [tools.go]
 version = "1.27.3"

@@ -65,6 +65,35 @@ checksum = "sha256:4928c399ae78ee82f99139a5629077b8d90a58599d834584dd4e613cb60c8
 url = "https://github.com/dalance/procs/releases/download/v0.14.12/procs-v0.14.12-x86_64-windows.zip"
 url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457526458"
 
+[[tools."aqua:eza-community/eza"]]
+version = "0.23.5"
+backend = "aqua:eza-community/eza"
+specifiers = ["latest"]
+
+[tools."aqua:eza-community/eza"."platforms.linux-arm64"]
+checksum = "sha256:40b87ae8628aa2ff0f0d2dc24ab52f689631366385c3da630bae745671fd71ec"
+checksum_source = "mise-versions"
+url = "https://github.com/eza-community/eza/releases/download/v0.23.5/eza_aarch64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/eza-community/eza/releases/assets/471228867"
+
+[tools."aqua:eza-community/eza"."platforms.linux-arm64-musl"]
+checksum = "sha256:40b87ae8628aa2ff0f0d2dc24ab52f689631366385c3da630bae745671fd71ec"
+checksum_source = "mise-versions"
+url = "https://github.com/eza-community/eza/releases/download/v0.23.5/eza_aarch64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/eza-community/eza/releases/assets/471228867"
+
+[tools."aqua:eza-community/eza"."platforms.linux-x64"]
+checksum = "sha256:35c70c5c43c29108075e58b893234c67ef585f0b53a7eaf8e9e7d4eec9f339b4"
+checksum_source = "mise-versions"
+url = "https://github.com/eza-community/eza/releases/download/v0.23.5/eza_x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/eza-community/eza/releases/assets/471228887"
+
+[tools."aqua:eza-community/eza"."platforms.linux-x64-musl"]
+checksum = "sha256:e06eebab74b73d6b7d51a796a353824b001bea82df077706382e100815d28904"
+checksum_source = "mise-versions"
+url = "https://github.com/eza-community/eza/releases/download/v0.23.5/eza_x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/eza-community/eza/releases/assets/471228890"
+
 [[tools."aqua:knqyf263/pet"]]
 version = "1.0.1"
 backend = "aqua:knqyf263/pet"
@@ -209,11 +238,6 @@ url_api = "https://api.github.com/repos/sharkdp/bat/releases/assets/323548442"
 checksum = "sha256:0f729b4b6f5f28d395c641eacc2e9ff68d0096b85aa0eec344aa62425144b69b"
 url = "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip"
 url_api = "https://api.github.com/repos/sharkdp/bat/releases/assets/323549116"
-
-[[tools."cargo:eza"]]
-version = "0.23.5"
-backend = "cargo:eza"
-specifiers = ["latest"]
 
 [[tools.delta]]
 version = "0.20.1"
