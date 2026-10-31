@@ -33,6 +33,9 @@ they're simply unused on Linux.
 
 - [mise](https://mise.jdx.dev/installing-mise.html)
 - [Homebrew](https://brew.sh/) (macOS) or `apt` (Ubuntu / Raspberry Pi OS)
+- git 2.35+ (`.gitconfig` sets `merge.conflictstyle = zdiff3`). If apt's git
+  is older, upgrade it from the git-core PPA on Ubuntu:
+  `sudo add-apt-repository ppa:git-core/ppa && sudo apt-get update && sudo apt-get install git`
 
 ## Install
 
