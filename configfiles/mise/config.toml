@@ -35,7 +35,8 @@ jq = "latest"
 # pyyaml has no wheel for Python 3.15 yet; drop `python` once it does
 azure-cli = { version = "latest", python = "3.14" }
 aws = { version = "latest", os = ["linux", "macos"] }
-"aqua:dalance/procs" = "latest"
+# aqua registry lists no linux/arm64 build, though upstream ships one
+"github:dalance/procs" = "latest"
 "aqua:knqyf263/pet" = "latest"
 "aqua:simeji/jid" = "latest"
 "aqua:d-kuro/gwq" = "latest"

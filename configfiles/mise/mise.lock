@@ -39,32 +39,6 @@ checksum = "sha256:0d05d594a7d823f5bda71cc8bd74779c0fa5da66715b0b88f8a26dcedd5a2
 url = "https://github.com/d-kuro/gwq/releases/download/v0.1.2/gwq_Windows_x86_64.zip"
 url_api = "https://api.github.com/repos/d-kuro/gwq/releases/assets/605986638"
 
-[[tools."aqua:dalance/procs"]]
-version = "0.14.12"
-backend = "aqua:dalance/procs"
-specifiers = ["latest"]
-
-[tools."aqua:dalance/procs"."platforms.linux-x64"]
-checksum = "sha256:81964faf9d5cd0e9f399d5d0954fb6fe4d4d9f7d3cbec4507633df5a45b11713"
-url = "https://github.com/dalance/procs/releases/download/v0.14.12/procs-v0.14.12-x86_64-linux.zip"
-url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457525859"
-
-[tools."aqua:dalance/procs"."platforms.linux-x64-musl"]
-checksum = "sha256:81964faf9d5cd0e9f399d5d0954fb6fe4d4d9f7d3cbec4507633df5a45b11713"
-checksum_source = "mise-versions"
-url = "https://github.com/dalance/procs/releases/download/v0.14.12/procs-v0.14.12-x86_64-linux.zip"
-url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457525859"
-
-[tools."aqua:dalance/procs"."platforms.macos-arm64"]
-checksum = "sha256:2c276f40c99051984942a5b135b74ce4bc9184984a1543dddfcf275bde71d8d4"
-url = "https://github.com/dalance/procs/releases/download/v0.14.12/procs-v0.14.12-x86_64-mac.zip"
-url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457525354"
-
-[tools."aqua:dalance/procs"."platforms.windows-x64"]
-checksum = "sha256:4928c399ae78ee82f99139a5629077b8d90a58599d834584dd4e613cb60c83d0"
-url = "https://github.com/dalance/procs/releases/download/v0.14.12/procs-v0.14.12-x86_64-windows.zip"
-url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457526458"
-
 [[tools."aqua:eza-community/eza"]]
 version = "0.23.5"
 backend = "aqua:eza-community/eza"
@@ -427,6 +401,47 @@ url_api = "https://api.github.com/repos/x-motemen/ghq/releases/assets/598741463"
 checksum = "sha256:7ab0e759ac9f117f0b5eeea0985c58e693ecb8d2e29b7bcfbce657caac31bce8"
 url = "https://github.com/x-motemen/ghq/releases/download/v1.11.2/ghq_windows_amd64.zip"
 url_api = "https://api.github.com/repos/x-motemen/ghq/releases/assets/598741479"
+
+[[tools."github:dalance/procs"]]
+version = "0.14.12"
+backend = "github:dalance/procs"
+specifiers = ["latest"]
+
+[tools."github:dalance/procs"."platforms.linux-arm64"]
+checksum = "sha256:74b4f82acc6fe553cbd5af20ba0baac420b42bef9bb0cbb38fef14b8317d9f91"
+checksum_source = "mise-versions"
+url = "https://github.com/dalance/procs/releases/download/v0.14.12/procs-v0.14.12-aarch64-linux.zip"
+url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457524789"
+
+[tools."github:dalance/procs"."platforms.linux-arm64-musl"]
+checksum = "sha256:74b4f82acc6fe553cbd5af20ba0baac420b42bef9bb0cbb38fef14b8317d9f91"
+checksum_source = "mise-versions"
+url = "https://github.com/dalance/procs/releases/download/v0.14.12/procs-v0.14.12-aarch64-linux.zip"
+url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457524789"
+
+[tools."github:dalance/procs"."platforms.linux-x64"]
+checksum = "sha256:81964faf9d5cd0e9f399d5d0954fb6fe4d4d9f7d3cbec4507633df5a45b11713"
+checksum_source = "mise-versions"
+url = "https://github.com/dalance/procs/releases/download/v0.14.12/procs-v0.14.12-x86_64-linux.zip"
+url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457525859"
+
+[tools."github:dalance/procs"."platforms.linux-x64-musl"]
+checksum = "sha256:81964faf9d5cd0e9f399d5d0954fb6fe4d4d9f7d3cbec4507633df5a45b11713"
+checksum_source = "mise-versions"
+url = "https://github.com/dalance/procs/releases/download/v0.14.12/procs-v0.14.12-x86_64-linux.zip"
+url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457525859"
+
+[tools."github:dalance/procs"."platforms.macos-arm64"]
+checksum = "sha256:20c7a33426ed7a43c3e13a48f2d1866ecc979a8ad46733f86ddc78ab7f12d49c"
+checksum_source = "mise-versions"
+url = "https://github.com/dalance/procs/releases/download/v0.14.12/procs-v0.14.12-aarch64-mac.zip"
+url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457525352"
+
+[tools."github:dalance/procs"."platforms.windows-x64"]
+checksum = "sha256:4928c399ae78ee82f99139a5629077b8d90a58599d834584dd4e613cb60c83d0"
+checksum_source = "mise-versions"
+url = "https://github.com/dalance/procs/releases/download/v0.14.12/procs-v0.14.12-x86_64-windows.zip"
+url_api = "https://api.github.com/repos/dalance/procs/releases/assets/457526458"
 
 [[tools.go]]
 version = "1.27.3"
