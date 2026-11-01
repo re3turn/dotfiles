@@ -26,7 +26,7 @@ grype = "latest"
 syft = "latest"
 trivy = "latest"
 zellij = "latest"
-sheldon = "latest"
+sheldon = { version = "latest", os = ["linux", "macos"] }
 neovim = "latest"
 fzf = "latest"
 pnpm = "latest"
@@ -34,7 +34,7 @@ uv = "latest"
 jq = "latest"
 # pyyaml has no wheel for Python 3.15 yet; drop `python` once it does
 azure-cli = { version = "latest", python = "3.14" }
-aws = "latest"
+aws = { version = "latest", os = ["linux", "macos"] }
 "aqua:dalance/procs" = "latest"
 "aqua:knqyf263/pet" = "latest"
 "aqua:simeji/jid" = "latest"
