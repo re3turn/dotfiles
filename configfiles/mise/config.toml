@@ -7,6 +7,7 @@ minimum_release_age = "3d"
 # after the shell rc files, so GOBIN only sticks when set here.
 [env]
 GOBIN = "{{env.HOME}}/go/bin"
+BETTERLEAKS_CONFIG = "{{env.HOME}}/.config/betterleaks/config.toml"
 
 [tools]
 java = "zulu-25"

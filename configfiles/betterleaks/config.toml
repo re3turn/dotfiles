@@ -1,0 +1,4 @@
+# Loaded through BETTERLEAKS_CONFIG (set in mise's [env]), which takes
+# precedence over a repository's .betterleaks.toml / .gitleaks.toml.
+[extend]
+useDefault = true
