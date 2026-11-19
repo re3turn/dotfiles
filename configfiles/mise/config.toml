@@ -25,6 +25,7 @@ starship = "latest"
 grype = "latest"
 syft = "latest"
 trivy = "latest"
+betterleaks = "latest"
 zellij = "latest"
 sheldon = { version = "latest", os = ["linux", "macos"] }
 neovim = "latest"
