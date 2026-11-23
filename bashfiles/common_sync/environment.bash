@@ -66,6 +66,20 @@ if [ $? -eq 0 ]; then
     done
 fi
 
+# java: a temp dir agent sandboxes can write to (they allow /tmp/claude-*).
+# After ~/.shell.local, which may set JAVA_TOOL_OPTIONS outright (fish shares
+# those files, so they cannot append conditionally). /tmp is shared, so use it
+# only when both levels are our own real directories.
+JAVA_TMPDIR="/tmp/claude-$(id -u)/java"
+(umask 077; mkdir -p "$JAVA_TMPDIR") 2>/dev/null
+if [ ! -L "${JAVA_TMPDIR%/*}" ] && [ -O "${JAVA_TMPDIR%/*}" ] && [ ! -L "$JAVA_TMPDIR" ] && [ -O "$JAVA_TMPDIR" ]; then
+    chmod 700 "${JAVA_TMPDIR%/*}" "$JAVA_TMPDIR"
+    case " ${JAVA_TOOL_OPTIONS:-} " in
+        *" -Djava.io.tmpdir="*) ;;
+        *) export JAVA_TOOL_OPTIONS="-Djava.io.tmpdir=${JAVA_TMPDIR}${JAVA_TOOL_OPTIONS:+ $JAVA_TOOL_OPTIONS}" ;;
+    esac
+fi
+
 # uv
 export UV_EXCLUDE_NEWER="7 days"
 

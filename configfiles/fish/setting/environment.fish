@@ -65,6 +65,18 @@ if test -d $SHELL_LOCAL_DIR
     end
 end
 
+# java: a temp dir agent sandboxes can write to (they allow /tmp/claude-*).
+# Same as bashfiles/common_sync/environment.bash; used only when both levels are our own real directories.
+set -l java_tmpdir /tmp/claude-(id -u)/java
+sh -c 'umask 077; mkdir -p "$1"' sh $java_tmpdir 2>/dev/null
+set -l java_tmpdir_parent (path dirname $java_tmpdir)
+if not test -L $java_tmpdir_parent; and test -O $java_tmpdir_parent; and not test -L $java_tmpdir; and test -O $java_tmpdir
+    chmod 700 $java_tmpdir_parent $java_tmpdir
+    if not string match -q -- '*-Djava.io.tmpdir=*' "$JAVA_TOOL_OPTIONS"
+        set -gx JAVA_TOOL_OPTIONS (string trim -- "-Djava.io.tmpdir=$java_tmpdir $JAVA_TOOL_OPTIONS")
+    end
+end
+
 # uv
 set -x UV_EXCLUDE_NEWER "7 days"
 
