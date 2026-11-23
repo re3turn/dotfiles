@@ -68,3 +68,13 @@ fi
 
 # uv
 export UV_EXCLUDE_NEWER="7 days"
+
+# mise: not in common_defer, since zsh defers that until after the first prompt.
+# Must stay last so mise is the final thing that touches PATH.
+if command -v mise > /dev/null 2>&1; then
+    if [ -n "${ZSH_VERSION:-}" ]; then
+        eval "$(mise activate zsh)"
+    else
+        eval "$(mise activate bash)"
+    fi
+fi

@@ -15,7 +15,7 @@ eval "$(starship init bash)"
 # preserved - what `typeset -U path` does in .zshrc and the loop at the end of
 # fish's config.fish. bash has no built-in equivalent.
 # Splitting on IFS=: only, so directories containing spaces survive intact.
-# Must stay last: mise activate, reached through sheldon's common_defer, is the
+# Must stay last: mise activate, reached through sheldon's common_sync, is the
 # final thing that touches PATH.
 __dedup_path() {
     local IFS=: dir out=
