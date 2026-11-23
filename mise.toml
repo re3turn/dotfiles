@@ -39,7 +39,7 @@ pre-dotfiles = "mkdir -p ~/.config/mise && mise trust ~/.config/mise"
 "~/.local/bin/brew-safe-upgrade" = "~/.dotfiles/binfiles/brew-safe-upgrade"
 
 [tasks.bootstrap]
-description = "Install OS packages (Homebrew on macOS, apt on Ubuntu/Raspberry Pi OS)"
+description = "Install OS packages (Homebrew on macOS, apt on Ubuntu/Raspberry Pi OS) and link agent settings"
 run = """
 set -e
 if [ "$(uname -s)" = Darwin ]; then
@@ -47,5 +47,21 @@ if [ "$(uname -s)" = Darwin ]; then
 elif command -v apt-get >/dev/null 2>&1; then
   sudo apt-get update
   xargs -a ./apt-packages.txt sudo apt-get install -y
+fi
+
+# Agent settings (Claude Code / Codex) live in a separate private repo.
+# A failure here only warns, so the rest of the bootstrap still counts.
+agents_dir="$HOME/ghq/github.com/re3turn/agents"
+if [ -d "$agents_dir/.git" ]; then
+  if ! git -C "$agents_dir" pull --ff-only; then
+    echo "warning: could not update $agents_dir; linking the current checkout" >&2
+  fi
+elif ! git clone git@re3turn.github.com:re3turn/agents.git "$agents_dir"; then
+  echo "warning: could not clone the agents repo; skipping link.sh" >&2
+fi
+if [ -x "$agents_dir/link.sh" ]; then
+  if ! "$agents_dir/link.sh"; then
+    echo "warning: $agents_dir/link.sh reported problems; run it again with --dry-run to see them" >&2
+  fi
 fi
 """

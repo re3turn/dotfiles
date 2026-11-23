@@ -23,6 +23,9 @@ available (Ubuntu, Raspberry Pi OS), it installs the packages listed in
 `apt-packages.txt`. One command sets up dotfiles, CLI tools, and OS
 packages together, on either platform. Other Linux distros (Fedora, Arch,
 ...) aren't handled - `apt-get` support only targets Debian-family systems.
+The same task then clones (or fast-forwards) the private agent-settings repo
+into `~/ghq/github.com/re3turn/agents` and runs its `link.sh`; if that repo
+can't be reached, it only prints a warning.
 
 A couple of `[dotfiles]` entries (`~/.config/ghostty`,
 `~/.local/bin/brew-safe-upgrade`) are macOS-specific tools but get symlinked
