@@ -76,9 +76,15 @@ the version of tools/packages already installed - see below.
 
 ```bash
 mise upgrade
-git add configfiles/mise/mise.lock
+git add configfiles/mise/
 git commit -m "chore: Update mise.lock"
 ```
+
+Stage the whole `configfiles/mise/` directory, not just `mise.lock`: pypi
+tools (azure-cli) keep their uv dependency lock in
+`configfiles/mise/.mise/locks/<tool>/<version>~<hash>/`, which `mise.lock`
+references by path and digest. An upgrade adds the new version's directory
+and deletes the old one.
 
 **Upgrade OS packages** (outside `mise.lock`'s scope - Homebrew/apt track
 whatever's current, there's no pinning):
